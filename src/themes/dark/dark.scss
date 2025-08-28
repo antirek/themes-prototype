@@ -1,11 +1,66 @@
 // Темная тема
 [data-theme="dark"] {
+  // Основные цвета
+  --color-primary: #667eea;
+  --color-secondary: #764ba2;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-danger: #e74c3c;
+
+  // Нейтральные цвета
+  --color-white: #ffffff;
+  --color-gray-100: #3a3a3a;
+  --color-gray-300: #404040;
+  --color-gray-600: #b3b3b3;
+  --color-black: #000000;
+
   // Семантические цвета
   --color-text: #e0e0e0;
   --color-text-muted: #b3b3b3;
   --color-bg: #2d2d2d;
   --color-bg-secondary: #3a3a3a;
   --color-border: #404040;
+
+  // Типографика
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --line-height: 1.5;
+
+  // Spacing
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+
+  // Border & Radius
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --border-width: 1px;
+
+  // Тени (более интенсивные для темной темы)
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+
+  // Переходы
+  --transition: 0.3s ease;
+  --transition-fast: 0.15s ease;
+
+  // Breakpoints
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
 }
 
 // Импорт стилей компонентов для темной темы
