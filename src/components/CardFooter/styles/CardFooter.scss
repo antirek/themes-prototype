@@ -1,8 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-
 .card-footer {
-  padding: $spacing-md $spacing-lg;
+  padding: 1rem 1.5rem;
   background: var(--card-footer-bg);
   color: var(--card-footer-text);
   border-top: 1px solid var(--card-footer-border);
@@ -10,7 +7,7 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   position: relative;
-  transition: all $transition-base;
+  transition: all 0.3s ease;
   
   &::before {
     content: '';
@@ -21,19 +18,19 @@
     height: 2px;
     background: var(--accent-primary);
     transform: scaleX(0);
-    transition: transform $transition-base;
+    transition: transform 0.3s ease;
   }
   
   &:hover::before {
     transform: scaleX(1);
   }
   
-  @include respond-to(md) {
-    padding: $spacing-md;
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
   
-  @include respond-to(sm) {
-    padding: $spacing-sm;
-    font-size: $font-size-xs;
+  @media (max-width: 576px) {
+    padding: 0.75rem;
+    font-size: 0.75rem;
   }
 }

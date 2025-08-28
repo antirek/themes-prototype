@@ -1,18 +1,17 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-
 .card-body {
   flex: 1;
-  padding: $spacing-lg;
+  padding: 1.5rem;
   line-height: 1.6;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  @include flex-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background: var(--card-body-bg);
   color: var(--card-body-text);
   position: relative;
-  transition: all $transition-base;
+  transition: all 0.3s ease;
   
   &::after {
     content: '';
@@ -24,19 +23,19 @@
     background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
     pointer-events: none;
     opacity: 0;
-    transition: opacity $transition-base;
+    transition: opacity 0.3s ease;
   }
   
   &:hover::after {
     opacity: 1;
   }
   
-  @include respond-to(md) {
-    padding: $spacing-md;
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
   
-  @include respond-to(sm) {
-    padding: $spacing-sm;
-    font-size: $font-size-sm;
+  @media (max-width: 576px) {
+    padding: 0.75rem;
+    font-size: 0.875rem;
   }
 }

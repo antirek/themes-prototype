@@ -25,7 +25,7 @@ import { themes, defaultTheme } from '@/types/theme'
 
 const currentTheme = ref<ThemeName>(defaultTheme)
 
-const availableThemes = Object.values(themes)
+const availableThemes = Object.keys(themes).map(key => themes[key as ThemeName])
 
 const changeTheme = () => {
   document.documentElement.setAttribute('data-theme', currentTheme.value)
@@ -45,35 +45,35 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables';
-@import '@/styles/mixins';
-
 .theme-switcher {
-  @include flex(column, flex-start, flex-start);
-  gap: $spacing-sm;
-  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding: 1.5rem;
   background: var(--bg-secondary);
   border: 1px solid var(--border-primary);
-  border-radius: $border-radius-md;
+  border-radius: 8px;
   box-shadow: var(--shadow-md);
-  margin-bottom: $spacing-lg;
+  margin-bottom: 1.5rem;
   
   .theme-label {
     font-weight: 500;
     color: var(--text-primary);
-    font-size: $font-size-base;
+    font-size: 1rem;
   }
   
   .theme-select {
     width: 100%;
-    padding: $spacing-sm $spacing-md;
+    padding: 0.75rem 1rem;
     border: 1px solid var(--border-primary);
-    border-radius: $border-radius-sm;
+    border-radius: 4px;
     background: var(--bg-primary);
     color: var(--text-primary);
-    font-size: $font-size-base;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all $transition-base;
+    transition: all 0.3s ease;
     
     &:focus {
       outline: none;

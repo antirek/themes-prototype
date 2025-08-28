@@ -47,38 +47,35 @@ const cardData = ref<CardData>({
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables';
-@import '@/styles/mixins';
-
 .app {
   min-height: 100vh;
-  padding: $spacing-lg;
+  padding: 1.5rem;
   background: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color $transition-base, color $transition-base;
+  transition: background-color 0.3s ease, color 0.3s ease;
   
-  @include respond-to(sm) {
-    padding: $spacing-sm;
+  @media (max-width: 576px) {
+    padding: 0.75rem;
   }
 }
 
 .header {
   text-align: center;
-  margin-bottom: $spacing-3xl;
+  margin-bottom: 3rem;
   color: var(--text-primary);
   
   h1 {
-    font-size: $font-size-4xl;
-    margin-bottom: $spacing-sm;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
     text-shadow: var(--shadow-lg);
     
-    @include respond-to(sm) {
-      font-size: $font-size-3xl;
+    @media (max-width: 576px) {
+      font-size: 2rem;
     }
   }
   
   p {
-    font-size: $font-size-xl;
+    font-size: 1.25rem;
     opacity: 0.8;
   }
 }
@@ -89,7 +86,10 @@ const cardData = ref<CardData>({
 }
 
 .content {
-  @include flex(column, flex-start, center);
-  gap: $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
 }
 </style>
