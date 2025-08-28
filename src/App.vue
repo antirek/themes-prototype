@@ -1,14 +1,20 @@
 <template>
   <div class="app">
     <header class="header">
-      <h1>🎨 Демонстрация тем</h1>
-      <p>Переключайте темы и смотрите, как изменяется карточка</p>
+      <h1>🎨 Демонстрация независимых тем</h1>
+      <p>Каждая карточка имеет свой селектор темы. Попробуйте разные комбинации!</p>
     </header>
     
     <main class="main">
       <div class="content">
-        <ThemeSwitcher />
-        <CardPreview :card-data="cardData" />
+        <CardWithTheme 
+          id="card-1" 
+          :card-data="cardData1" 
+        />
+        <CardWithTheme 
+          id="card-2" 
+          :card-data="cardData2" 
+        />
       </div>
     </main>
   </div>
@@ -16,30 +22,54 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import CardPreview from './components/CardPreview/CardPreview.vue'
-import ThemeSwitcher from './components/ThemeSwitcher.vue'
+import CardWithTheme from './components/CardWithTheme/CardWithTheme.vue'
 import type { CardData } from '@/types/card'
 
-const cardData = ref<CardData>({
+const cardData1 = ref<CardData>({
   header: {
-    text: 'Демонстрационная карточка',
+    text: 'Первая карточка',
     textColor: '#ffffff',
     fontSize: 24,
     bold: true
   },
   body: {
-    text: 'Это демонстрационная карточка, которая показывает, как работают различные темы. Переключайте темы с помощью селектора выше и наблюдайте за изменениями.',
+    text: 'Это первая карточка с независимым селектором темы. Попробуйте переключить тему и посмотрите, как она изменится!',
     textColor: '#2c3e50',
     fontSize: 16,
     backgroundColor: '#f8f9fa'
   },
   footer: {
-    text: 'Создано с использованием Vue 3 + TypeScript + SCSS',
+    text: 'Карточка #1 - Vue 3 + TypeScript + SCSS',
     textColor: '#6c757d',
     fontSize: 14,
     align: 'center'
   },
-  width: 450,
+  width: 400,
+  backgroundColor: '#ffffff',
+  shadow: true,
+  borderRadius: 12
+})
+
+const cardData2 = ref<CardData>({
+  header: {
+    text: 'Вторая карточка',
+    textColor: '#ffffff',
+    fontSize: 24,
+    bold: true
+  },
+  body: {
+    text: 'Это вторая карточка с собственным селектором темы. Каждая карточка может иметь свою тему независимо от других!',
+    textColor: '#2c3e50',
+    fontSize: 16,
+    backgroundColor: '#f8f9fa'
+  },
+  footer: {
+    text: 'Карточка #2 - Модульная архитектура',
+    textColor: '#6c757d',
+    fontSize: 14,
+    align: 'center'
+  },
+  width: 400,
   backgroundColor: '#ffffff',
   shadow: true,
   borderRadius: 12
@@ -87,9 +117,20 @@ const cardData = ref<CardData>({
 
 .content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  @media (max-width: 1200px) {
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
 }
 </style>

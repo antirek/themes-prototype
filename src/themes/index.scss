@@ -3,7 +3,7 @@
 @import './light/light.scss';
 @import './green/green.scss';
 
-// Тема по умолчанию (светлая)
+// Глобальные CSS переменные для приложения
 :root {
   // Основные цвета
   --bg-primary: #ffffff;
@@ -42,28 +42,9 @@
   --hover-bg: #f8f9fa;
   --active-bg: #e9ecef;
   --focus-ring: rgba(52, 152, 219, 0.3);
-  
-  // Специальные цвета для карточек
-  --card-bg: #ffffff;
-  --card-border: #dee2e6;
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  
-  // Цвета для заголовка карточки
-  --card-header-bg: var(--gradient-primary);
-  --card-header-text: #ffffff;
-  --card-header-border: rgba(255, 255, 255, 0.1);
-  
-  // Цвета для тела карточки
-  --card-body-bg: #f8f9fa;
-  --card-body-text: #2c3e50;
-  
-  // Цвета для футера карточки
-  --card-footer-bg: #f8f9fa;
-  --card-footer-text: #6c757d;
-  --card-footer-border: #dee2e6;
 }
 
-// Глобальные стили для применения тем
+// Глобальные стили для приложения
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -73,32 +54,4 @@ body {
 // Утилитарные классы для тем
 .theme-transition {
   transition: all 0.3s ease;
-}
-
-// Стили для переключателя тем
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-primary);
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: var(--shadow-md);
-  
-  select {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-primary);
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    
-    &:focus {
-      outline: none;
-      border-color: var(--accent-primary);
-      box-shadow: 0 0 0 2px var(--focus-ring);
-    }
-  }
 }
