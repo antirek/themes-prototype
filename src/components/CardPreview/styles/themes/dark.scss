@@ -1,16 +1,6 @@
 // Темная тема для CardPreview
-:root[data-theme="dark"] {
+[data-theme="dark"] {
   --card-bg: #2d2d2d;
   --card-border: #404040;
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--card-shadow);
-  
-  &:hover {
-    box-shadow: var(--shadow-xl);
-  }
 }

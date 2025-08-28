@@ -1,5 +1,5 @@
 // Светлая тема для CardHeader
-:root[data-theme="light"] {
+[data-theme="light"] {
   --card-header-bg: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   --card-header-text: #ffffff;
   --card-header-border: rgba(255, 255, 255, 0.1);

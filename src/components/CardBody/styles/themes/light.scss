@@ -1,14 +1,5 @@
 // Светлая тема для CardBody
-:root[data-theme="light"] {
+[data-theme="light"] {
   --card-body-bg: #f8f9fa;
   --card-body-text: #2c3e50;
-}
-
-[data-theme="light"] .card-body {
-  background: var(--card-body-bg);
-  color: var(--card-body-text);
-  
-  &::after {
-    background: linear-gradient(45deg, transparent 30%, rgba(0, 0, 0, 0.05) 50%, transparent 70%);
-  }
 }

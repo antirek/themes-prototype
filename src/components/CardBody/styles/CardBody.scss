@@ -39,3 +39,18 @@
     font-size: 0.875rem;
   }
 }
+
+// Специфичные стили для светлой темы
+[data-theme="light"] .card-body::after {
+  background: linear-gradient(45deg, transparent 30%, rgba(0, 0, 0, 0.05) 50%, transparent 70%);
+}
+
+// Специфичные стили для темной темы
+[data-theme="dark"] .card-body::after {
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+}
+
+// Специфичные стили для зеленой темы
+[data-theme="green"] .card-body::after {
+  background: linear-gradient(45deg, transparent 30%, rgba(40, 167, 69, 0.1) 50%, transparent 70%);
+}

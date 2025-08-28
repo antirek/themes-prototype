@@ -1,14 +1,5 @@
 // Зеленая тема для CardBody
-:root[data-theme="green"] {
+[data-theme="green"] {
   --card-body-bg: #f8fff8;
   --card-body-text: #1e4d2b;
-}
-
-[data-theme="green"] .card-body {
-  background: var(--card-body-bg);
-  color: var(--card-body-text);
-  
-  &::after {
-    background: linear-gradient(45deg, transparent 30%, rgba(40, 167, 69, 0.1) 50%, transparent 70%);
-  }
 }

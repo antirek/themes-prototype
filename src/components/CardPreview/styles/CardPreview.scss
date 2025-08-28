@@ -52,3 +52,36 @@
     transform: translateY(0);
   }
 }
+
+// Специфичные стили для светлой темы
+[data-theme="light"] .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  
+  &:hover {
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+// Специфичные стили для темной темы
+[data-theme="dark"] .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  
+  &:hover {
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+// Специфичные стили для зеленой темы
+[data-theme="green"] .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  
+  &:hover {
+    box-shadow: var(--shadow-xl);
+  }
+}

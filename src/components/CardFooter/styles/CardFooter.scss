@@ -34,3 +34,18 @@
     font-size: 0.75rem;
   }
 }
+
+// Специфичные стили для светлой темы
+[data-theme="light"] .card-footer::before {
+  background: var(--accent-primary);
+}
+
+// Специфичные стили для темной темы
+[data-theme="dark"] .card-footer::before {
+  background: var(--accent-primary);
+}
+
+// Специфичные стили для зеленой темы
+[data-theme="green"] .card-footer::before {
+  background: var(--accent-primary);
+}

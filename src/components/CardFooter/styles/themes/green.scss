@@ -1,16 +1,6 @@
 // Зеленая тема для CardFooter
-:root[data-theme="green"] {
+[data-theme="green"] {
   --card-footer-bg: #e8f5e8;
   --card-footer-text: #2d5a3d;
   --card-footer-border: #c3e6cb;
-}
-
-[data-theme="green"] .card-footer {
-  background: var(--card-footer-bg);
-  color: var(--card-footer-text);
-  border-top: 1px solid var(--card-footer-border);
-  
-  &::before {
-    background: var(--accent-primary);
-  }
 }
