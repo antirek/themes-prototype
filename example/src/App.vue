@@ -3,13 +3,13 @@
     <header class="app-header">
       <h1>ThePro Cards Example</h1>
       <div class="theme-controls">
-        <button @click="applyTheme('light')" :class="{ active: currentTheme === 'light' }">
+        <button @click="switchTheme('light')" :class="{ active: currentTheme === 'light' }">
           Light
         </button>
-        <button @click="applyTheme('dark')" :class="{ active: currentTheme === 'dark' }">
+        <button @click="switchTheme('dark')" :class="{ active: currentTheme === 'dark' }">
           Dark
         </button>
-        <button @click="applyTheme('green')" :class="{ active: currentTheme === 'green' }">
+        <button @click="switchTheme('green')" :class="{ active: currentTheme === 'green' }">
           Green
         </button>
       </div>
@@ -18,34 +18,25 @@
     <main class="app-content">
       <div class="cards-grid">
         <!-- Карточка 1 -->
-        <CardWithTheme>
-          <CardHeader>Welcome to ThePro Cards</CardHeader>
-          <CardBody>
-            This is a beautiful card component with customizable themes. 
-            You can switch between light, dark, and green themes using the buttons above.
-          </CardBody>
-          <CardFooter>Built with Vue 3 and CSS Variables</CardFooter>
-        </CardWithTheme>
+        <div class="card">
+          <CardHeader text="Welcome to ThePro Cards" />
+          <CardBody text="This is a beautiful card component with customizable themes. You can switch between light, dark, and green themes using the buttons above." />
+          <CardFooter text="Built with Vue 3 and CSS Variables" />
+        </div>
 
         <!-- Карточка 2 -->
-        <CardWithTheme>
-          <CardHeader>Feature Rich</CardHeader>
-          <CardBody>
-            ThePro Cards framework provides a complete solution for creating 
-            beautiful card components with a powerful theming system.
-          </CardBody>
-          <CardFooter>TypeScript support included</CardFooter>
-        </CardWithTheme>
+        <div class="card">
+          <CardHeader text="Feature Rich" />
+          <CardBody text="ThePro Cards framework provides a complete solution for creating beautiful card components with a powerful theming system." />
+          <CardFooter text="TypeScript support included" />
+        </div>
 
         <!-- Карточка 3 -->
-        <CardWithTheme>
-          <CardHeader>Easy to Use</CardHeader>
-          <CardBody>
-            Simply import the components and themes, then start building 
-            amazing card-based interfaces with minimal setup.
-          </CardBody>
-          <CardFooter>Perfect for dashboards and portfolios</CardFooter>
-        </CardWithTheme>
+        <div class="card">
+          <CardHeader text="Easy to Use" />
+          <CardBody text="Simply import the components and themes, then start building amazing card-based interfaces with minimal setup." />
+          <CardFooter text="Perfect for dashboards and portfolios" />
+        </div>
       </div>
     </main>
   </div>
@@ -53,7 +44,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { applyTheme, getCurrentTheme } from '../dist/index.es.js';
+import { CardHeader, CardBody, CardFooter, applyTheme, getCurrentTheme } from '../dist/index.es.js';
 
 const currentTheme = ref<string>('light');
 
@@ -126,6 +117,14 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--thepro-theme-shadow-md);
+  background: var(--thepro-theme-color-card-bg);
+  border: 1px solid var(--thepro-theme-color-card-border);
 }
 
 @media (max-width: 768px) {
