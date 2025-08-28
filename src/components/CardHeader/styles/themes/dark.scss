@@ -4,13 +4,3 @@
   --card-header-text: #ffffff;
   --card-header-border: rgba(255, 255, 255, 0.1);
 }
-
-[data-theme="dark"] .card-header {
-  background: var(--card-header-bg);
-  color: var(--card-header-text);
-  border-bottom: 1px solid var(--card-header-border);
-  
-  &::before {
-    background: rgba(0, 0, 0, 0.2);
-  }
-}

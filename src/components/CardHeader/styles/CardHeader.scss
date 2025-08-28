@@ -30,3 +30,18 @@
     font-size: 0.875rem;
   }
 }
+
+// Специфичные стили для светлой темы
+[data-theme="light"] .card-header::before {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+// Специфичные стили для темной темы
+[data-theme="dark"] .card-header::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+// Специфичные стили для зеленой темы
+[data-theme="green"] .card-header::before {
+  background: rgba(0, 0, 0, 0.1);
+}
