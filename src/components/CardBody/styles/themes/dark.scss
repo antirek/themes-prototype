@@ -1,0 +1,9 @@
+// Темная тема для CardBody
+[data-theme="dark"] .card-body {
+  background: var(--card-body-bg);
+  color: var(--card-body-text);
+  
+  &::after {
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  }
+}

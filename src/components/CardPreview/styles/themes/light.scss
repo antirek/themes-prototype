@@ -1,0 +1,10 @@
+// Светлая тема для CardPreview
+[data-theme="light"] .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  
+  &:hover {
+    box-shadow: var(--shadow-xl);
+  }
+}

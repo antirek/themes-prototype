@@ -1,0 +1,10 @@
+// Зеленая тема для CardHeader
+[data-theme="green"] .card-header {
+  background: var(--card-header-bg);
+  color: var(--card-header-text);
+  border-bottom: 1px solid var(--card-header-border);
+  
+  &::before {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}

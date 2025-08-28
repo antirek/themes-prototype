@@ -1,0 +1,10 @@
+// Светлая тема для CardFooter
+[data-theme="light"] .card-footer {
+  background: var(--card-footer-bg);
+  color: var(--card-footer-text);
+  border-top: 1px solid var(--card-footer-border);
+  
+  &::before {
+    background: var(--accent-primary);
+  }
+}

@@ -1,5 +1,6 @@
 @import '@/styles/variables';
 @import '@/styles/mixins';
+@import './themes/index.scss';
 
 .card-header {
   padding: $spacing-lg;
