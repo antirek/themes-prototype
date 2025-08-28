@@ -1,10 +1,10 @@
 .card-header {
   padding: 1.5rem;
-  background: var(--card-header-bg);
-  color: var(--card-header-text);
+  background: var(--thepro-cardheader-bg);
+  color: var(--thepro-cardheader-text);
   font-weight: bold;
   text-align: center;
-  border-bottom: 1px solid var(--card-header-border);
+  border-bottom: 1px solid var(--thepro-cardheader-border);
   word-wrap: break-word;
   overflow-wrap: break-word;
   position: relative;
@@ -17,7 +17,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--card-header-overlay);
+    background: var(--thepro-cardheader-overlay);
     pointer-events: none;
   }
   

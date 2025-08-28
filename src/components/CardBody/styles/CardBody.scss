@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--card-body-bg);
-  color: var(--card-body-text);
+  background: var(--thepro-cardbody-bg);
+  color: var(--thepro-cardbody-text);
   position: relative;
   transition: all 0.3s ease;
   
@@ -20,7 +20,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--card-body-overlay);
+    background: var(--thepro-cardbody-overlay);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;

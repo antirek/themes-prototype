@@ -1,6 +1,6 @@
 // Светлая тема для CardFooter
 [data-theme="light"] {
-  --card-footer-bg: var(--thepro-theme-color-bg-secondary);
-  --card-footer-text: var(--thepro-theme-color-text-muted);
-  --card-footer-border: var(--thepro-theme-color-border);
+  --thepro-cardfooter-bg: var(--thepro-theme-color-bg-secondary);
+  --thepro-cardfooter-text: var(--thepro-theme-color-text-muted);
+  --thepro-cardfooter-border: var(--thepro-theme-color-border);
 }

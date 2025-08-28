@@ -1,8 +1,8 @@
 .card-footer {
   padding: 1rem 1.5rem;
-  background: var(--card-footer-bg);
-  color: var(--card-footer-text);
-  border-top: 1px solid var(--card-footer-border);
+  background: var(--thepro-cardfooter-bg);
+  color: var(--thepro-cardfooter-text);
+  border-top: 1px solid var(--thepro-cardfooter-border);
   font-style: italic;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -16,7 +16,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--accent-primary);
+    background: var(--thepro-theme-color-primary);
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }

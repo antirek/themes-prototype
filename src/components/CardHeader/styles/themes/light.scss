@@ -1,7 +1,7 @@
 // Светлая тема для CardHeader
 [data-theme="light"] {
-  --card-header-bg: linear-gradient(135deg, var(--thepro-theme-color-primary) 0%, var(--thepro-theme-color-secondary) 100%);
-  --card-header-text: var(--thepro-theme-color-white);
-  --card-header-border: rgba(255, 255, 255, 0.1);
-  --card-header-overlay: rgba(0, 0, 0, 0.05);
+  --thepro-cardheader-bg: linear-gradient(135deg, var(--thepro-theme-color-primary) 0%, var(--thepro-theme-color-secondary) 100%);
+  --thepro-cardheader-text: var(--thepro-theme-color-white);
+  --thepro-cardheader-border: rgba(255, 255, 255, 0.1);
+  --thepro-cardheader-overlay: rgba(0, 0, 0, 0.05);
 }

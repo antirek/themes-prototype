@@ -1,6 +1,6 @@
 // Зеленая тема для CardBody
 [data-theme="green"] {
-  --card-body-bg: var(--thepro-theme-color-bg-secondary);
-  --card-body-text: var(--thepro-theme-color-text);
-  --card-body-overlay: linear-gradient(45deg, transparent 30%, rgba(40, 167, 69, 0.1) 50%, transparent 70%);
+  --thepro-cardbody-bg: var(--thepro-theme-color-bg-secondary);
+  --thepro-cardbody-text: var(--thepro-theme-color-text);
+  --thepro-cardbody-overlay: linear-gradient(45deg, transparent 30%, rgba(40, 167, 69, 0.1) 50%, transparent 70%);
 }
