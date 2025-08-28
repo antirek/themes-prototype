@@ -1,4 +1,10 @@
 // Светлая тема для CardFooter
+:root[data-theme="light"] {
+  --card-footer-bg: #f8f9fa;
+  --card-footer-text: #6c757d;
+  --card-footer-border: #dee2e6;
+}
+
 [data-theme="light"] .card-footer {
   background: var(--card-footer-bg);
   color: var(--card-footer-text);

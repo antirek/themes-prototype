@@ -1,4 +1,10 @@
 // Зеленая тема для CardHeader
+:root[data-theme="green"] {
+  --card-header-bg: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  --card-header-text: #ffffff;
+  --card-header-border: rgba(255, 255, 255, 0.1);
+}
+
 [data-theme="green"] .card-header {
   background: var(--card-header-bg);
   color: var(--card-header-text);

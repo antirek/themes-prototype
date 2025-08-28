@@ -1,4 +1,9 @@
 // Темная тема для CardBody
+:root[data-theme="dark"] {
+  --card-body-bg: #3a3a3a;
+  --card-body-text: #e0e0e0;
+}
+
 [data-theme="dark"] .card-body {
   background: var(--card-body-bg);
   color: var(--card-body-text);

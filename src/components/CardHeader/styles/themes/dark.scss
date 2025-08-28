@@ -1,4 +1,10 @@
 // Темная тема для CardHeader
+:root[data-theme="dark"] {
+  --card-header-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-header-text: #ffffff;
+  --card-header-border: rgba(255, 255, 255, 0.1);
+}
+
 [data-theme="dark"] .card-header {
   background: var(--card-header-bg);
   color: var(--card-header-text);

@@ -1,4 +1,10 @@
 // Светлая тема для CardPreview
+:root[data-theme="light"] {
+  --card-bg: #ffffff;
+  --card-border: #dee2e6;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
 [data-theme="light"] .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);

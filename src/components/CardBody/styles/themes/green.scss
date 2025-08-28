@@ -1,4 +1,9 @@
 // Зеленая тема для CardBody
+:root[data-theme="green"] {
+  --card-body-bg: #f8fff8;
+  --card-body-text: #1e4d2b;
+}
+
 [data-theme="green"] .card-body {
   background: var(--card-body-bg);
   color: var(--card-body-text);

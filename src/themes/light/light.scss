@@ -38,24 +38,7 @@
   --active-bg: #e9ecef;
   --focus-ring: rgba(52, 152, 219, 0.3);
   
-  // Специальные цвета для карточек
-  --card-bg: #ffffff;
-  --card-border: #dee2e6;
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  
-  // Цвета для заголовка карточки
-  --card-header-bg: var(--gradient-primary);
-  --card-header-text: #ffffff;
-  --card-header-border: rgba(255, 255, 255, 0.1);
-  
-  // Цвета для тела карточки
-  --card-body-bg: #f8f9fa;
-  --card-body-text: #2c3e50;
-  
-  // Цвета для футера карточки
-  --card-footer-bg: #f8f9fa;
-  --card-footer-text: #6c757d;
-  --card-footer-border: #dee2e6;
+
 }
 
 // Импорт стилей компонентов для светлой темы

@@ -1,4 +1,10 @@
 // Зеленая тема для CardPreview
+:root[data-theme="green"] {
+  --card-bg: #ffffff;
+  --card-border: #c3e6cb;
+  --card-shadow: 0 4px 20px rgba(40, 167, 69, 0.15);
+}
+
 [data-theme="green"] .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
