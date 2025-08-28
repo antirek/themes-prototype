@@ -27,52 +27,28 @@ import type { CardData } from '@/types/card'
 
 const cardData1 = ref<CardData>({
   header: {
-    text: 'Первая карточка',
-    textColor: '#ffffff',
-    fontSize: 24,
-    bold: true
+    text: 'Первая карточка'
   },
   body: {
-    text: 'Это первая карточка с независимым селектором темы. Попробуйте переключить тему и посмотрите, как она изменится!',
-    textColor: '#2c3e50',
-    fontSize: 16,
-    backgroundColor: '#f8f9fa'
+    text: 'Это первая карточка с независимым селектором темы. Попробуйте переключить тему и посмотрите, как она изменится!'
   },
   footer: {
     text: 'Карточка #1 - Vue 3 + TypeScript + SCSS',
-    textColor: '#6c757d',
-    fontSize: 14,
     align: 'center'
-  },
-  width: 320,
-  backgroundColor: '#ffffff',
-  shadow: true,
-  borderRadius: 12
+  }
 })
 
 const cardData2 = ref<CardData>({
   header: {
-    text: 'Вторая карточка',
-    textColor: '#ffffff',
-    fontSize: 24,
-    bold: true
+    text: 'Вторая карточка'
   },
   body: {
-    text: 'Это вторая карточка с собственным селектором темы. Каждая карточка может иметь свою тему независимо от других!',
-    textColor: '#2c3e50',
-    fontSize: 16,
-    backgroundColor: '#f8f9fa'
+    text: 'Это вторая карточка с собственным селектором темы. Каждая карточка может иметь свою тему независимо от других!'
   },
   footer: {
     text: 'Карточка #2 - Модульная архитектура',
-    textColor: '#6c757d',
-    fontSize: 14,
     align: 'center'
-  },
-  width: 320,
-  backgroundColor: '#ffffff',
-  shadow: true,
-  borderRadius: 12
+  }
 })
 </script>
 
