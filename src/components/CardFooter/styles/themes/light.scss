@@ -1,6 +1,6 @@
 // Светлая тема для CardFooter
 [data-theme="light"] {
-  --card-footer-bg: #f8f9fa;
-  --card-footer-text: #6c757d;
-  --card-footer-border: #dee2e6;
+  --card-footer-bg: var(--thepro-theme-color-bg-secondary);
+  --card-footer-text: var(--thepro-theme-color-text-muted);
+  --card-footer-border: var(--thepro-theme-color-border);
 }

@@ -1,6 +1,6 @@
 // Зеленая тема для CardFooter
 [data-theme="green"] {
-  --card-footer-bg: #e8f5e8;
-  --card-footer-text: #2d5a3d;
-  --card-footer-border: #c3e6cb;
+  --card-footer-bg: var(--thepro-theme-color-bg-secondary);
+  --card-footer-text: var(--thepro-theme-color-text-muted);
+  --card-footer-border: var(--thepro-theme-color-border);
 }

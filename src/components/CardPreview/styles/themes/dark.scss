@@ -1,6 +1,6 @@
 // Темная тема для CardPreview
 [data-theme="dark"] {
-  --card-bg: #2d2d2d;
-  --card-border: #404040;
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --card-bg: var(--thepro-theme-color-bg);
+  --card-border: var(--thepro-theme-color-border);
+  --card-shadow: var(--thepro-theme-shadow-lg);
 }
