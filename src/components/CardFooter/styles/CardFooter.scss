@@ -3,12 +3,14 @@
 
 .card-footer {
   padding: $spacing-md $spacing-lg;
-  background: $light-color;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--card-footer-bg);
+  color: var(--card-footer-text);
+  border-top: 1px solid var(--card-footer-border);
   font-style: italic;
   word-wrap: break-word;
   overflow-wrap: break-word;
   position: relative;
+  transition: all $transition-base;
   
   &::before {
     content: '';
@@ -17,7 +19,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: $primary-color;
+    background: var(--accent-primary);
     transform: scaleX(0);
     transition: transform $transition-base;
   }

@@ -9,7 +9,10 @@
   overflow-wrap: break-word;
   @include flex-center;
   text-align: center;
+  background: var(--card-body-bg);
+  color: var(--card-body-text);
   position: relative;
+  transition: all $transition-base;
   
   &::after {
     content: '';

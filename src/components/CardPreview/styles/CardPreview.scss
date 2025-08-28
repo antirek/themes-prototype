@@ -19,14 +19,17 @@
 .card {
   @include flex(column);
   min-height: 300px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   overflow: hidden;
-  @include card-base;
+  border-radius: $border-radius-lg;
+  box-shadow: var(--card-shadow);
+  transition: all $transition-base;
   @include fade-in;
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: $shadow-xl;
+    box-shadow: var(--shadow-xl);
   }
   
   @include respond-to(md) {
