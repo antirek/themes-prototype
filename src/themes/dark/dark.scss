@@ -1,0 +1,59 @@
+// Темная тема
+:root[data-theme="dark"] {
+  // Основные цвета
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3a3a3a;
+  
+  // Цвета текста
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --text-muted: #808080;
+  
+  // Цвета акцента
+  --accent-primary: #667eea;
+  --accent-secondary: #764ba2;
+  --accent-success: #27ae60;
+  --accent-warning: #f39c12;
+  --accent-danger: #e74c3c;
+  
+  // Градиенты
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  --gradient-accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  
+  // Границы
+  --border-primary: #404040;
+  --border-secondary: #555555;
+  --border-accent: #667eea;
+  
+  // Тени
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.6);
+  
+  // Состояния
+  --hover-bg: #404040;
+  --active-bg: #505050;
+  --focus-ring: rgba(102, 126, 234, 0.3);
+  
+  // Специальные цвета для карточек
+  --card-bg: #2d2d2d;
+  --card-border: #404040;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  
+  // Цвета для заголовка карточки
+  --card-header-bg: var(--gradient-primary);
+  --card-header-text: #ffffff;
+  --card-header-border: rgba(255, 255, 255, 0.1);
+  
+  // Цвета для тела карточки
+  --card-body-bg: #3a3a3a;
+  --card-body-text: #e0e0e0;
+  
+  // Цвета для футера карточки
+  --card-footer-bg: #2d2d2d;
+  --card-footer-text: #b3b3b3;
+  --card-footer-border: #404040;
+}

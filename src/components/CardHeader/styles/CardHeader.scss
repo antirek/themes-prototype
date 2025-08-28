@@ -1,0 +1,34 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card-header {
+  padding: $spacing-lg;
+  background: $header-gradient;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+  }
+  
+  @include respond-to(md) {
+    padding: $spacing-md;
+  }
+  
+  @include respond-to(sm) {
+    padding: $spacing-sm;
+    font-size: $font-size-sm;
+  }
+}

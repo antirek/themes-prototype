@@ -1,0 +1,40 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card-preview {
+  @include flex-center;
+  align-items: flex-start;
+  min-height: 400px;
+  padding: $spacing-lg;
+  
+  @include respond-to(md) {
+    padding: $spacing-md;
+  }
+  
+  @include respond-to(sm) {
+    padding: $spacing-sm;
+  }
+}
+
+.card {
+  @include flex(column);
+  min-height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  @include card-base;
+  @include fade-in;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
+  }
+  
+  @include respond-to(md) {
+    min-height: 250px;
+  }
+  
+  @include respond-to(sm) {
+    min-height: 200px;
+    border-radius: $border-radius-md;
+  }
+}

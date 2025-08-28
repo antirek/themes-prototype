@@ -1,0 +1,37 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card-footer {
+  padding: $spacing-md $spacing-lg;
+  background: $light-color;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-style: italic;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: $primary-color;
+    transform: scaleX(0);
+    transition: transform $transition-base;
+  }
+  
+  &:hover::before {
+    transform: scaleX(1);
+  }
+  
+  @include respond-to(md) {
+    padding: $spacing-md;
+  }
+  
+  @include respond-to(sm) {
+    padding: $spacing-sm;
+    font-size: $font-size-xs;
+  }
+}

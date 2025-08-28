@@ -1,0 +1,104 @@
+// Импорт всех тем
+@import './dark/dark.scss';
+@import './light/light.scss';
+@import './green/green.scss';
+
+// Тема по умолчанию (светлая)
+:root {
+  // Основные цвета
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  
+  // Цвета текста
+  --text-primary: #2c3e50;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  
+  // Цвета акцента
+  --accent-primary: #3498db;
+  --accent-secondary: #2980b9;
+  --accent-success: #27ae60;
+  --accent-warning: #f39c12;
+  --accent-danger: #e74c3c;
+  
+  // Градиенты
+  --gradient-primary: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  --gradient-secondary: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+  --gradient-accent: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  
+  // Границы
+  --border-primary: #dee2e6;
+  --border-secondary: #ced4da;
+  --border-accent: #3498db;
+  
+  // Тени
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.18);
+  
+  // Состояния
+  --hover-bg: #f8f9fa;
+  --active-bg: #e9ecef;
+  --focus-ring: rgba(52, 152, 219, 0.3);
+  
+  // Специальные цвета для карточек
+  --card-bg: #ffffff;
+  --card-border: #dee2e6;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  
+  // Цвета для заголовка карточки
+  --card-header-bg: var(--gradient-primary);
+  --card-header-text: #ffffff;
+  --card-header-border: rgba(255, 255, 255, 0.1);
+  
+  // Цвета для тела карточки
+  --card-body-bg: #f8f9fa;
+  --card-body-text: #2c3e50;
+  
+  // Цвета для футера карточки
+  --card-footer-bg: #f8f9fa;
+  --card-footer-text: #6c757d;
+  --card-footer-border: #dee2e6;
+}
+
+// Глобальные стили для применения тем
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Утилитарные классы для тем
+.theme-transition {
+  transition: all 0.3s ease;
+}
+
+// Стили для переключателя тем
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: var(--shadow-md);
+  
+  select {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    
+    &:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 2px var(--focus-ring);
+    }
+  }
+}
