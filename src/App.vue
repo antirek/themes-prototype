@@ -44,7 +44,7 @@ const cardData1 = ref<CardData>({
     fontSize: 14,
     align: 'center'
   },
-  width: 400,
+  width: 320,
   backgroundColor: '#ffffff',
   shadow: true,
   borderRadius: 12
@@ -69,7 +69,7 @@ const cardData2 = ref<CardData>({
     fontSize: 14,
     align: 'center'
   },
-  width: 400,
+  width: 320,
   backgroundColor: '#ffffff',
   shadow: true,
   borderRadius: 12
@@ -121,7 +121,8 @@ const cardData2 = ref<CardData>({
   gap: 2rem;
   align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: 100%;
   
   @media (max-width: 1200px) {
     gap: 1.5rem;
@@ -131,6 +132,7 @@ const cardData2 = ref<CardData>({
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
+    flex-wrap: wrap;
   }
 }
 </style>
