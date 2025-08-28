@@ -1,44 +1,11 @@
 // Зеленая тема
-:root[data-theme="green"] {
-  // Основные цвета
-  --bg-primary: #f0f8f0;
-  --bg-secondary: #e8f5e8;
-  --bg-tertiary: #d4edda;
-  
-  // Цвета текста
-  --text-primary: #1e4d2b;
-  --text-secondary: #2d5a3d;
-  --text-muted: #6c8b7a;
-  
-  // Цвета акцента
-  --accent-primary: #28a745;
-  --accent-secondary: #20c997;
-  --accent-success: #198754;
-  --accent-warning: #ffc107;
-  --accent-danger: #dc3545;
-  
-  // Градиенты
-  --gradient-primary: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-  --gradient-secondary: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-  --gradient-accent: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-  
-  // Границы
-  --border-primary: #c3e6cb;
-  --border-secondary: #b1dfbb;
-  --border-accent: #28a745;
-  
-  // Тени
-  --shadow-sm: 0 2px 4px rgba(40, 167, 69, 0.1);
-  --shadow-md: 0 4px 8px rgba(40, 167, 69, 0.15);
-  --shadow-lg: 0 8px 16px rgba(40, 167, 69, 0.2);
-  --shadow-xl: 0 12px 24px rgba(40, 167, 69, 0.25);
-  
-  // Состояния
-  --hover-bg: #d4edda;
-  --active-bg: #c3e6cb;
-  --focus-ring: rgba(40, 167, 69, 0.3);
-  
-
+[data-theme="green"] {
+  // Семантические цвета
+  --color-text: #1e4d2b;
+  --color-text-muted: #2d5a3d;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8fff8;
+  --color-border: #c3e6cb;
 }
 
 // Импорт стилей компонентов для зеленой темы

@@ -3,45 +3,69 @@
 @import './light/light.scss';
 @import './green/green.scss';
 
-// Глобальные CSS переменные для приложения
+// Компактная база CSS переменных
 :root {
   // Основные цвета
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #e9ecef;
-  
-  // Цвета текста
-  --text-primary: #2c3e50;
-  --text-secondary: #6c757d;
-  --text-muted: #adb5bd;
-  
-  // Цвета акцента
-  --accent-primary: #3498db;
-  --accent-secondary: #2980b9;
-  --accent-success: #27ae60;
-  --accent-warning: #f39c12;
-  --accent-danger: #e74c3c;
-  
-  // Градиенты
-  --gradient-primary: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-  --gradient-secondary: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
-  --gradient-accent: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-  
-  // Границы
-  --border-primary: #dee2e6;
-  --border-secondary: #ced4da;
-  --border-accent: #3498db;
-  
+  --color-primary: #3498db;
+  --color-secondary: #2c3e50;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-danger: #e74c3c;
+
+  // Нейтральные цвета
+  --color-white: #ffffff;
+  --color-gray-100: #f8f9fa;
+  --color-gray-300: #dee2e6;
+  --color-gray-600: #6c757d;
+  --color-black: #000000;
+
+  // Семантические цвета (по умолчанию светлая тема)
+  --color-text: #2c3e50;
+  --color-text-muted: #6c757d;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-border: #dee2e6;
+
+  // Типографика
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --line-height: 1.5;
+
+  // Spacing
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+
+  // Border & Radius
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --border-width: 1px;
+
   // Тени
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
-  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.18);
-  
-  // Состояния
-  --hover-bg: #f8f9fa;
-  --active-bg: #e9ecef;
-  --focus-ring: rgba(52, 152, 219, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  // Переходы
+  --transition: 0.3s ease;
+  --transition-fast: 0.15s ease;
+
+  // Breakpoints
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
 }
 
 // Глобальные стили для приложения
