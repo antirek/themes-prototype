@@ -2,4 +2,5 @@
 [data-theme="dark"] {
   --card-body-bg: #3a3a3a;
   --card-body-text: #e0e0e0;
+  --card-body-overlay: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
 }

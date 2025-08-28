@@ -20,7 +20,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    background: var(--card-body-overlay);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -40,17 +40,4 @@
   }
 }
 
-// Специфичные стили для светлой темы
-[data-theme="light"] .card-body::after {
-  background: linear-gradient(45deg, transparent 30%, rgba(0, 0, 0, 0.05) 50%, transparent 70%);
-}
 
-// Специфичные стили для темной темы
-[data-theme="dark"] .card-body::after {
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-}
-
-// Специфичные стили для зеленой темы
-[data-theme="green"] .card-body::after {
-  background: linear-gradient(45deg, transparent 30%, rgba(40, 167, 69, 0.1) 50%, transparent 70%);
-}
