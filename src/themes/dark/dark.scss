@@ -57,3 +57,9 @@
   --card-footer-text: #b3b3b3;
   --card-footer-border: #404040;
 }
+
+// Импорт стилей компонентов для темной темы
+@import '../../components/CardHeader/styles/themes/dark.scss';
+@import '../../components/CardBody/styles/themes/dark.scss';
+@import '../../components/CardFooter/styles/themes/dark.scss';
+@import '../../components/CardPreview/styles/themes/dark.scss';

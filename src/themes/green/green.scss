@@ -57,3 +57,9 @@
   --card-footer-text: #2d5a3d;
   --card-footer-border: #c3e6cb;
 }
+
+// Импорт стилей компонентов для зеленой темы
+@import '../../components/CardHeader/styles/themes/green.scss';
+@import '../../components/CardBody/styles/themes/green.scss';
+@import '../../components/CardFooter/styles/themes/green.scss';
+@import '../../components/CardPreview/styles/themes/green.scss';

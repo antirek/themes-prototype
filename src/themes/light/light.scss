@@ -57,3 +57,9 @@
   --card-footer-text: #6c757d;
   --card-footer-border: #dee2e6;
 }
+
+// Импорт стилей компонентов для светлой темы
+@import '../../components/CardHeader/styles/themes/light.scss';
+@import '../../components/CardBody/styles/themes/light.scss';
+@import '../../components/CardFooter/styles/themes/light.scss';
+@import '../../components/CardPreview/styles/themes/light.scss';
