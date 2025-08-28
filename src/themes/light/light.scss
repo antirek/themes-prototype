@@ -1,66 +1,66 @@
 // Светлая тема
 [data-theme="light"] {
   // Основные цвета
-  --color-primary: #3498db;
-  --color-secondary: #2c3e50;
-  --color-success: #27ae60;
-  --color-warning: #f39c12;
-  --color-danger: #e74c3c;
+  --thepro-theme-color-primary: #3498db;
+  --thepro-theme-color-secondary: #2c3e50;
+  --thepro-theme-color-success: #27ae60;
+  --thepro-theme-color-warning: #f39c12;
+  --thepro-theme-color-danger: #e74c3c;
 
   // Нейтральные цвета
-  --color-white: #ffffff;
-  --color-gray-100: #f8f9fa;
-  --color-gray-300: #dee2e6;
-  --color-gray-600: #6c757d;
-  --color-black: #000000;
+  --thepro-theme-color-white: #ffffff;
+  --thepro-theme-color-gray-100: #f8f9fa;
+  --thepro-theme-color-gray-300: #dee2e6;
+  --thepro-theme-color-gray-600: #6c757d;
+  --thepro-theme-color-black: #000000;
 
   // Семантические цвета
-  --color-text: #2c3e50;
-  --color-text-muted: #6c757d;
-  --color-bg: #ffffff;
-  --color-bg-secondary: #f8f9fa;
-  --color-border: #dee2e6;
+  --thepro-theme-color-text: #2c3e50;
+  --thepro-theme-color-text-muted: #6c757d;
+  --thepro-theme-color-bg: #ffffff;
+  --thepro-theme-color-bg-secondary: #f8f9fa;
+  --thepro-theme-color-border: #dee2e6;
 
   // Типографика
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
+  --thepro-theme-font-size-sm: 0.875rem;
+  --thepro-theme-font-size-base: 1rem;
+  --thepro-theme-font-size-lg: 1.25rem;
+  --thepro-theme-font-size-xl: 1.5rem;
 
-  --font-weight-normal: 400;
-  --font-weight-bold: 700;
+  --thepro-theme-font-weight-normal: 400;
+  --thepro-theme-font-weight-bold: 700;
 
-  --line-height: 1.5;
+  --thepro-theme-line-height: 1.5;
 
   // Spacing
-  --spacing-0: 0;
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-6: 1.5rem;
-  --spacing-8: 2rem;
+  --thepro-theme-spacing-0: 0;
+  --thepro-theme-spacing-1: 0.25rem;
+  --thepro-theme-spacing-2: 0.5rem;
+  --thepro-theme-spacing-3: 0.75rem;
+  --thepro-theme-spacing-4: 1rem;
+  --thepro-theme-spacing-6: 1.5rem;
+  --thepro-theme-spacing-8: 2rem;
 
   // Border & Radius
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --thepro-theme-radius-sm: 0.25rem;
+  --thepro-theme-radius-md: 0.5rem;
+  --thepro-theme-radius-lg: 0.75rem;
 
-  --border-width: 1px;
+  --thepro-theme-border-width: 1px;
 
   // Тени
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --thepro-theme-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --thepro-theme-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --thepro-theme-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 
   // Переходы
-  --transition: 0.3s ease;
-  --transition-fast: 0.15s ease;
+  --thepro-theme-transition: 0.3s ease;
+  --thepro-theme-transition-fast: 0.15s ease;
 
   // Breakpoints
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
+  --thepro-theme-breakpoint-sm: 576px;
+  --thepro-theme-breakpoint-md: 768px;
+  --thepro-theme-breakpoint-lg: 992px;
 }
 
 // Импорт стилей компонентов для светлой темы
