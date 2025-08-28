@@ -199,7 +199,10 @@ async function validateAllThemes(): Promise<void> {
     }
     
     console.log(`📋 Проверяю компонент: ${componentName}`);
-    console.log(`   Ожидаемые переменные: ${expectedVariables.join(', ')}`);
+    console.log(`   Ожидаемые переменные:`);
+    expectedVariables.forEach(variable => {
+      console.log(`     • ${variable}`);
+    });
     
     // Находим все темы компонента
     const themePaths = await glob(path.join(componentPath, 'styles/themes/*.scss'));
