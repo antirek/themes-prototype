@@ -1,12 +1,77 @@
 // Импорт всех тем
-@import './dark/dark.scss';
-@import './light/light.scss';
-@import './green/green.scss';
+@use './dark/dark.scss';
+@use './light/light.scss';
+@use './green/green.scss';
+
+// Глобальные CSS переменные для приложения
+:root {
+  // Основные цвета
+  --thepro-theme-color-primary: #3498db;
+  --thepro-theme-color-secondary: #2c3e50;
+  --thepro-theme-color-success: #27ae60;
+  --thepro-theme-color-warning: #f39c12;
+  --thepro-theme-color-danger: #e74c3c;
+
+  // Нейтральные цвета
+  --thepro-theme-color-white: #ffffff;
+  --thepro-theme-color-gray-100: #f8f9fa;
+  --thepro-theme-color-gray-300: #dee2e6;
+  --thepro-theme-color-gray-600: #6c757d;
+  --thepro-theme-color-black: #000000;
+
+  // Семантические цвета (по умолчанию светлая тема)
+  --thepro-theme-color-text: #2c3e50;
+  --thepro-theme-color-text-muted: #6c757d;
+  --thepro-theme-color-bg: #ffffff;
+  --thepro-theme-color-bg-secondary: #f8f9fa;
+  --thepro-theme-color-border: #dee2e6;
+
+  // Типографика
+  --thepro-theme-font-size-sm: 0.875rem;
+  --thepro-theme-font-size-base: 1rem;
+  --thepro-theme-font-size-lg: 1.25rem;
+  --thepro-theme-font-size-xl: 1.5rem;
+
+  --thepro-theme-font-weight-normal: 400;
+  --thepro-theme-font-weight-bold: 700;
+
+  --thepro-theme-line-height: 1.5;
+
+  // Spacing
+  --thepro-theme-spacing-0: 0;
+  --thepro-theme-spacing-1: 0.25rem;
+  --thepro-theme-spacing-2: 0.5rem;
+  --thepro-theme-spacing-3: 0.75rem;
+  --thepro-theme-spacing-4: 1rem;
+  --thepro-theme-spacing-6: 1.5rem;
+  --thepro-theme-spacing-8: 2rem;
+
+  // Border & Radius
+  --thepro-theme-radius-sm: 0.25rem;
+  --thepro-theme-radius-md: 0.5rem;
+  --thepro-theme-radius-lg: 0.75rem;
+
+  --thepro-theme-border-width: 1px;
+
+  // Тени
+  --thepro-theme-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --thepro-theme-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --thepro-theme-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  // Переходы
+  --thepro-theme-transition: 0.3s ease;
+  --thepro-theme-transition-fast: 0.15s ease;
+
+  // Breakpoints
+  --thepro-theme-breakpoint-sm: 576px;
+  --thepro-theme-breakpoint-md: 768px;
+  --thepro-theme-breakpoint-lg: 992px;
+}
 
 // Глобальные стили для приложения
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--thepro-theme-color-bg);
+  color: var(--thepro-theme-color-text);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 

@@ -1,25 +1,25 @@
 // Темная тема
 [data-theme="dark"] {
   // Основные цвета
-  --thepro-theme-color-primary: #667eea;
-  --thepro-theme-color-secondary: #764ba2;
+  --thepro-theme-color-primary: #3498db;
+  --thepro-theme-color-secondary: #2c3e50;
   --thepro-theme-color-success: #27ae60;
   --thepro-theme-color-warning: #f39c12;
   --thepro-theme-color-danger: #e74c3c;
 
   // Нейтральные цвета
   --thepro-theme-color-white: #ffffff;
-  --thepro-theme-color-gray-100: #3a3a3a;
-  --thepro-theme-color-gray-300: #404040;
-  --thepro-theme-color-gray-600: #b3b3b3;
+  --thepro-theme-color-gray-100: #f8f9fa;
+  --thepro-theme-color-gray-300: #dee2e6;
+  --thepro-theme-color-gray-600: #6c757d;
   --thepro-theme-color-black: #000000;
 
   // Семантические цвета
-  --thepro-theme-color-text: #e0e0e0;
-  --thepro-theme-color-text-muted: #b3b3b3;
-  --thepro-theme-color-bg: #2d2d2d;
-  --thepro-theme-color-bg-secondary: #3a3a3a;
-  --thepro-theme-color-border: #404040;
+  --thepro-theme-color-text: #ecf0f1;
+  --thepro-theme-color-text-muted: #bdc3c7;
+  --thepro-theme-color-bg: #2c3e50;
+  --thepro-theme-color-bg-secondary: #34495e;
+  --thepro-theme-color-border: #34495e;
 
   // Типографика
   --thepro-theme-font-size-sm: 0.875rem;
@@ -48,10 +48,10 @@
 
   --thepro-theme-border-width: 1px;
 
-  // Тени (более интенсивные для темной темы)
+  // Тени
   --thepro-theme-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --thepro-theme-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-  --thepro-theme-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --thepro-theme-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --thepro-theme-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
 
   // Переходы
   --thepro-theme-transition: 0.3s ease;
@@ -64,7 +64,7 @@
 }
 
 // Импорт стилей компонентов для темной темы
-@import '../../components/CardHeader/styles/themes/dark.scss';
-@import '../../components/CardBody/styles/themes/dark.scss';
-@import '../../components/CardFooter/styles/themes/dark.scss';
-@import '../../components/CardPreview/styles/themes/dark.scss';
+@use '../../components/CardHeader/styles/themes/dark.scss';
+@use '../../components/CardBody/styles/themes/dark.scss';
+@use '../../components/CardFooter/styles/themes/dark.scss';
+@use '../../components/CardPreview/styles/themes/dark.scss';
