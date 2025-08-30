@@ -10,4 +10,10 @@ export interface CardHeaderThemeCSSVariables {
   '--thepro-cardheader-border': string;
   /** Фон оверлея (псевдоэлемент ::before) */
   '--thepro-cardheader-overlay': string;
+  /** Размер шрифта заголовка */
+  '--thepro-cardheader-font-size': string;
+  /** Жирность шрифта заголовка */
+  '--thepro-cardheader-font-weight': string;
+  /** Выравнивание текста заголовка */
+  '--thepro-cardheader-text-align': string;
 }
