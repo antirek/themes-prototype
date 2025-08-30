@@ -1,7 +1,9 @@
 .user-profile-card {
   display: flex;
   flex-direction: column;
-  min-height: 400px;
+  min-height: 450px;
+  min-width: 320px;
+  max-width: 380px;
   background: var(--thepro-userprofilecard-bg, var(--thepro-theme-color-bg));
   border: 1px solid var(--thepro-userprofilecard-border, var(--thepro-theme-color-border));
   border-radius: var(--thepro-userprofilecard-border-radius, var(--thepro-theme-radius-lg));
@@ -14,12 +16,26 @@
     box-shadow: var(--thepro-theme-shadow-lg);
   }
   
+  @media (max-width: 1400px) {
+    min-width: 300px;
+    max-width: 350px;
+  }
+  
+  @media (max-width: 1200px) {
+    min-width: 280px;
+    max-width: 320px;
+  }
+  
   @media (max-width: 768px) {
-    min-height: 350px;
+    min-height: 400px;
+    min-width: 300px;
+    max-width: 350px;
   }
   
   @media (max-width: 576px) {
-    min-height: 300px;
+    min-height: 350px;
+    min-width: 280px;
+    max-width: 320px;
   }
 }
 
@@ -60,21 +76,31 @@
 }
 
 .user-avatar {
-  width: var(--thepro-userprofilecard-avatar-size, 120px);
-  height: var(--thepro-userprofilecard-avatar-size, 120px);
+  width: var(--thepro-userprofilecard-avatar-size, 140px);
+  height: var(--thepro-userprofilecard-avatar-size, 140px);
   border-radius: var(--thepro-userprofilecard-avatar-border-radius, 50%);
   overflow: hidden;
   border: 3px solid var(--thepro-userprofilecard-avatar-border, var(--thepro-theme-color-primary));
   box-shadow: var(--thepro-userprofilecard-avatar-shadow, var(--thepro-theme-shadow-sm));
   
+  @media (max-width: 1400px) {
+    width: 130px;
+    height: 130px;
+  }
+  
+  @media (max-width: 1200px) {
+    width: 120px;
+    height: 120px;
+  }
+  
   @media (max-width: 768px) {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
   }
   
   @media (max-width: 576px) {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 }
 

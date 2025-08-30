@@ -10,18 +10,62 @@
         <div class="profile-section">
           <h2>👤 Карточка профиля пользователя</h2>
           <div class="profile-grid">
-            <UserProfileCard 
-              :user-data="userData1" 
-              theme="light"
-            />
-            <UserProfileCard 
-              :user-data="userData2" 
-              theme="dark"
-            />
-            <UserProfileCard 
-              :user-data="userData3" 
-              theme="green"
-            />
+            <div class="profile-card-wrapper">
+              <div class="theme-selector">
+                <label class="theme-label">Тема карточки 1:</label>
+                <select 
+                  v-model="profileTheme1" 
+                  class="theme-select"
+                  @change="updateProfileTheme(1, profileTheme1)"
+                >
+                  <option value="light">Светлая</option>
+                  <option value="dark">Темная</option>
+                  <option value="green">Зеленая</option>
+                </select>
+              </div>
+              <UserProfileCard 
+                :user-data="userData1" 
+                :theme="profileTheme1"
+              />
+            </div>
+            
+            <div class="profile-card-wrapper">
+              <div class="theme-selector">
+                <label class="theme-label">Тема карточки 2:</label>
+                <select 
+                  v-model="profileTheme2" 
+                  class="theme-select"
+                  @change="updateProfileTheme(2, profileTheme2)"
+                >
+                  <option value="light">Светлая</option>
+                  <option value="dark">Темная</option>
+                  <option value="green">Зеленая</option>
+                </select>
+              </div>
+              <UserProfileCard 
+                :user-data="userData2" 
+                :theme="profileTheme2"
+              />
+            </div>
+            
+            <div class="profile-card-wrapper">
+              <div class="theme-selector">
+                <label class="theme-label">Тема карточки 3:</label>
+                <select 
+                  v-model="profileTheme3" 
+                  class="theme-select"
+                  @change="updateProfileTheme(3, profileTheme3)"
+                >
+                  <option value="light">Светлая</option>
+                  <option value="dark">Темная</option>
+                  <option value="green">Зеленая</option>
+                </select>
+              </div>
+              <UserProfileCard 
+                :user-data="userData3" 
+                :theme="profileTheme3"
+              />
+            </div>
           </div>
         </div>
         
@@ -96,6 +140,16 @@ const userData3 = ref({
   avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
   status: 'Открыта к предложениям'
 })
+
+// Переменные для тем карточек профиля
+const profileTheme1 = ref<'light' | 'dark' | 'green'>('light')
+const profileTheme2 = ref<'light' | 'dark' | 'green'>('dark')
+const profileTheme3 = ref<'light' | 'dark' | 'green'>('green')
+
+// Функция для обновления темы карточки профиля
+const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green') => {
+  console.log(`Карточка ${cardNumber} переключена на тему: ${theme}`)
+}
 </script>
 
 <style scoped lang="scss">
@@ -183,20 +237,85 @@ const userData3 = ref({
 .profile-grid {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 3rem;
   align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  @media (max-width: 1400px) {
+    gap: 2.5rem;
+    max-width: 1200px;
+  }
   
   @media (max-width: 1200px) {
-    gap: 1.5rem;
+    gap: 2rem;
+    max-width: 1000px;
   }
   
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
+    max-width: 100%;
   }
+}
+
+.profile-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--thepro-theme-color-bg-secondary);
+  border: 1px solid var(--thepro-theme-color-border);
+  border-radius: 8px;
+  box-shadow: var(--thepro-theme-shadow-sm);
+  min-width: 200px;
+}
+
+.theme-label {
+  font-family: var(--thepro-theme-font-family-secondary);
+  font-weight: 500;
+  color: var(--thepro-theme-color-text);
+  font-size: var(--thepro-theme-font-size-sm);
+  margin: 0;
+}
+
+.theme-select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--thepro-theme-color-border);
+  border-radius: 4px;
+  background: var(--thepro-theme-color-bg);
+  color: var(--thepro-theme-color-text);
+  font-family: var(--thepro-theme-font-family-primary);
+  font-size: var(--thepro-theme-font-size-sm);
+  cursor: pointer;
+  transition: all var(--thepro-theme-transition);
+}
+
+.theme-select:focus {
+  outline: none;
+  border-color: var(--thepro-theme-color-primary);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.theme-select:hover {
+  border-color: var(--thepro-theme-color-primary);
+}
+
+.theme-select option {
+  background: var(--thepro-theme-color-bg);
+  color: var(--thepro-theme-color-text);
 }
 </style>
