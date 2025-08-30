@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   text-align: var(--thepro-cardbody-text-align, center);
-  font-family: var(--thepro-cardbody-font-family, inherit);
+  font-family: var(--thepro-cardbody-font-family, var(--thepro-theme-font-family-primary));
   background: var(--thepro-cardbody-bg);
   color: var(--thepro-cardbody-text);
   position: relative;
@@ -37,7 +37,7 @@
   
   @media (max-width: 576px) {
     padding: 0.75rem;
-    font-size: 0.875rem;
+    font-size: var(--thepro-theme-font-size-sm);
   }
 }
 

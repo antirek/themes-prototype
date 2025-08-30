@@ -10,6 +10,7 @@
   transition: all 0.3s ease;
   max-width: 400px;
   min-width: 300px;
+  font-family: var(--thepro-theme-font-family-primary);
   
   @media (max-width: 768px) {
     padding: 1.5rem;
@@ -35,9 +36,10 @@
   box-shadow: var(--shadow-sm);
   
   .theme-label {
+    font-family: var(--thepro-theme-font-family-secondary);
     font-weight: 500;
     color: var(--text-primary);
-    font-size: 0.875rem;
+    font-size: var(--thepro-theme-font-size-sm);
   }
   
   .theme-select {
@@ -47,7 +49,8 @@
     border-radius: 4px;
     background: var(--bg-primary);
     color: var(--text-primary);
-    font-size: 0.875rem;
+    font-family: var(--thepro-theme-font-family-primary);
+    font-size: var(--thepro-theme-font-size-sm);
     cursor: pointer;
     transition: all 0.3s ease;
     
