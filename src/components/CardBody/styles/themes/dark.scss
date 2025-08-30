@@ -1,6 +1,8 @@
 // Темная тема для CardBody
 [data-theme="dark"] {
-  --thepro-cardbody-bg: var(--thepro-theme-color-bg-secondary);
+  --thepro-cardbody-bg: var(--thepro-theme-color-bg);
   --thepro-cardbody-text: var(--thepro-theme-color-text);
-  --thepro-cardbody-overlay: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  --thepro-cardbody-overlay: rgba(52, 152, 219, 0.2);
+  --thepro-cardbody-font-family: inherit;
+  --thepro-cardbody-text-align: center;
 }

@@ -7,7 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: var(--thepro-cardbody-text-align, center);
+  font-family: var(--thepro-cardbody-font-family, inherit);
   background: var(--thepro-cardbody-bg);
   color: var(--thepro-cardbody-text);
   position: relative;

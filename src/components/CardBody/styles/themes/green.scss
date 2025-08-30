@@ -1,6 +1,8 @@
 // Зеленая тема для CardBody
 [data-theme="green"] {
-  --thepro-cardbody-bg: var(--thepro-theme-color-bg-secondary);
+  --thepro-cardbody-bg: var(--thepro-theme-color-bg);
   --thepro-cardbody-text: var(--thepro-theme-color-text);
-  --thepro-cardbody-overlay: linear-gradient(45deg, transparent 30%, rgba(40, 167, 69, 0.1) 50%, transparent 70%);
+  --thepro-cardbody-overlay: rgba(39, 174, 96, 0.1);
+  --thepro-cardbody-font-family: inherit;
+  --thepro-cardbody-text-align: center;
 }
