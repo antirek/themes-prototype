@@ -1,6 +1,6 @@
 .card-body {
   flex: 1;
-  padding: 1.5rem;
+  padding: var(--thepro-theme-spacing-6);
   line-height: 1.6;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -32,11 +32,11 @@
   }
   
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: var(--thepro-theme-spacing-4);
   }
   
   @media (max-width: 576px) {
-    padding: 0.75rem;
+    padding: var(--thepro-theme-spacing-3);
     font-size: var(--thepro-theme-font-size-sm);
   }
 }

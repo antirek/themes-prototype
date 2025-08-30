@@ -1,5 +1,5 @@
 .card-header {
-  padding: 1.5rem;
+  padding: var(--thepro-theme-spacing-6);
   background: var(--thepro-cardheader-bg);
   color: var(--thepro-cardheader-text);
   font-family: var(--thepro-theme-font-family-primary);
@@ -24,11 +24,11 @@
   }
   
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: var(--thepro-theme-spacing-4);
   }
   
   @media (max-width: 576px) {
-    padding: 0.75rem;
+    padding: var(--thepro-theme-spacing-3);
     font-size: calc(var(--thepro-cardheader-font-size, 1.25rem) * 0.875);
   }
 }

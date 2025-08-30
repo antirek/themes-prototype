@@ -4,14 +4,14 @@
   justify-content: center;
   align-items: flex-start;
   min-height: 400px;
-  padding: 1.5rem;
+  padding: var(--thepro-theme-spacing-6);
   
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: var(--thepro-theme-spacing-4);
   }
   
   @media (max-width: 576px) {
-    padding: 0.75rem;
+    padding: var(--thepro-theme-spacing-3);
   }
 }
 
@@ -29,7 +29,7 @@
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--thepro-theme-shadow-lg);
   }
   
   @media (max-width: 768px) {

@@ -46,6 +46,17 @@ interface ForbiddenVariablesValidationResult {
 }
 
 /**
+ * Интерфейс для результатов валидации использования базовых настроек темы
+ */
+interface ThemeUsageValidationResult {
+  component: string;
+  theme: string;
+  isValid: boolean;
+  errors: string[];
+  hardcodedValues: string[];
+}
+
+/**
  * Извлекает CSS переменные из SCSS файла
  */
 function extractCSSVariablesFromSCSS(filePath: string): ThemeCSSVariables {
@@ -256,6 +267,115 @@ function validateForbiddenGlobalVariables(
 }
 
 /**
+ * Валидирует использование базовых настроек темы в файлах стилей компонентов
+ */
+function validateThemeUsageInComponents(
+  componentName: string,
+  stylePath: string
+): ThemeUsageValidationResult {
+  const content = fs.readFileSync(stylePath, 'utf-8');
+  const hardcodedValues: string[] = [];
+  
+  // Функция для проверки, содержит ли строка CSS переменную
+  function containsCSSVariable(line: string): boolean {
+    return line.includes('var(--thepro-') || line.includes('var(--shadow-');
+  }
+  
+  // Проверяем жестко заданные цвета (исключаем CSS переменные)
+  const colorRegex = /:\s*(#[0-9a-fA-F]{3,6}|rgba?\([^)]+\)|hsla?\([^)]+\));/g;
+  let colorMatch;
+  while ((colorMatch = colorRegex.exec(content)) !== null) {
+    const beforeMatch = content.substring(0, colorMatch.index);
+    const lines = beforeMatch.split('\n');
+    const currentLine = lines[lines.length - 1] || '';
+    
+    if (!containsCSSVariable(currentLine)) {
+      hardcodedValues.push(`Жестко заданный цвет: ${colorMatch[1]}`);
+    }
+  }
+  
+  // Проверяем жестко заданные размеры шрифтов (исключаем CSS переменные)
+  const fontSizeRegex = /font-size:\s*([0-9.]+(?:rem|em|px|%));/g;
+  let fontSizeMatch;
+  while ((fontSizeMatch = fontSizeRegex.exec(content)) !== null) {
+    const beforeMatch = content.substring(0, fontSizeMatch.index);
+    const lines = beforeMatch.split('\n');
+    const currentLine = lines[lines.length - 1] || '';
+    
+    if (!containsCSSVariable(currentLine)) {
+      hardcodedValues.push(`Жестко заданный размер шрифта: ${fontSizeMatch[1]}`);
+    }
+  }
+  
+  // Проверяем жестко заданные отступы (исключаем CSS переменные)
+  const paddingRegex = /padding:\s*([0-9.]+(?:rem|em|px|%)(?:\s+[0-9.]+(?:rem|em|px|%))*);/g;
+  let paddingMatch;
+  while ((paddingMatch = paddingRegex.exec(content)) !== null) {
+    const beforeMatch = content.substring(0, paddingMatch.index);
+    const lines = beforeMatch.split('\n');
+    const currentLine = lines[lines.length - 1] || '';
+    
+    if (!containsCSSVariable(currentLine)) {
+      hardcodedValues.push(`Жестко заданные отступы: ${paddingMatch[1]}`);
+    }
+  }
+  
+  // Проверяем жестко заданные скругления (исключаем CSS переменные)
+  const borderRadiusRegex = /border-radius:\s*([0-9.]+(?:rem|em|px|%));/g;
+  let borderRadiusMatch;
+  while ((borderRadiusMatch = borderRadiusRegex.exec(content)) !== null) {
+    const beforeMatch = content.substring(0, borderRadiusMatch.index);
+    const lines = beforeMatch.split('\n');
+    const currentLine = lines[lines.length - 1] || '';
+    
+    if (!containsCSSVariable(currentLine)) {
+      hardcodedValues.push(`Жестко заданное скругление: ${borderRadiusMatch[1]}`);
+    }
+  }
+  
+  // Проверяем жестко заданные шрифты (исключаем CSS переменные)
+  const fontFamilyRegex = /font-family:\s*([^;]+);/g;
+  let fontFamilyMatch;
+  while ((fontFamilyMatch = fontFamilyRegex.exec(content)) !== null) {
+    const beforeMatch = content.substring(0, fontFamilyMatch.index);
+    const lines = beforeMatch.split('\n');
+    const currentLine = lines[lines.length - 1] || '';
+    
+    if (!containsCSSVariable(currentLine)) {
+      hardcodedValues.push(`Жестко заданный шрифт: ${fontFamilyMatch[1]}`);
+    }
+  }
+  
+  // Проверяем жестко заданные тени (исключаем CSS переменные)
+  const boxShadowRegex = /box-shadow:\s*([^;]+);/g;
+  let boxShadowMatch;
+  while ((boxShadowMatch = boxShadowRegex.exec(content)) !== null) {
+    const beforeMatch = content.substring(0, boxShadowMatch.index);
+    const lines = beforeMatch.split('\n');
+    const currentLine = lines[lines.length - 1] || '';
+    
+    if (!containsCSSVariable(currentLine)) {
+      hardcodedValues.push(`Жестко заданная тень: ${boxShadowMatch[1]}`);
+    }
+  }
+  
+  const isValid = hardcodedValues.length === 0;
+  const errors: string[] = [];
+  
+  if (hardcodedValues.length > 0) {
+    errors.push(`Жестко заданные значения: ${hardcodedValues.join(', ')}`);
+  }
+  
+  return {
+    component: componentName,
+    theme: 'style.scss',
+    isValid,
+    errors,
+    hardcodedValues
+  };
+}
+
+/**
  * Основная функция валидации
  */
 async function validateAllThemes(): Promise<void> {
@@ -267,6 +387,7 @@ async function validateAllThemes(): Promise<void> {
   const interfaceResults: InterfaceValidationResult[] = [];
   const prefixResults: PrefixValidationResult[] = [];
   const forbiddenResults: ForbiddenVariablesValidationResult[] = [];
+  const themeUsageResults: ThemeUsageValidationResult[] = [];
   
   for (const componentPath of componentPaths) {
     const componentName = path.basename(componentPath);
@@ -291,6 +412,17 @@ async function validateAllThemes(): Promise<void> {
     expectedVariables.forEach(variable => {
       console.log(`     • ${variable}`);
     });
+    
+    // Проверяем основной файл стилей компонента
+    const stylePath = path.join(componentPath, 'styles', `${componentName}.scss`);
+    if (fs.existsSync(stylePath)) {
+      const themeUsageResult = validateThemeUsageInComponents(componentName, stylePath);
+      themeUsageResults.push(themeUsageResult);
+      
+      if (!themeUsageResult.isValid) {
+        console.log(`   ⚠️  style.scss: ${themeUsageResult.errors.join('; ')}`);
+      }
+    }
     
     // Находим все темы компонента
     const themePaths = await glob(path.join(componentPath, 'styles/themes/*.scss'));
@@ -369,12 +501,12 @@ async function validateAllThemes(): Promise<void> {
   }
   
   // Выводим итоговую статистику
-  const allResults = [...interfaceResults, ...prefixResults, ...forbiddenResults];
+  const allResults = [...interfaceResults, ...prefixResults, ...forbiddenResults, ...themeUsageResults];
   const validResults = allResults.filter(r => r.isValid);
   const invalidResults = allResults.filter(r => !r.isValid);
   
   console.log('📊 Итоговая статистика:');
-  console.log(`   Всего проверено: ${interfaceResults.length} тем (3 проверки на тему)`);
+  console.log(`   Всего проверено: ${interfaceResults.length} тем (4 проверки на тему)`);
   console.log(`   ✅ Валидных проверок: ${validResults.length}`);
   console.log(`   ❌ Невалидных проверок: ${invalidResults.length}`);
   
