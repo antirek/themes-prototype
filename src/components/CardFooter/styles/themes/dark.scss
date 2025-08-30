@@ -8,4 +8,9 @@
   --thepro-cardfooter-padding-small: 0.75rem;
   --thepro-cardfooter-font-size: 0.875rem;
   --thepro-cardfooter-font-size-small: 0.75rem;
+  --thepro-cardfooter-stripe-height: 3px;
+  --thepro-cardfooter-stripe-color: var(--thepro-theme-color-success);
+  --thepro-cardfooter-stripe-transform: scaleX(0.3) scaleY(0.5);
+  --thepro-cardfooter-stripe-transform-hover: scaleX(1) scaleY(1);
+  --thepro-cardfooter-stripe-transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
