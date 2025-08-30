@@ -1,0 +1,23 @@
+[data-theme="dark"] {
+  --thepro-userprofilecard-bg: var(--thepro-theme-color-gray-600);
+  --thepro-userprofilecard-border: var(--thepro-theme-color-gray-300);
+  --thepro-userprofilecard-border-radius: 12px;
+  --thepro-userprofilecard-shadow: var(--thepro-theme-shadow-lg);
+  --thepro-userprofilecard-content-padding: var(--thepro-theme-spacing-6);
+  --thepro-userprofilecard-content-gap: var(--thepro-theme-spacing-4);
+  --thepro-userprofilecard-avatar-size: 120px;
+  --thepro-userprofilecard-avatar-border: var(--thepro-theme-color-primary);
+  --thepro-userprofilecard-avatar-border-radius: 50%;
+  --thepro-userprofilecard-avatar-shadow: var(--thepro-theme-shadow-md);
+  --thepro-userprofilecard-info-gap: var(--thepro-theme-spacing-3);
+  --thepro-userprofilecard-name-font-family: var(--thepro-theme-font-family-primary);
+  --thepro-userprofilecard-name-font-size: var(--thepro-theme-font-size-xl);
+  --thepro-userprofilecard-name-font-weight: var(--thepro-theme-font-weight-bold);
+  --thepro-userprofilecard-name-color: var(--thepro-theme-color-white);
+  --thepro-userprofilecard-phone-font-family: var(--thepro-theme-font-family-secondary);
+  --thepro-userprofilecard-phone-font-size: var(--thepro-theme-font-size-base);
+  --thepro-userprofilecard-phone-color: var(--thepro-theme-color-gray-100);
+  --thepro-userprofilecard-description-font-family: var(--thepro-theme-font-family-secondary);
+  --thepro-userprofilecard-description-font-size: var(--thepro-theme-font-size-sm);
+  --thepro-userprofilecard-description-color: var(--thepro-theme-color-gray-100);
+}

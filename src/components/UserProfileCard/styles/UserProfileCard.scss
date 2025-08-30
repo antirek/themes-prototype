@@ -1,0 +1,112 @@
+.user-profile-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  background: var(--thepro-userprofilecard-bg, var(--thepro-theme-color-bg));
+  border: 1px solid var(--thepro-userprofilecard-border, var(--thepro-theme-color-border));
+  border-radius: var(--thepro-userprofilecard-border-radius, var(--thepro-theme-radius-lg));
+  box-shadow: var(--thepro-userprofilecard-shadow, var(--thepro-theme-shadow-md));
+  overflow: hidden;
+  transition: all var(--thepro-theme-transition);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--thepro-theme-shadow-lg);
+  }
+  
+  @media (max-width: 768px) {
+    min-height: 350px;
+  }
+  
+  @media (max-width: 576px) {
+    min-height: 300px;
+  }
+}
+
+.user-profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--thepro-userprofilecard-content-gap, var(--thepro-theme-spacing-4));
+  padding: var(--thepro-userprofilecard-content-padding, var(--thepro-theme-spacing-4));
+  
+  @media (max-width: 768px) {
+    gap: var(--thepro-theme-spacing-3);
+    padding: var(--thepro-theme-spacing-3);
+  }
+}
+
+.user-avatar {
+  width: var(--thepro-userprofilecard-avatar-size, 120px);
+  height: var(--thepro-userprofilecard-avatar-size, 120px);
+  border-radius: var(--thepro-userprofilecard-avatar-border-radius, 50%);
+  overflow: hidden;
+  border: 3px solid var(--thepro-userprofilecard-avatar-border, var(--thepro-theme-color-primary));
+  box-shadow: var(--thepro-userprofilecard-avatar-shadow, var(--thepro-theme-shadow-sm));
+  
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
+  
+  @media (max-width: 576px) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--thepro-theme-transition);
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--thepro-userprofilecard-info-gap, var(--thepro-theme-spacing-2));
+  width: 100%;
+}
+
+.user-name {
+  font-family: var(--thepro-userprofilecard-name-font-family, var(--thepro-theme-font-family-primary));
+  font-size: var(--thepro-userprofilecard-name-font-size, var(--thepro-theme-font-size-xl));
+  font-weight: var(--thepro-userprofilecard-name-font-weight, var(--thepro-theme-font-weight-bold));
+  color: var(--thepro-userprofilecard-name-color, var(--thepro-theme-color-text));
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: var(--thepro-theme-font-size-lg);
+  }
+}
+
+.user-phone {
+  font-family: var(--thepro-userprofilecard-phone-font-family, var(--thepro-theme-font-family-secondary));
+  font-size: var(--thepro-userprofilecard-phone-font-size, var(--thepro-theme-font-size-base));
+  color: var(--thepro-userprofilecard-phone-color, var(--thepro-theme-color-text-muted));
+  text-decoration: none;
+  
+  &:hover {
+    color: var(--thepro-theme-color-primary);
+  }
+}
+
+.user-description {
+  font-family: var(--thepro-userprofilecard-description-font-family, var(--thepro-theme-font-family-secondary));
+  font-size: var(--thepro-userprofilecard-description-font-size, var(--thepro-theme-font-size-sm));
+  color: var(--thepro-userprofilecard-description-color, var(--thepro-theme-color-text-muted));
+  line-height: 1.5;
+  max-width: 280px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    max-width: 240px;
+  }
+}

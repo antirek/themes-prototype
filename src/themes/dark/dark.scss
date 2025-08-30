@@ -3,6 +3,7 @@
 @use '../../components/CardBody/styles/themes/dark.scss' as cardbody-dark;
 @use '../../components/CardFooter/styles/themes/dark.scss' as cardfooter-dark;
 @use '../../components/CardPreview/styles/themes/dark.scss' as cardpreview-dark;
+@use '../../components/UserProfileCard/styles/themes/dark.scss' as userprofilecard-dark;
 
 // Темная тема
 [data-theme="dark"] {

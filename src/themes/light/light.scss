@@ -3,6 +3,7 @@
 @use '../../components/CardBody/styles/themes/light.scss' as cardbody-light;
 @use '../../components/CardFooter/styles/themes/light.scss' as cardfooter-light;
 @use '../../components/CardPreview/styles/themes/light.scss' as cardpreview-light;
+@use '../../components/UserProfileCard/styles/themes/light.scss' as userprofilecard-light;
 
 // Светлая тема
 [data-theme="light"] {

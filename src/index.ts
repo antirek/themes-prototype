@@ -4,12 +4,22 @@ export { default as CardBody } from './components/CardBody/CardBody.vue';
 export { default as CardFooter } from './components/CardFooter/CardFooter.vue';
 export { default as CardPreview } from './components/CardPreview/CardPreview.vue';
 export { default as CardWithTheme } from './components/CardWithTheme/CardWithTheme.vue';
+export { default as UserProfileCard } from './components/UserProfileCard/UserProfileCard.vue';
+
+// Импорты для Vue плагина
+import CardHeader from './components/CardHeader/CardHeader.vue';
+import CardBody from './components/CardBody/CardBody.vue';
+import CardFooter from './components/CardFooter/CardFooter.vue';
+import CardPreview from './components/CardPreview/CardPreview.vue';
+import CardWithTheme from './components/CardWithTheme/CardWithTheme.vue';
+import UserProfileCard from './components/UserProfileCard/UserProfileCard.vue';
 
 // Типы
 export type { CardHeaderThemeCSSVariables } from './components/CardHeader/types';
 export type { CardBodyThemeCSSVariables } from './components/CardBody/types';
 export type { CardFooterThemeCSSVariables } from './components/CardFooter/types';
 export type { CardPreviewThemeCSSVariables } from './components/CardPreview/types';
+export type { UserProfileCardThemeCSSVariables } from './components/UserProfileCard/types';
 export type { ThemeCSSVariables } from './themes/types';
 
 // Утилиты для работы с темами
@@ -55,5 +65,6 @@ export default {
     app.component('CardFooter', CardFooter);
     app.component('CardPreview', CardPreview);
     app.component('CardWithTheme', CardWithTheme);
+    app.component('UserProfileCard', UserProfileCard);
   }
 };
