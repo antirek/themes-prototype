@@ -1,4 +1,4 @@
-export type ThemeName = 'light' | 'dark' | 'green';
+export type ThemeName = 'light' | 'dark' | 'green' | 'starwars';
 
 export interface ThemeColors {
   // Основные цвета
@@ -191,6 +191,48 @@ export const themes: Record<ThemeName, Theme> = {
       cardFooterBg: '#e8f5e8',
       cardFooterText: '#2d5a3d',
       cardFooterBorder: '#c3e6cb'
+    }
+  },
+  starwars: {
+    name: 'starwars',
+    displayName: 'Star Wars',
+    description: 'Футуристическая тема в стиле Звездных войн',
+    colors: {
+      bgPrimary: '#0a0a0a',
+      bgSecondary: '#1a1a1a',
+      bgTertiary: '#2a2a2a',
+      textPrimary: '#FFD700',
+      textSecondary: '#C0C0C0',
+      textMuted: '#808080',
+      accentPrimary: '#FFD700',
+      accentSecondary: '#8B0000',
+      accentSuccess: '#32CD32',
+      accentWarning: '#FF8C00',
+      accentDanger: '#DC143C',
+      gradientPrimary: 'linear-gradient(135deg, #FFD700 0%, #8B0000 100%)',
+      gradientSecondary: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
+      gradientAccent: 'linear-gradient(135deg, #FFD700 0%, #32CD32 100%)',
+      borderPrimary: '#333333',
+      borderSecondary: '#444444',
+      borderAccent: '#FFD700',
+      shadowSm: '0 2px 4px rgba(255, 215, 0, 0.2)',
+      shadowMd: '0 4px 8px rgba(255, 215, 0, 0.3)',
+      shadowLg: '0 8px 16px rgba(255, 215, 0, 0.4)',
+      shadowXl: '0 12px 24px rgba(255, 215, 0, 0.5)',
+      hoverBg: '#2a2a2a',
+      activeBg: '#3a3a3a',
+      focusRing: 'rgba(255, 215, 0, 0.3)',
+      cardBg: '#0a0a0a',
+      cardBorder: '#FFD700',
+      cardShadow: '0 8px 16px rgba(255, 215, 0, 0.4)',
+      cardHeaderBg: 'linear-gradient(135deg, #FFD700 0%, #8B0000 100%)',
+      cardHeaderText: '#000000',
+      cardHeaderBorder: '#FFD700',
+      cardBodyBg: '#0a0a0a',
+      cardBodyText: '#FFD700',
+      cardFooterBg: '#1a1a1a',
+      cardFooterText: '#C0C0C0',
+      cardFooterBorder: '#333333'
     }
   }
 };
