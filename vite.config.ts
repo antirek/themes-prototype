@@ -9,8 +9,11 @@ export default defineConfig({
       '@': resolve(__dirname, 'src')
     }
   },
-  server: {
-    port: 3000,
-    open: true
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Убираем api: 'modern-compiler' так как он не работает в этой версии
+      }
+    }
   }
 })

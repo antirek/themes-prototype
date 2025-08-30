@@ -11,26 +11,21 @@
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./themes/*": {
-      "import": "./dist/themes/*.css",
-      "require": "./dist/themes/*.css"
-    },
-    "./components/*": {
-      "import": "./dist/components/*.js",
-      "require": "./dist/components/*.js",
-      "types": "./dist/components/*.d.ts"
-    }
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist"
   ],
   "keywords": [
     "vue",
-    "cards",
+    "vue3",
+    "typescript",
+    "scss",
     "themes",
+    "cards",
     "components",
-    "css-variables",
-    "design-system"
+    "ui",
+    "framework"
   ],
   "author": "ThePro Team",
   "license": "MIT",
