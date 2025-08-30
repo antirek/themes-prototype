@@ -18,6 +18,8 @@ export interface CardFooterThemeCSSVariables {
   '--thepro-cardfooter-font-size': string;
   /** Размер шрифта футера карточки на маленьких экранах */
   '--thepro-cardfooter-font-size-small': string;
+  /** Выравнивание текста футера карточки */
+  '--thepro-cardfooter-text-align': string;
   /** Высота анимированной полоски */
   '--thepro-cardfooter-stripe-height': string;
   /** Цвет анимированной полоски */

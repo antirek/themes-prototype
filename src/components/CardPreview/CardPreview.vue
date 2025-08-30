@@ -8,10 +8,7 @@
       <CardBody :text="cardData.body.text" />
       
       <!-- Низ карточки -->
-      <CardFooter 
-        :text="cardData.footer.text"
-        :align="cardData.footer.align"
-      />
+      <CardFooter :text="cardData.footer.text" />
     </div>
   </div>
 </template>

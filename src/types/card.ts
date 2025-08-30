@@ -8,7 +8,6 @@ export interface CardBody {
 
 export interface CardFooter {
   text: string
-  align?: 'left' | 'center' | 'right'
 }
 
 export interface CardData {

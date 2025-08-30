@@ -1,5 +1,5 @@
 <template>
-  <div class="card-footer" :class="`text-${align}`">
+  <div class="card-footer">
     {{ text }}
   </div>
 </template>
@@ -7,12 +7,10 @@
 <script setup lang="ts">
 interface Props {
   text?: string
-  align?: 'left' | 'center' | 'right'
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  text: 'Подвал карточки',
-  align: 'left'
+  text: 'Подвал карточки'
 })
 </script>
 
