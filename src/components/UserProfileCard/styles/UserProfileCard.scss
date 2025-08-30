@@ -23,16 +23,39 @@
   }
 }
 
+.user-profile-body {
+  flex: 1;
+  padding: var(--thepro-userprofilecard-body-padding, var(--thepro-theme-spacing-6));
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--thepro-userprofilecard-body-bg, var(--thepro-theme-color-bg));
+  color: var(--thepro-userprofilecard-body-text, var(--thepro-theme-color-text));
+  position: relative;
+  transition: all var(--thepro-theme-transition);
+  
+  @media (max-width: 768px) {
+    padding: var(--thepro-theme-spacing-4);
+  }
+  
+  @media (max-width: 576px) {
+    padding: var(--thepro-theme-spacing-3);
+  }
+}
+
 .user-profile-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--thepro-userprofilecard-content-gap, var(--thepro-theme-spacing-4));
-  padding: var(--thepro-userprofilecard-content-padding, var(--thepro-theme-spacing-4));
+  width: 100%;
   
   @media (max-width: 768px) {
     gap: var(--thepro-theme-spacing-3);
-    padding: var(--thepro-theme-spacing-3);
   }
 }
 

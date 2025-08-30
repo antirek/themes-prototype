@@ -2,7 +2,7 @@
   <div class="user-profile-card" :data-theme="theme">
     <CardHeader :text="userData.name" />
     
-    <CardBody>
+    <div class="user-profile-body">
       <div class="user-profile-content">
         <div class="user-avatar">
           <img 
@@ -18,7 +18,7 @@
           <div class="user-description">{{ userData.description }}</div>
         </div>
       </div>
-    </CardBody>
+    </div>
     
     <CardFooter :text="userData.status" />
   </div>
@@ -27,7 +27,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import CardHeader from '../CardHeader/CardHeader.vue'
-import CardBody from '../CardBody/CardBody.vue'
 import CardFooter from '../CardFooter/CardFooter.vue'
 
 interface UserData {

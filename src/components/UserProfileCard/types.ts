@@ -7,8 +7,12 @@ export interface UserProfileCardThemeCSSVariables {
   '--thepro-userprofilecard-border-radius': string;
   /** Тень карточки профиля */
   '--thepro-userprofilecard-shadow': string;
-  /** Отступы контента карточки профиля */
-  '--thepro-userprofilecard-content-padding': string;
+  /** Отступы тела карточки профиля */
+  '--thepro-userprofilecard-body-padding': string;
+  /** Фон тела карточки профиля */
+  '--thepro-userprofilecard-body-bg': string;
+  /** Цвет текста тела карточки профиля */
+  '--thepro-userprofilecard-body-text': string;
   /** Отступы между элементами контента */
   '--thepro-userprofilecard-content-gap': string;
   /** Размер аватара пользователя */
