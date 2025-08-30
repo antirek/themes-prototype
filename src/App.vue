@@ -7,20 +7,6 @@
     
     <main class="main">
       <div class="content">
-        <div class="cards-section">
-          <h2>📋 Обычные карточки</h2>
-          <div class="cards-grid">
-            <CardWithTheme 
-              id="card-1" 
-              :card-data="cardData1" 
-            />
-            <CardWithTheme 
-              id="card-2" 
-              :card-data="cardData2" 
-            />
-          </div>
-        </div>
-        
         <div class="profile-section">
           <h2>👤 Карточка профиля пользователя</h2>
           <div class="profile-grid">
@@ -35,6 +21,20 @@
             <UserProfileCard 
               :user-data="userData3" 
               theme="green"
+            />
+          </div>
+        </div>
+        
+        <div class="cards-section">
+          <h2>📋 Обычные карточки</h2>
+          <div class="cards-grid">
+            <CardWithTheme 
+              id="card-1" 
+              :card-data="cardData1" 
+            />
+            <CardWithTheme 
+              id="card-2" 
+              :card-data="cardData2" 
             />
           </div>
         </div>
