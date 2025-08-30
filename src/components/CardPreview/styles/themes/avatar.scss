@@ -1,0 +1,8 @@
+// Тема Avatar для CardPreview
+[data-theme="avatar"] {
+  --thepro-cardpreview-bg: var(--thepro-theme-color-bg);
+  --thepro-cardpreview-border: var(--thepro-theme-color-primary);
+  --thepro-cardpreview-shadow: var(--thepro-theme-shadow-lg);
+  --thepro-cardpreview-border-radius: 1.5rem;
+  --thepro-cardpreview-border-radius-mobile: 1rem;
+}

@@ -1,0 +1,74 @@
+// Импорт стилей компонентов для темы Avatar
+@use '../../components/CardHeader/styles/themes/avatar.scss' as cardheader-avatar;
+@use '../../components/CardBody/styles/themes/avatar.scss' as cardbody-avatar;
+@use '../../components/CardFooter/styles/themes/avatar.scss' as cardfooter-avatar;
+@use '../../components/CardPreview/styles/themes/avatar.scss' as cardpreview-avatar;
+
+// Тема Avatar
+[data-theme="avatar"] {
+  // Основные цвета Avatar (биолюминесцентные)
+  --thepro-theme-color-primary: #00FFFF; // Циан - цвет биолюминесценции
+  --thepro-theme-color-secondary: #FF6B9D; // Розовый - цвет цветов
+  --thepro-theme-color-success: #7FFF00; // Ярко-зеленый - цвет природы
+  --thepro-theme-color-warning: #FFD700; // Золотой - цвет солнца
+  --thepro-theme-color-danger: #FF4500; // Оранжево-красный - цвет огня
+
+  // Нейтральные цвета
+  --thepro-theme-color-white: #FFFFFF;
+  --thepro-theme-color-gray-100: #0a1a0a; // Темно-зеленоватый
+  --thepro-theme-color-gray-300: #1a3a1a; // Средне-зеленоватый
+  --thepro-theme-color-gray-600: #4a6a4a; // Светло-зеленоватый
+  --thepro-theme-color-black: #000000;
+
+  // Семантические цвета
+  --thepro-theme-color-text: #E0FFFF; // Светло-циановый текст
+  --thepro-theme-color-text-muted: #B0E0E6; // Светло-голубой текст
+  --thepro-theme-color-bg: #001a1a; // Очень темный циановый фон
+  --thepro-theme-color-bg-secondary: #002a2a; // Темный вторичный фон
+  --thepro-theme-color-border: #004040; // Темная граница
+
+  // Типографика Avatar
+  --thepro-theme-font-family-primary: 'Quicksand', 'Arial', sans-serif; // Плавный, органический шрифт
+  --thepro-theme-font-family-secondary: 'Comfortaa', 'Arial', sans-serif; // Мягкий, округлый шрифт
+  --thepro-theme-font-family-mono: 'Fira Code', 'Courier New', monospace; // Моноширинный
+  
+  --thepro-theme-font-size-sm: 0.875rem;
+  --thepro-theme-font-size-base: 1rem;
+  --thepro-theme-font-size-lg: 1.25rem;
+  --thepro-theme-font-size-xl: 1.5rem;
+
+  --thepro-theme-font-weight-normal: 400;
+  --thepro-theme-font-weight-bold: 600;
+
+  --thepro-theme-line-height: 1.6;
+
+  // Spacing
+  --thepro-theme-spacing-0: 0;
+  --thepro-theme-spacing-1: 0.25rem;
+  --thepro-theme-spacing-2: 0.5rem;
+  --thepro-theme-spacing-3: 0.75rem;
+  --thepro-theme-spacing-4: 1rem;
+  --thepro-theme-spacing-6: 1.5rem;
+  --thepro-theme-spacing-8: 2rem;
+
+  // Border & Radius
+  --thepro-theme-radius-sm: 0.5rem;
+  --thepro-theme-radius-md: 1rem;
+  --thepro-theme-radius-lg: 1.5rem;
+
+  --thepro-theme-border-width: 1px;
+
+  // Тени Avatar (биолюминесцентные)
+  --thepro-theme-shadow-sm: 0 2px 8px rgba(0, 255, 255, 0.3);
+  --thepro-theme-shadow-md: 0 4px 16px rgba(0, 255, 255, 0.4);
+  --thepro-theme-shadow-lg: 0 8px 32px rgba(0, 255, 255, 0.5);
+
+  // Переходы
+  --thepro-theme-transition: 0.4s ease;
+  --thepro-theme-transition-fast: 0.2s ease;
+
+  // Breakpoints
+  --thepro-theme-breakpoint-sm: 576px;
+  --thepro-theme-breakpoint-md: 768px;
+  --thepro-theme-breakpoint-lg: 992px;
+}

@@ -1,0 +1,16 @@
+// Тема Avatar для CardFooter
+[data-theme="avatar"] {
+  --thepro-cardfooter-bg: var(--thepro-theme-color-bg-secondary);
+  --thepro-cardfooter-text: var(--thepro-theme-color-text-muted);
+  --thepro-cardfooter-border: var(--thepro-theme-color-border);
+  --thepro-cardfooter-padding: 1.5rem 2.5rem;
+  --thepro-cardfooter-padding-mobile: 1.25rem;
+  --thepro-cardfooter-padding-small: 1rem;
+  --thepro-cardfooter-font-size: 1rem;
+  --thepro-cardfooter-font-size-small: 0.875rem;
+  --thepro-cardfooter-stripe-height: 3px;
+  --thepro-cardfooter-stripe-color: var(--thepro-theme-color-success);
+  --thepro-cardfooter-stripe-transform: scaleX(0);
+  --thepro-cardfooter-stripe-transform-hover: scaleX(1);
+  --thepro-cardfooter-stripe-transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

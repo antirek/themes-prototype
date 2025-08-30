@@ -1,0 +1,10 @@
+// Тема Avatar для CardHeader
+[data-theme="avatar"] {
+  --thepro-cardheader-bg: linear-gradient(135deg, var(--thepro-theme-color-primary) 0%, var(--thepro-theme-color-secondary) 100%);
+  --thepro-cardheader-text: var(--thepro-theme-color-black);
+  --thepro-cardheader-border: var(--thepro-theme-color-primary);
+  --thepro-cardheader-overlay: rgba(0, 255, 255, 0.1);
+  --thepro-cardheader-font-size: 1.75rem;
+  --thepro-cardheader-font-weight: bold;
+  --thepro-cardheader-text-align: center;
+}
