@@ -21,22 +21,26 @@
   --thepro-theme-color-black: #000000;
 
   // Семантические цвета
-  --thepro-theme-color-text: #ecf0f1;
-  --thepro-theme-color-text-muted: #bdc3c7;
-  --thepro-theme-color-bg: #2c3e50;
-  --thepro-theme-color-bg-secondary: #34495e;
-  --thepro-theme-color-border: #34495e;
+  --thepro-theme-color-text: #ffffff;
+  --thepro-theme-color-text-muted: #adb5bd;
+  --thepro-theme-color-bg: #1a1a1a;
+  --thepro-theme-color-bg-secondary: #2d2d2d;
+  --thepro-theme-color-border: #404040;
 
   // Типографика
+  --thepro-theme-font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --thepro-theme-font-family-secondary: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --thepro-theme-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  
   --thepro-theme-font-size-sm: 0.875rem;
   --thepro-theme-font-size-base: 1rem;
   --thepro-theme-font-size-lg: 1.25rem;
   --thepro-theme-font-size-xl: 1.5rem;
 
   --thepro-theme-font-weight-normal: 400;
-  --thepro-theme-font-weight-bold: 700;
+  --thepro-theme-font-weight-bold: 600;
 
-  --thepro-theme-line-height: 1.5;
+  --thepro-theme-line-height: 1.6;
 
   // Spacing
   --thepro-theme-spacing-0: 0;

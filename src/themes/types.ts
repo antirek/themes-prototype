@@ -24,6 +24,10 @@ export interface ThemeCSSVariables {
   '--thepro-theme-color-border': string;
 
   // Типографика
+  '--thepro-theme-font-family-primary': string;
+  '--thepro-theme-font-family-secondary': string;
+  '--thepro-theme-font-family-mono': string;
+  
   '--thepro-theme-font-size-sm': string;
   '--thepro-theme-font-size-base': string;
   '--thepro-theme-font-size-lg': string;

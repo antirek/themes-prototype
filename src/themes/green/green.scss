@@ -25,16 +25,20 @@
   --thepro-theme-color-text-muted: #6c757d;
   --thepro-theme-color-bg: #f0f8f0;
   --thepro-theme-color-bg-secondary: #e8f5e8;
-  --thepro-theme-color-border: #d4edda;
+  --thepro-theme-color-border: #c3e6c3;
 
   // Типографика
+  --thepro-theme-font-family-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --thepro-theme-font-family-secondary: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --thepro-theme-font-family-mono: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  
   --thepro-theme-font-size-sm: 0.875rem;
   --thepro-theme-font-size-base: 1rem;
   --thepro-theme-font-size-lg: 1.25rem;
   --thepro-theme-font-size-xl: 1.5rem;
 
   --thepro-theme-font-weight-normal: 400;
-  --thepro-theme-font-weight-bold: 700;
+  --thepro-theme-font-weight-bold: 600;
 
   --thepro-theme-line-height: 1.5;
 
