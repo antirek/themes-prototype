@@ -27,7 +27,7 @@ import { ref, onMounted } from 'vue'
 import CardPreview from '../CardPreview/CardPreview.vue'
 import type { ThemeName } from '@/types/theme'
 import type { CardData } from '@/types/card'
-import { themes, defaultTheme } from '@/types/theme'
+import { themeMetadata, defaultTheme } from '@/types/theme'
 
 interface Props {
   id: string
@@ -38,7 +38,7 @@ const props = defineProps<Props>()
 
 const currentTheme = ref<ThemeName>(defaultTheme)
 
-const availableThemes = Object.keys(themes).map(key => themes[key as ThemeName])
+const availableThemes = Object.keys(themeMetadata).map(key => themeMetadata[key as ThemeName])
 
 const changeTheme = () => {
   // Тема применяется автоматически через :data-theme="currentTheme"
@@ -52,7 +52,7 @@ const changeTheme = () => {
 onMounted(() => {
   // Загружаем сохраненную тему для конкретной карточки
   const savedTheme = localStorage.getItem(`selected-theme-${props.id}`) as ThemeName
-  if (savedTheme && themes[savedTheme]) {
+  if (savedTheme && themeMetadata[savedTheme]) {
     currentTheme.value = savedTheme
   }
 

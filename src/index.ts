@@ -13,13 +13,17 @@ export type { CardPreviewThemeCSSVariables } from './components/CardPreview/type
 export type { ThemeCSSVariables } from './themes/types';
 
 // Утилиты для работы с темами
+export { themeMetadata } from './types/theme';
+export type { ThemeName } from './types/theme';
+
+// Простой объект для переключения тем
 export const themes = {
   light: 'light',
   dark: 'dark',
-  green: 'green'
+  green: 'green',
+  starwars: 'starwars',
+  avatar: 'avatar'
 } as const;
-
-export type ThemeName = keyof typeof themes;
 
 // Функция для применения темы
 export function applyTheme(themeName: ThemeName): void {
