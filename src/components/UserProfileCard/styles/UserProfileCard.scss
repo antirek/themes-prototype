@@ -65,15 +65,22 @@
 
 .user-profile-content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: var(--thepro-userprofilecard-content-direction, column);
+  align-items: var(--thepro-userprofilecard-content-align, center);
+  justify-content: var(--thepro-userprofilecard-content-justify, center);
+  text-align: var(--thepro-userprofilecard-content-text-align, center);
   gap: var(--thepro-userprofilecard-content-gap, var(--thepro-theme-spacing-4));
   width: 100%;
   
   @media (max-width: 768px) {
+    flex-direction: var(--thepro-userprofilecard-content-direction-mobile, column);
+    align-items: var(--thepro-userprofilecard-content-align-mobile, center);
+    text-align: var(--thepro-userprofilecard-content-text-align-mobile, center);
     gap: var(--thepro-theme-spacing-3);
   }
 }
+
+
 
 .user-avatar {
   width: var(--thepro-userprofilecard-avatar-size, 140px);
@@ -118,23 +125,33 @@
 .user-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: var(--thepro-userprofilecard-info-align, center);
+  text-align: var(--thepro-userprofilecard-info-text-align, center);
   gap: var(--thepro-userprofilecard-info-gap, var(--thepro-theme-spacing-2));
   width: 100%;
+  flex: var(--thepro-userprofilecard-info-flex, none);
 }
+
+
 
 .user-name {
   font-family: var(--thepro-userprofilecard-name-font-family, var(--thepro-theme-font-family-primary));
   font-size: var(--thepro-userprofilecard-name-font-size, var(--thepro-theme-font-size-xl));
   font-weight: var(--thepro-userprofilecard-name-font-weight, var(--thepro-theme-font-weight-bold));
   color: var(--thepro-userprofilecard-name-color, var(--thepro-theme-color-text));
-  line-height: 1.2;
+  line-height: var(--thepro-userprofilecard-name-line-height, 1.2);
+  word-wrap: var(--thepro-userprofilecard-name-word-wrap, normal);
+  overflow-wrap: var(--thepro-userprofilecard-name-overflow-wrap, normal);
+  max-width: var(--thepro-userprofilecard-name-max-width, none);
   
   @media (max-width: 768px) {
-    font-size: var(--thepro-theme-font-size-lg);
+    font-size: var(--thepro-userprofilecard-name-font-size-mobile, var(--thepro-theme-font-size-lg));
+    max-width: var(--thepro-userprofilecard-name-max-width-mobile, none);
+    text-align: var(--thepro-userprofilecard-name-text-align-mobile, center);
   }
 }
+
+
 
 .user-phone {
   font-family: var(--thepro-userprofilecard-phone-font-family, var(--thepro-theme-font-family-secondary));
