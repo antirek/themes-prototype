@@ -10,10 +10,10 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  text: 'Это пример текста тела карточки. Здесь может быть размещен любой контент, который вы хотите отобразить.'
+  text: 'Содержимое карточки'
 })
 </script>
 
 <style scoped lang="scss">
-@import './styles/CardBody.scss';
+@use './styles/CardBody.scss';
 </style>

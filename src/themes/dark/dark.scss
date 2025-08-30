@@ -1,3 +1,9 @@
+// Импорт стилей компонентов для темной темы
+@use '../../components/CardHeader/styles/themes/dark.scss' as cardheader-dark;
+@use '../../components/CardBody/styles/themes/dark.scss' as cardbody-dark;
+@use '../../components/CardFooter/styles/themes/dark.scss' as cardfooter-dark;
+@use '../../components/CardPreview/styles/themes/dark.scss' as cardpreview-dark;
+
 // Темная тема
 [data-theme="dark"] {
   // Основные цвета
@@ -62,9 +68,3 @@
   --thepro-theme-breakpoint-md: 768px;
   --thepro-theme-breakpoint-lg: 992px;
 }
-
-// Импорт стилей компонентов для темной темы
-@use '../../components/CardHeader/styles/themes/dark.scss';
-@use '../../components/CardBody/styles/themes/dark.scss';
-@use '../../components/CardFooter/styles/themes/dark.scss';
-@use '../../components/CardPreview/styles/themes/dark.scss';

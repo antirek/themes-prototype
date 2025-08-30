@@ -15,5 +15,5 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <style scoped lang="scss">
-@import './styles/CardHeader.scss';
+@use './styles/CardHeader.scss';
 </style>

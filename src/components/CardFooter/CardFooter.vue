@@ -1,26 +1,21 @@
 <template>
-  <div 
-    class="card-footer"
-    :style="{ textAlign: align }"
-  >
+  <div class="card-footer" :class="`text-${align}`">
     {{ text }}
   </div>
 </template>
 
 <script setup lang="ts">
-type AlignType = 'left' | 'center' | 'right'
-
 interface Props {
   text?: string
-  align?: AlignType
+  align?: 'left' | 'center' | 'right'
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  text: 'Подпись или дополнительная информация',
+  text: 'Подвал карточки',
   align: 'left'
 })
 </script>
 
 <style scoped lang="scss">
-@import './styles/CardFooter.scss';
+@use './styles/CardFooter.scss';
 </style>

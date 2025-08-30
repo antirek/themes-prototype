@@ -33,5 +33,5 @@ const props = defineProps<Props>()
 </script>
 
 <style scoped lang="scss">
-@import './styles/CardPreview.scss';
+@use './styles/CardPreview.scss';
 </style>

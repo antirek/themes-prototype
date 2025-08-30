@@ -1,3 +1,9 @@
+// Импорт стилей компонентов для светлой темы
+@use '../../components/CardHeader/styles/themes/light.scss' as cardheader-light;
+@use '../../components/CardBody/styles/themes/light.scss' as cardbody-light;
+@use '../../components/CardFooter/styles/themes/light.scss' as cardfooter-light;
+@use '../../components/CardPreview/styles/themes/light.scss' as cardpreview-light;
+
 // Светлая тема
 [data-theme="light"] {
   // Основные цвета
@@ -62,9 +68,3 @@
   --thepro-theme-breakpoint-md: 768px;
   --thepro-theme-breakpoint-lg: 992px;
 }
-
-// Импорт стилей компонентов для светлой темы
-@import '../../components/CardHeader/styles/themes/light.scss';
-@import '../../components/CardBody/styles/themes/light.scss';
-@import '../../components/CardFooter/styles/themes/light.scss';
-@import '../../components/CardPreview/styles/themes/light.scss';

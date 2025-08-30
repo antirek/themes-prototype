@@ -1,25 +1,31 @@
+// Импорт стилей компонентов для зеленой темы
+@use '../../components/CardHeader/styles/themes/green.scss' as cardheader-green;
+@use '../../components/CardBody/styles/themes/green.scss' as cardbody-green;
+@use '../../components/CardFooter/styles/themes/green.scss' as cardfooter-green;
+@use '../../components/CardPreview/styles/themes/green.scss' as cardpreview-green;
+
 // Зеленая тема
 [data-theme="green"] {
   // Основные цвета
-  --thepro-theme-color-primary: #28a745;
-  --thepro-theme-color-secondary: #20c997;
-  --thepro-theme-color-success: #198754;
-  --thepro-theme-color-warning: #ffc107;
-  --thepro-theme-color-danger: #dc3545;
+  --thepro-theme-color-primary: #27ae60;
+  --thepro-theme-color-secondary: #2ecc71;
+  --thepro-theme-color-success: #16a085;
+  --thepro-theme-color-warning: #f39c12;
+  --thepro-theme-color-danger: #e74c3c;
 
   // Нейтральные цвета
   --thepro-theme-color-white: #ffffff;
-  --thepro-theme-color-gray-100: #f8fff8;
-  --thepro-theme-color-gray-300: #c3e6cb;
-  --thepro-theme-color-gray-600: #2d5a3d;
+  --thepro-theme-color-gray-100: #f8f9fa;
+  --thepro-theme-color-gray-300: #dee2e6;
+  --thepro-theme-color-gray-600: #6c757d;
   --thepro-theme-color-black: #000000;
 
   // Семантические цвета
-  --thepro-theme-color-text: #1e4d2b;
-  --thepro-theme-color-text-muted: #2d5a3d;
-  --thepro-theme-color-bg: #ffffff;
-  --thepro-theme-color-bg-secondary: #f8fff8;
-  --thepro-theme-color-border: #c3e6cb;
+  --thepro-theme-color-text: #2c3e50;
+  --thepro-theme-color-text-muted: #6c757d;
+  --thepro-theme-color-bg: #f0f8f0;
+  --thepro-theme-color-bg-secondary: #e8f5e8;
+  --thepro-theme-color-border: #d4edda;
 
   // Типографика
   --thepro-theme-font-size-sm: 0.875rem;
@@ -48,10 +54,10 @@
 
   --thepro-theme-border-width: 1px;
 
-  // Тени (с зеленым оттенком)
-  --thepro-theme-shadow-sm: 0 1px 3px rgba(40, 167, 69, 0.1);
-  --thepro-theme-shadow-md: 0 4px 6px rgba(40, 167, 69, 0.15);
-  --thepro-theme-shadow-lg: 0 10px 15px rgba(40, 167, 69, 0.2);
+  // Тени
+  --thepro-theme-shadow-sm: 0 1px 3px rgba(39, 174, 96, 0.1);
+  --thepro-theme-shadow-md: 0 4px 6px rgba(39, 174, 96, 0.1);
+  --thepro-theme-shadow-lg: 0 10px 15px rgba(39, 174, 96, 0.1);
 
   // Переходы
   --thepro-theme-transition: 0.3s ease;
@@ -62,9 +68,3 @@
   --thepro-theme-breakpoint-md: 768px;
   --thepro-theme-breakpoint-lg: 992px;
 }
-
-// Импорт стилей компонентов для зеленой темы
-@import '../../components/CardHeader/styles/themes/green.scss';
-@import '../../components/CardBody/styles/themes/green.scss';
-@import '../../components/CardFooter/styles/themes/green.scss';
-@import '../../components/CardPreview/styles/themes/green.scss';
