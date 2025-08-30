@@ -22,7 +22,7 @@
   background: var(--thepro-cardpreview-bg);
   border: 1px solid var(--thepro-cardpreview-border);
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--thepro-cardpreview-border-radius, 12px);
   box-shadow: var(--thepro-cardpreview-shadow);
   transition: all 0.3s ease;
   animation: fadeIn 0.5s ease-in-out;
@@ -38,7 +38,7 @@
   
   @media (max-width: 576px) {
     min-height: 200px;
-    border-radius: 8px;
+    border-radius: var(--thepro-cardpreview-border-radius-mobile, 8px);
   }
 }
 
