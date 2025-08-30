@@ -1,4 +1,4 @@
-export type ThemeName = 'light' | 'dark' | 'green' | 'starwars' | 'avatar';
+export type ThemeName = 'light' | 'dark' | 'green';
 
 // Интерфейс для метаданных темы (только для UI)
 export interface ThemeMetadata {
@@ -23,16 +23,6 @@ export const themeMetadata = {
     name: 'green',
     displayName: 'Зеленая',
     description: 'Природная зеленая тема с экологическими акцентами'
-  },
-  starwars: {
-    name: 'starwars',
-    displayName: 'Star Wars',
-    description: 'Футуристическая тема в стиле Звездных войн'
-  },
-  avatar: {
-    name: 'avatar',
-    displayName: 'Avatar',
-    description: 'Биолюминесцентная тема в стиле Пандоры'
   }
 } as const;
 

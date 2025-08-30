@@ -34,10 +34,10 @@ npm install @thepro/cards
 ```
 
 ### CardFooter
-Подвал карточки с настраиваемым выравниванием.
+Подвал карточки с выравниванием, определяемым темой.
 
 ```vue
-<CardFooter text="Подвал карточки" align="center" />
+<CardFooter text="Подвал карточки" />
 ```
 
 ### CardPreview

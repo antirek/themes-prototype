@@ -20,9 +20,7 @@ export type { ThemeName } from './types/theme';
 export const themes = {
   light: 'light',
   dark: 'dark',
-  green: 'green',
-  starwars: 'starwars',
-  avatar: 'avatar'
+  green: 'green'
 } as const;
 
 // Функция для применения темы
