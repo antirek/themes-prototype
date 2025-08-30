@@ -281,13 +281,23 @@ function validateThemeUsageInComponents(
     return line.includes('var(--thepro-') || line.includes('var(--shadow-');
   }
   
+  // Функция для проверки, является ли значение CSS переменной
+  function isCSSVariable(value: string): boolean {
+    return value.trim().startsWith('var(--thepro-') || value.trim().startsWith('var(--shadow-');
+  }
+  
+  // Функция для получения строки, содержащей совпадение
+  function getLineContainingMatch(content: string, matchIndex: number): string {
+    const beforeMatch = content.substring(0, matchIndex);
+    const lines = beforeMatch.split('\n');
+    return lines[lines.length - 1] || '';
+  }
+  
   // Проверяем жестко заданные цвета (исключаем CSS переменные)
   const colorRegex = /:\s*(#[0-9a-fA-F]{3,6}|rgba?\([^)]+\)|hsla?\([^)]+\));/g;
   let colorMatch;
   while ((colorMatch = colorRegex.exec(content)) !== null) {
-    const beforeMatch = content.substring(0, colorMatch.index);
-    const lines = beforeMatch.split('\n');
-    const currentLine = lines[lines.length - 1] || '';
+    const currentLine = getLineContainingMatch(content, colorMatch.index);
     
     if (!containsCSSVariable(currentLine)) {
       hardcodedValues.push(`Жестко заданный цвет: ${colorMatch[1]}`);
@@ -298,9 +308,7 @@ function validateThemeUsageInComponents(
   const fontSizeRegex = /font-size:\s*([0-9.]+(?:rem|em|px|%));/g;
   let fontSizeMatch;
   while ((fontSizeMatch = fontSizeRegex.exec(content)) !== null) {
-    const beforeMatch = content.substring(0, fontSizeMatch.index);
-    const lines = beforeMatch.split('\n');
-    const currentLine = lines[lines.length - 1] || '';
+    const currentLine = getLineContainingMatch(content, fontSizeMatch.index);
     
     if (!containsCSSVariable(currentLine)) {
       hardcodedValues.push(`Жестко заданный размер шрифта: ${fontSizeMatch[1]}`);
@@ -311,9 +319,7 @@ function validateThemeUsageInComponents(
   const paddingRegex = /padding:\s*([0-9.]+(?:rem|em|px|%)(?:\s+[0-9.]+(?:rem|em|px|%))*);/g;
   let paddingMatch;
   while ((paddingMatch = paddingRegex.exec(content)) !== null) {
-    const beforeMatch = content.substring(0, paddingMatch.index);
-    const lines = beforeMatch.split('\n');
-    const currentLine = lines[lines.length - 1] || '';
+    const currentLine = getLineContainingMatch(content, paddingMatch.index);
     
     if (!containsCSSVariable(currentLine)) {
       hardcodedValues.push(`Жестко заданные отступы: ${paddingMatch[1]}`);
@@ -324,9 +330,7 @@ function validateThemeUsageInComponents(
   const borderRadiusRegex = /border-radius:\s*([0-9.]+(?:rem|em|px|%));/g;
   let borderRadiusMatch;
   while ((borderRadiusMatch = borderRadiusRegex.exec(content)) !== null) {
-    const beforeMatch = content.substring(0, borderRadiusMatch.index);
-    const lines = beforeMatch.split('\n');
-    const currentLine = lines[lines.length - 1] || '';
+    const currentLine = getLineContainingMatch(content, borderRadiusMatch.index);
     
     if (!containsCSSVariable(currentLine)) {
       hardcodedValues.push(`Жестко заданное скругление: ${borderRadiusMatch[1]}`);
@@ -337,12 +341,11 @@ function validateThemeUsageInComponents(
   const fontFamilyRegex = /font-family:\s*([^;]+);/g;
   let fontFamilyMatch;
   while ((fontFamilyMatch = fontFamilyRegex.exec(content)) !== null) {
-    const beforeMatch = content.substring(0, fontFamilyMatch.index);
-    const lines = beforeMatch.split('\n');
-    const currentLine = lines[lines.length - 1] || '';
+    const currentLine = getLineContainingMatch(content, fontFamilyMatch.index);
+    const fontValue = fontFamilyMatch[1].trim();
     
-    if (!containsCSSVariable(currentLine)) {
-      hardcodedValues.push(`Жестко заданный шрифт: ${fontFamilyMatch[1]}`);
+    if (!containsCSSVariable(currentLine) && !isCSSVariable(fontValue)) {
+      hardcodedValues.push(`Жестко заданный шрифт: ${fontValue}`);
     }
   }
   
@@ -350,12 +353,11 @@ function validateThemeUsageInComponents(
   const boxShadowRegex = /box-shadow:\s*([^;]+);/g;
   let boxShadowMatch;
   while ((boxShadowMatch = boxShadowRegex.exec(content)) !== null) {
-    const beforeMatch = content.substring(0, boxShadowMatch.index);
-    const lines = beforeMatch.split('\n');
-    const currentLine = lines[lines.length - 1] || '';
+    const currentLine = getLineContainingMatch(content, boxShadowMatch.index);
+    const shadowValue = boxShadowMatch[1].trim();
     
-    if (!containsCSSVariable(currentLine)) {
-      hardcodedValues.push(`Жестко заданная тень: ${boxShadowMatch[1]}`);
+    if (!containsCSSVariable(currentLine) && !isCSSVariable(shadowValue)) {
+      hardcodedValues.push(`Жестко заданная тень: ${shadowValue}`);
     }
   }
   
