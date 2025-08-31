@@ -7,7 +7,6 @@
         <UserAvatar 
           :src="userData.avatar" 
           :alt="userData.name"
-          :theme="theme"
         />
         
         <div class="user-info">

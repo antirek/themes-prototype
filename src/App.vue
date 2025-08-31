@@ -87,7 +87,6 @@
               <UserAvatar 
                 :src="userData1.avatar" 
                 :alt="userData1.name"
-                :theme="avatarTheme1"
               />
             </div>
             
@@ -106,7 +105,6 @@
               <UserAvatar 
                 :src="userData2.avatar" 
                 :alt="userData2.name"
-                :theme="avatarTheme2"
                 size="120px"
               />
             </div>
@@ -126,7 +124,6 @@
               <UserAvatar 
                 :src="userData3.avatar" 
                 :alt="userData3.name"
-                :theme="avatarTheme3"
                 size="100px"
               />
             </div>
@@ -144,7 +141,6 @@
                 </select>
               </div>
               <UserAvatar 
-                :theme="avatarTheme4"
                 size="100px"
               />
             </div>
@@ -164,7 +160,6 @@
               <UserAvatar 
                 src="https://invalid-url-that-will-fail.com/avatar.jpg"
                 alt="Broken avatar"
-                :theme="avatarTheme5"
                 size="100px"
               />
             </div>

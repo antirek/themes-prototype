@@ -1,7 +1,6 @@
 <template>
   <div 
     class="user-avatar" 
-    :data-theme="theme"
     :style="customSizeStyle"
   >
     <img 
@@ -26,7 +25,6 @@ import DefaultAvatarIcon from './DefaultAvatarIcon.vue'
 interface Props extends UserAvatarProps {}
 
 const props = withDefaults(defineProps<Props>(), {
-  theme: 'light',
   src: undefined,
   alt: undefined
 })

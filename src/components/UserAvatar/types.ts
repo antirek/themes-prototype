@@ -22,8 +22,6 @@ export interface UserAvatarProps {
   src?: string;
   /** Альтернативный текст для изображения */
   alt?: string;
-  /** Тема компонента */
-  theme?: 'light' | 'dark' | 'green';
   /** Размер аватара (опционально, переопределяет CSS переменную) */
   size?: string;
 }

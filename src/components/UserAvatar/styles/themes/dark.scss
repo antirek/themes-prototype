@@ -9,10 +9,10 @@
   --thepro-useravatar-size-small: 100px;
 }
 
-.user-avatar[data-theme="dark"] .default-avatar-icon {
+[data-theme="dark"] .user-avatar .default-avatar-icon {
   color: #495057; /* Очень темно-серый цвет для темной темы */
 }
 
-.user-avatar[data-theme="dark"]:hover .default-avatar-icon {
+[data-theme="dark"] .user-avatar:hover .default-avatar-icon {
   color: #6c757d; /* Светлее при hover */
 }
