@@ -57,6 +57,28 @@ interface ThemeUsageValidationResult {
 }
 
 /**
+ * Интерфейс для результатов валидации отсутствия data-theme в файлах стилей
+ */
+interface DataThemeValidationResult {
+  component: string;
+  theme: string;
+  isValid: boolean;
+  errors: string[];
+  dataThemeUsage: string[];
+}
+
+/**
+ * Интерфейс для результатов валидации отсутствия CSS классов в файлах тем
+ */
+interface CSSClassesValidationResult {
+  component: string;
+  theme: string;
+  isValid: boolean;
+  errors: string[];
+  cssClasses: string[];
+}
+
+/**
  * Извлекает CSS переменные из SCSS файла
  */
 function extractCSSVariablesFromSCSS(filePath: string): ThemeCSSVariables {
@@ -378,6 +400,79 @@ function validateThemeUsageInComponents(
 }
 
 /**
+ * Валидирует отсутствие data-theme в файлах стилей компонентов
+ */
+function validateNoDataThemeInStyleFiles(
+  componentName: string,
+  stylePath: string
+): DataThemeValidationResult {
+  const content = fs.readFileSync(stylePath, 'utf-8');
+  const dataThemeUsage: string[] = [];
+  
+  // Регулярное выражение для поиска data-theme
+  const dataThemeRegex = /\[data-theme="[^"]+"\]/g;
+  let match;
+  
+  while ((match = dataThemeRegex.exec(content)) !== null) {
+    dataThemeUsage.push(match[0]);
+  }
+  
+  const isValid = dataThemeUsage.length === 0;
+  const errors: string[] = [];
+  
+  if (dataThemeUsage.length > 0) {
+    errors.push(`Использование data-theme в файле стилей: ${dataThemeUsage.join(', ')}`);
+  }
+  
+  return {
+    component: componentName,
+    theme: 'style.scss',
+    isValid,
+    errors,
+    dataThemeUsage
+  };
+}
+
+/**
+ * Валидирует отсутствие CSS классов в файлах тем компонентов
+ */
+function validateNoCSSClassesInThemeFiles(
+  componentName: string,
+  themePath: string
+): CSSClassesValidationResult {
+  const themeName = path.basename(themePath, '.scss');
+  const content = fs.readFileSync(themePath, 'utf-8');
+  const cssClasses: string[] = [];
+  
+  // Регулярное выражение для поиска CSS классов (исключаем data-theme селекторы)
+  const cssClassRegex = /^[^[]\s*\.([a-zA-Z][a-zA-Z0-9_-]*)\s*{/gm;
+  let match;
+  
+  while ((match = cssClassRegex.exec(content)) !== null) {
+    const className = match[1];
+    // Исключаем комментарии и пустые строки
+    if (className && !className.startsWith('//') && !className.startsWith('/*')) {
+      cssClasses.push(`.${className}`);
+    }
+  }
+  
+  const isValid = cssClasses.length === 0;
+  const errors: string[] = [];
+  
+  if (cssClasses.length > 0) {
+    errors.push(`CSS классы в файле темы: ${cssClasses.join(', ')}`);
+  }
+  
+  return {
+    component: componentName,
+    theme: themeName,
+    isValid,
+    errors,
+    cssClasses
+  };
+}
+
+/**
  * Основная функция валидации
  */
 async function validateAllThemes(): Promise<void> {
@@ -390,6 +485,8 @@ async function validateAllThemes(): Promise<void> {
   const prefixResults: PrefixValidationResult[] = [];
   const forbiddenResults: ForbiddenVariablesValidationResult[] = [];
   const themeUsageResults: ThemeUsageValidationResult[] = [];
+  const dataThemeResults: DataThemeValidationResult[] = [];
+  const cssClassesResults: CSSClassesValidationResult[] = [];
   
   for (const componentPath of componentPaths) {
     const componentName = path.basename(componentPath);
@@ -421,8 +518,15 @@ async function validateAllThemes(): Promise<void> {
       const themeUsageResult = validateThemeUsageInComponents(componentName, stylePath);
       themeUsageResults.push(themeUsageResult);
       
+      const dataThemeResult = validateNoDataThemeInStyleFiles(componentName, stylePath);
+      dataThemeResults.push(dataThemeResult);
+      
       if (!themeUsageResult.isValid) {
         console.log(`   ⚠️  style.scss: ${themeUsageResult.errors.join('; ')}`);
+      }
+      
+      if (!dataThemeResult.isValid) {
+        console.log(`   ❌  style.scss: ${dataThemeResult.errors.join('; ')}`);
       }
     }
     
@@ -442,12 +546,16 @@ async function validateAllThemes(): Promise<void> {
       const forbiddenResult = validateForbiddenGlobalVariables(componentName, themePath);
       forbiddenResults.push(forbiddenResult);
       
+      // Валидация 4: Отсутствие CSS классов в файлах тем
+      const cssClassesResult = validateNoCSSClassesInThemeFiles(componentName, themePath);
+      cssClassesResults.push(cssClassesResult);
+      
       const themeName = path.basename(themePath, '.scss');
       
-      if (interfaceResult.isValid && prefixResult.isValid && forbiddenResult.isValid) {
-        console.log(`   ✅ ${themeName}: интерфейс OK, префиксы OK, глобальные переменные OK`);
+      if (interfaceResult.isValid && prefixResult.isValid && forbiddenResult.isValid && cssClassesResult.isValid) {
+        console.log(`   ✅ ${themeName}: интерфейс OK, префиксы OK, глобальные переменные OK, CSS классы OK`);
       } else {
-        const allErrors = [...interfaceResult.errors, ...prefixResult.errors, ...forbiddenResult.errors];
+        const allErrors = [...interfaceResult.errors, ...prefixResult.errors, ...forbiddenResult.errors, ...cssClassesResult.errors];
         console.log(`   ❌ ${themeName}: ${allErrors.join('; ')}`);
       }
     }
@@ -503,12 +611,12 @@ async function validateAllThemes(): Promise<void> {
   }
   
   // Выводим итоговую статистику
-  const allResults = [...interfaceResults, ...prefixResults, ...forbiddenResults, ...themeUsageResults];
+  const allResults = [...interfaceResults, ...prefixResults, ...forbiddenResults, ...themeUsageResults, ...dataThemeResults, ...cssClassesResults];
   const validResults = allResults.filter(r => r.isValid);
   const invalidResults = allResults.filter(r => !r.isValid);
   
   console.log('📊 Итоговая статистика:');
-  console.log(`   Всего проверено: ${interfaceResults.length} тем (4 проверки на тему)`);
+  console.log(`   Всего проверено: ${interfaceResults.length} тем (6 проверок на тему)`);
   console.log(`   ✅ Валидных проверок: ${validResults.length}`);
   console.log(`   ❌ Невалидных проверок: ${invalidResults.length}`);
   
