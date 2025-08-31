@@ -79,6 +79,17 @@ interface CSSClassesValidationResult {
 }
 
 /**
+ * Интерфейс для результатов валидации отсутствия импортов тем в файлах стилей
+ */
+interface ThemeImportsValidationResult {
+  component: string;
+  theme: string;
+  isValid: boolean;
+  errors: string[];
+  themeImports: string[];
+}
+
+/**
  * Извлекает CSS переменные из SCSS файла
  */
 function extractCSSVariablesFromSCSS(filePath: string): ThemeCSSVariables {
@@ -473,6 +484,40 @@ function validateNoCSSClassesInThemeFiles(
 }
 
 /**
+ * Валидирует отсутствие импортов тем в файлах стилей компонентов
+ */
+function validateNoThemeImportsInStyleFiles(
+  componentName: string,
+  stylePath: string
+): ThemeImportsValidationResult {
+  const content = fs.readFileSync(stylePath, 'utf-8');
+  const themeImports: string[] = [];
+  
+  // Регулярное выражение для поиска импортов тем
+  const themeImportRegex = /@use\s+['"]\.\/themes\/([^'"]+)\.scss['"]/g;
+  let match;
+  
+  while ((match = themeImportRegex.exec(content)) !== null) {
+    themeImports.push(`@use './themes/${match[1]}.scss'`);
+  }
+  
+  const isValid = themeImports.length === 0;
+  const errors: string[] = [];
+  
+  if (themeImports.length > 0) {
+    errors.push(`Импорты тем в файле стилей: ${themeImports.join(', ')}`);
+  }
+  
+  return {
+    component: componentName,
+    theme: 'style.scss',
+    isValid,
+    errors,
+    themeImports
+  };
+}
+
+/**
  * Основная функция валидации
  */
 async function validateAllThemes(): Promise<void> {
@@ -487,6 +532,7 @@ async function validateAllThemes(): Promise<void> {
   const themeUsageResults: ThemeUsageValidationResult[] = [];
   const dataThemeResults: DataThemeValidationResult[] = [];
   const cssClassesResults: CSSClassesValidationResult[] = [];
+  const themeImportsResults: ThemeImportsValidationResult[] = [];
   
   for (const componentPath of componentPaths) {
     const componentName = path.basename(componentPath);
@@ -521,12 +567,19 @@ async function validateAllThemes(): Promise<void> {
       const dataThemeResult = validateNoDataThemeInStyleFiles(componentName, stylePath);
       dataThemeResults.push(dataThemeResult);
       
+      const themeImportsResult = validateNoThemeImportsInStyleFiles(componentName, stylePath);
+      themeImportsResults.push(themeImportsResult);
+      
       if (!themeUsageResult.isValid) {
         console.log(`   ⚠️  style.scss: ${themeUsageResult.errors.join('; ')}`);
       }
       
       if (!dataThemeResult.isValid) {
         console.log(`   ❌  style.scss: ${dataThemeResult.errors.join('; ')}`);
+      }
+      
+      if (!themeImportsResult.isValid) {
+        console.log(`   ❌  style.scss: ${themeImportsResult.errors.join('; ')}`);
       }
     }
     
@@ -611,12 +664,12 @@ async function validateAllThemes(): Promise<void> {
   }
   
   // Выводим итоговую статистику
-  const allResults = [...interfaceResults, ...prefixResults, ...forbiddenResults, ...themeUsageResults, ...dataThemeResults, ...cssClassesResults];
+  const allResults = [...interfaceResults, ...prefixResults, ...forbiddenResults, ...themeUsageResults, ...dataThemeResults, ...cssClassesResults, ...themeImportsResults];
   const validResults = allResults.filter(r => r.isValid);
   const invalidResults = allResults.filter(r => !r.isValid);
   
   console.log('📊 Итоговая статистика:');
-  console.log(`   Всего проверено: ${interfaceResults.length} тем (6 проверок на тему)`);
+  console.log(`   Всего проверено: ${interfaceResults.length} тем (7 проверок на тему)`);
   console.log(`   ✅ Валидных проверок: ${validResults.length}`);
   console.log(`   ❌ Невалидных проверок: ${invalidResults.length}`);
   
