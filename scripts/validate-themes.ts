@@ -455,14 +455,23 @@ function validateNoCSSClassesInThemeFiles(
   const content = fs.readFileSync(themePath, 'utf-8');
   const cssClasses: string[] = [];
   
-  // Регулярное выражение для поиска CSS классов (исключаем data-theme селекторы)
-  const cssClassRegex = /^[^[]\s*\.([a-zA-Z][a-zA-Z0-9_-]*)\s*{/gm;
-  let match;
+  // Разбиваем на строки и проверяем каждую
+  const lines = content.split('\n');
   
-  while ((match = cssClassRegex.exec(content)) !== null) {
-    const className = match[1];
-    // Исключаем комментарии и пустые строки
-    if (className && !className.startsWith('//') && !className.startsWith('/*')) {
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    // Пропускаем пустые строки и комментарии
+    if (!line || line.startsWith('//') || line.startsWith('/*')) {
+      continue;
+    }
+    
+    // Ищем CSS классы в строке
+    const classMatch = line.match(/\.([a-zA-Z][a-zA-Z0-9_-]*)\s*{/);
+    if (classMatch) {
+      const className = classMatch[1];
+      
+      // Запрещаем любые CSS классы в файлах тем компонентов
       cssClasses.push(`.${className}`);
     }
   }
