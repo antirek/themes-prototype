@@ -1,0 +1,12 @@
+.default-avatar-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 15%;
+  box-sizing: border-box;
+  transition: transform var(--thepro-theme-transition);
+}
+
+.user-avatar:hover .default-avatar-icon {
+  transform: scale(1.05);
+}

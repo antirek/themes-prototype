@@ -13,7 +13,6 @@
     />
     <DefaultAvatarIcon 
       v-else
-      :theme="theme"
       class="avatar-image"
     />
   </div>

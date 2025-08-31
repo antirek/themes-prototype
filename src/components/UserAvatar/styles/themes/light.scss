@@ -8,3 +8,11 @@
   --thepro-useravatar-size-mobile: 110px;
   --thepro-useravatar-size-small: 100px;
 }
+
+.user-avatar[data-theme="light"] .default-avatar-icon {
+  color: #6c757d; /* Серый цвет для светлой темы */
+}
+
+.user-avatar[data-theme="light"]:hover .default-avatar-icon {
+  color: #495057; /* Темнее при hover */
+}
