@@ -72,7 +72,7 @@
         <div class="avatar-section">
           <h2>👤 Демонстрация компонента аватара</h2>
           <div class="avatar-grid">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper" :data-theme="avatarTheme1">
               <div class="theme-selector">
                 <label class="theme-label">Тема аватара 1:</label>
                 <select 
@@ -90,7 +90,7 @@
               />
             </div>
             
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper" :data-theme="avatarTheme2">
               <div class="theme-selector">
                 <label class="theme-label">Тема аватара 2:</label>
                 <select 
@@ -109,7 +109,7 @@
               />
             </div>
             
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper" :data-theme="avatarTheme3">
               <div class="theme-selector">
                 <label class="theme-label">Тема аватара 3:</label>
                 <select 
@@ -128,7 +128,7 @@
               />
             </div>
             
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper" :data-theme="avatarTheme4">
               <div class="theme-selector">
                 <label class="theme-label">Аватар без фото:</label>
                 <select 
@@ -145,7 +145,7 @@
               />
             </div>
             
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper" :data-theme="avatarTheme5">
               <div class="theme-selector">
                 <label class="theme-label">Аватар с ошибкой:</label>
                 <select 
