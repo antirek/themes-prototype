@@ -35,4 +35,11 @@
   --thepro-userprofilecard-description-font-family: var(--thepro-theme-font-family-secondary);
   --thepro-userprofilecard-description-font-size: var(--thepro-theme-font-size-sm);
   --thepro-userprofilecard-description-color: var(--thepro-theme-color-gray-100);
+  
+  /* Размер аватара в темной теме - стандартный */
+  --thepro-userprofilecard-avatar-size: 140px;
+  --thepro-userprofilecard-avatar-size-large: 130px;
+  --thepro-userprofilecard-avatar-size-medium: 120px;
+  --thepro-userprofilecard-avatar-size-mobile: 110px;
+  --thepro-userprofilecard-avatar-size-small: 100px;
 }

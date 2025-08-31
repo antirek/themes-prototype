@@ -72,4 +72,15 @@ export interface UserProfileCardThemeCSSVariables {
   '--thepro-userprofilecard-description-font-size': string;
   /** Цвет описания пользователя */
   '--thepro-userprofilecard-description-color': string;
+  
+  /** Размер аватара в карточке профиля */
+  '--thepro-userprofilecard-avatar-size': string;
+  /** Размер аватара на больших экранах */
+  '--thepro-userprofilecard-avatar-size-large': string;
+  /** Размер аватара на средних экранах */
+  '--thepro-userprofilecard-avatar-size-medium': string;
+  /** Размер аватара на мобильных */
+  '--thepro-userprofilecard-avatar-size-mobile': string;
+  /** Размер аватара на маленьких мобильных */
+  '--thepro-userprofilecard-avatar-size-small': string;
 }
