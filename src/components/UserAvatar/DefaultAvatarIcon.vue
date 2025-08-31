@@ -23,7 +23,3 @@
 <script setup lang="ts">
 // Компонент не содержит логики тем - стили управляются через CSS
 </script>
-
-<style lang="scss">
-@use './styles/DefaultAvatarIcon.scss';
-</style>
