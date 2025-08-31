@@ -110,7 +110,6 @@
               <UserAvatar 
                 :src="userData2.avatar" 
                 :alt="userData2.name"
-                size="120px"
               />
             </div>
             
@@ -130,7 +129,6 @@
               <UserAvatar 
                 :src="userData3.avatar" 
                 :alt="userData3.name"
-                size="100px"
               />
             </div>
             
@@ -147,9 +145,7 @@
                   <option value="starwars">Star Wars</option>
                 </select>
               </div>
-              <UserAvatar 
-                size="100px"
-              />
+              <UserAvatar />
             </div>
             
             <div class="avatar-wrapper" :data-theme="avatarTheme5">
@@ -168,7 +164,6 @@
               <UserAvatar 
                 src="https://invalid-url-that-will-fail.com/avatar.jpg"
                 alt="Broken avatar"
-                size="100px"
               />
             </div>
           </div>
@@ -412,6 +407,47 @@ const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  
+  /* Размеры аватаров для демонстрации */
+  &:nth-child(1) .user-avatar {
+    --thepro-useravatar-size: 140px;
+    --thepro-useravatar-size-large: 130px;
+    --thepro-useravatar-size-medium: 120px;
+    --thepro-useravatar-size-mobile: 110px;
+    --thepro-useravatar-size-small: 100px;
+  }
+  
+  &:nth-child(2) .user-avatar {
+    --thepro-useravatar-size: 120px;
+    --thepro-useravatar-size-large: 110px;
+    --thepro-useravatar-size-medium: 100px;
+    --thepro-useravatar-size-mobile: 90px;
+    --thepro-useravatar-size-small: 80px;
+  }
+  
+  &:nth-child(3) .user-avatar {
+    --thepro-useravatar-size: 100px;
+    --thepro-useravatar-size-large: 90px;
+    --thepro-useravatar-size-medium: 80px;
+    --thepro-useravatar-size-mobile: 70px;
+    --thepro-useravatar-size-small: 60px;
+  }
+  
+  &:nth-child(4) .user-avatar {
+    --thepro-useravatar-size: 100px;
+    --thepro-useravatar-size-large: 90px;
+    --thepro-useravatar-size-medium: 80px;
+    --thepro-useravatar-size-mobile: 70px;
+    --thepro-useravatar-size-small: 60px;
+  }
+  
+  &:nth-child(5) .user-avatar {
+    --thepro-useravatar-size: 100px;
+    --thepro-useravatar-size-large: 90px;
+    --thepro-useravatar-size-medium: 80px;
+    --thepro-useravatar-size-mobile: 70px;
+    --thepro-useravatar-size-small: 60px;
+  }
 }
 
 .theme-selector {

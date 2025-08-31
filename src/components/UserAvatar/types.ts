@@ -28,6 +28,4 @@ export interface UserAvatarProps {
   src?: string;
   /** Альтернативный текст для изображения */
   alt?: string;
-  /** Размер аватара (опционально, переопределяет CSS переменную) */
-  size?: string;
 }

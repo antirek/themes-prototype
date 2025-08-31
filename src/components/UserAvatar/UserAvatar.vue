@@ -1,8 +1,5 @@
 <template>
-  <div 
-    class="user-avatar" 
-    :style="customSizeStyle"
-  >
+  <div class="user-avatar">
     <img 
       v-if="!shouldShowDefaultIcon"
       :src="src" 
@@ -31,18 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const imageError = ref(false)
 
-const customSizeStyle = computed(() => {
-  if (props.size) {
-    return {
-      '--thepro-useravatar-size': props.size,
-      '--thepro-useravatar-size-large': props.size,
-      '--thepro-useravatar-size-medium': props.size,
-      '--thepro-useravatar-size-mobile': props.size,
-      '--thepro-useravatar-size-small': props.size
-    }
-  }
-  return {}
-})
+
 
 const handleImageError = () => {
   imageError.value = true
