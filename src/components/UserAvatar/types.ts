@@ -15,6 +15,12 @@ export interface UserAvatarThemeCSSVariables {
   '--thepro-useravatar-size-mobile': string;
   /** Размер аватара на маленьких мобильных */
   '--thepro-useravatar-size-small': string;
+  /** Цвет иконки аватара по умолчанию */
+  '--thepro-useravatar-icon-color': string;
+  /** Цвет иконки аватара при hover */
+  '--thepro-useravatar-icon-color-hover': string;
+  /** Отступы иконки аватара */
+  '--thepro-useravatar-icon-padding': string;
 }
 
 export interface UserAvatarProps {

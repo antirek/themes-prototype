@@ -7,12 +7,7 @@
   --thepro-useravatar-size-medium: 120px;
   --thepro-useravatar-size-mobile: 110px;
   --thepro-useravatar-size-small: 100px;
-}
-
-[data-theme="green"] .user-avatar .default-avatar-icon {
-  color: #1e7e34; /* Темно-зеленый цвет для зеленой темы */
-}
-
-[data-theme="green"] .user-avatar:hover .default-avatar-icon {
-  color: #155724; /* Еще темнее при hover */
+  --thepro-useravatar-icon-color: #1e7e34;
+  --thepro-useravatar-icon-color-hover: #155724;
+  --thepro-useravatar-icon-padding: 15%;
 }
