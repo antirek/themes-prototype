@@ -1,0 +1,75 @@
+// Импорт стилей компонентов для темы Star Wars
+@use '../../components/UserProfileCard/styles/themes/starwars.scss' as userprofilecard-starwars;
+@use '../../components/UserAvatar/styles/themes/starwars.scss' as useravatar-starwars;
+
+[data-theme="starwars"] {
+  /* Цветовая палитра Star Wars */
+  --thepro-theme-color-primary: #ffd700; /* Золотой цвет джедаев */
+  --thepro-theme-color-secondary: #c41e3a; /* Красный цвет Ситхов */
+  --thepro-theme-color-success: #00ff41; /* Неоновый зеленый */
+  --thepro-theme-color-warning: #ff6b35; /* Оранжевый цвет плазмы */
+  --thepro-theme-color-danger: #ff0040; /* Ярко-красный */
+  --thepro-theme-color-white: #ffffff;
+  --thepro-theme-color-gray-100: #f8f9fa;
+  --thepro-theme-color-gray-300: #dee2e6;
+  --thepro-theme-color-gray-600: #6c757d;
+  --thepro-theme-color-black: #000000;
+  
+  /* Текстовые цвета */
+  --thepro-theme-color-text: #e8e8e8; /* Светло-серый для текста */
+  --thepro-theme-color-text-muted: #a0a0a0; /* Приглушенный серый */
+  
+  /* Фоновые цвета */
+  --thepro-theme-color-bg: #1a1a1a; /* Темно-серый фон */
+  --thepro-theme-color-bg-secondary: #2d2d2d; /* Чуть светлее для карточек */
+  --thepro-theme-color-border: #404040; /* Границы */
+  
+  /* Шрифты Star Wars */
+  --thepro-theme-font-family-primary: 'Orbitron', 'Arial Black', sans-serif; /* Футуристический шрифт */
+  --thepro-theme-font-family-secondary: 'Rajdhani', 'Arial', sans-serif; /* Технический шрифт */
+  --thepro-theme-font-family-mono: 'Courier New', monospace;
+  
+  /* Размеры шрифтов - увеличенные для драматичности */
+  --thepro-theme-font-size-sm: 0.875rem;
+  --thepro-theme-font-size-base: 1.125rem; /* Увеличенный базовый размер */
+  --thepro-theme-font-size-lg: 1.5rem;
+  --thepro-theme-font-size-xl: 2rem; /* Больше для заголовков */
+  
+  /* Жирность шрифтов */
+  --thepro-theme-font-weight-normal: 400;
+  --thepro-theme-font-weight-bold: 700;
+  
+  /* Высота строки */
+  --thepro-theme-line-height: 1.6;
+  
+  /* Отступы - увеличенные для эпичности */
+  --thepro-theme-spacing-0: 0;
+  --thepro-theme-spacing-1: 0.5rem;
+  --thepro-theme-spacing-2: 1rem;
+  --thepro-theme-spacing-3: 1.5rem;
+  --thepro-theme-spacing-4: 2rem; /* Увеличенные отступы */
+  --thepro-theme-spacing-6: 3rem;
+  --thepro-theme-spacing-8: 4rem;
+  
+  /* Радиусы скругления - более острые для футуристического вида */
+  --thepro-theme-radius-sm: 2px;
+  --thepro-theme-radius-md: 4px;
+  --thepro-theme-radius-lg: 8px;
+  
+  /* Толщина границ */
+  --thepro-theme-border-width: 2px; /* Толще для драматичности */
+  
+  /* Тени - неоновые эффекты */
+  --thepro-theme-shadow-sm: 0 2px 8px rgba(255, 215, 0, 0.2); /* Золотая тень */
+  --thepro-theme-shadow-md: 0 4px 16px rgba(255, 215, 0, 0.3);
+  --thepro-theme-shadow-lg: 0 8px 32px rgba(255, 215, 0, 0.4);
+  
+  /* Переходы */
+  --thepro-theme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --thepro-theme-transition-fast: all 0.15s ease-in-out;
+  
+  /* Брейкпоинты */
+  --thepro-theme-breakpoint-sm: 576px;
+  --thepro-theme-breakpoint-md: 768px;
+  --thepro-theme-breakpoint-lg: 992px;
+}

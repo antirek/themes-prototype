@@ -21,6 +21,7 @@
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
                   <option value="green">Зеленая</option>
+                  <option value="starwars">Star Wars</option>
                 </select>
               </div>
               <UserProfileCard 
@@ -40,6 +41,7 @@
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
                   <option value="green">Зеленая</option>
+                  <option value="starwars">Star Wars</option>
                 </select>
               </div>
               <UserProfileCard 
@@ -59,6 +61,7 @@
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
                   <option value="green">Зеленая</option>
+                  <option value="starwars">Star Wars</option>
                 </select>
               </div>
               <UserProfileCard 
@@ -82,6 +85,7 @@
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
                   <option value="green">Зеленая</option>
+                  <option value="starwars">Star Wars</option>
                 </select>
               </div>
               <UserAvatar 
@@ -100,6 +104,7 @@
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
                   <option value="green">Зеленая</option>
+                  <option value="starwars">Star Wars</option>
                 </select>
               </div>
               <UserAvatar 
@@ -119,6 +124,7 @@
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
                   <option value="green">Зеленая</option>
+                  <option value="starwars">Star Wars</option>
                 </select>
               </div>
               <UserAvatar 
@@ -138,6 +144,7 @@
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
                   <option value="green">Зеленая</option>
+                  <option value="starwars">Star Wars</option>
                 </select>
               </div>
               <UserAvatar 
@@ -155,6 +162,7 @@
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
                   <option value="green">Зеленая</option>
+                  <option value="starwars">Star Wars</option>
                 </select>
               </div>
               <UserAvatar 
@@ -240,19 +248,19 @@ const userData3 = ref({
 })
 
 // Переменные для тем карточек профиля
-const profileTheme1 = ref<'light' | 'dark' | 'green'>('light')
-const profileTheme2 = ref<'light' | 'dark' | 'green'>('dark')
-const profileTheme3 = ref<'light' | 'dark' | 'green'>('green')
+const profileTheme1 = ref<'light' | 'dark' | 'green' | 'starwars'>('light')
+const profileTheme2 = ref<'light' | 'dark' | 'green' | 'starwars'>('dark')
+const profileTheme3 = ref<'light' | 'dark' | 'green' | 'starwars'>('green')
 
 // Переменные для тем аватаров
-const avatarTheme1 = ref<'light' | 'dark' | 'green'>('light')
-const avatarTheme2 = ref<'light' | 'dark' | 'green'>('dark')
-const avatarTheme3 = ref<'light' | 'dark' | 'green'>('green')
-const avatarTheme4 = ref<'light' | 'dark' | 'green'>('light')
-const avatarTheme5 = ref<'light' | 'dark' | 'green'>('dark')
+const avatarTheme1 = ref<'light' | 'dark' | 'green' | 'starwars'>('light')
+const avatarTheme2 = ref<'light' | 'dark' | 'green' | 'starwars'>('dark')
+const avatarTheme3 = ref<'light' | 'dark' | 'green' | 'starwars'>('green')
+const avatarTheme4 = ref<'light' | 'dark' | 'green' | 'starwars'>('light')
+const avatarTheme5 = ref<'light' | 'dark' | 'green' | 'starwars'>('dark')
 
 // Функция для обновления темы карточки профиля
-const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green') => {
+const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green' | 'starwars') => {
   console.log(`Карточка ${cardNumber} переключена на тему: ${theme}`)
 }
 </script>
