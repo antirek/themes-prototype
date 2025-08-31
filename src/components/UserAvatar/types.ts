@@ -19,9 +19,9 @@ export interface UserAvatarThemeCSSVariables {
 
 export interface UserAvatarProps {
   /** URL изображения аватара */
-  src: string;
+  src?: string;
   /** Альтернативный текст для изображения */
-  alt: string;
+  alt?: string;
   /** Тема компонента */
   theme?: 'light' | 'dark' | 'green';
   /** Размер аватара (опционально, переопределяет CSS переменную) */

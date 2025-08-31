@@ -130,6 +130,44 @@
                 size="100px"
               />
             </div>
+            
+            <div class="avatar-wrapper">
+              <div class="theme-selector">
+                <label class="theme-label">Аватар без фото:</label>
+                <select 
+                  v-model="avatarTheme4" 
+                  class="theme-select"
+                >
+                  <option value="light">Светлая</option>
+                  <option value="dark">Темная</option>
+                  <option value="green">Зеленая</option>
+                </select>
+              </div>
+              <UserAvatar 
+                :theme="avatarTheme4"
+                size="100px"
+              />
+            </div>
+            
+            <div class="avatar-wrapper">
+              <div class="theme-selector">
+                <label class="theme-label">Аватар с ошибкой:</label>
+                <select 
+                  v-model="avatarTheme5" 
+                  class="theme-select"
+                >
+                  <option value="light">Светлая</option>
+                  <option value="dark">Темная</option>
+                  <option value="green">Зеленая</option>
+                </select>
+              </div>
+              <UserAvatar 
+                src="https://invalid-url-that-will-fail.com/avatar.jpg"
+                alt="Broken avatar"
+                :theme="avatarTheme5"
+                size="100px"
+              />
+            </div>
           </div>
         </div>
         
@@ -215,6 +253,8 @@ const profileTheme3 = ref<'light' | 'dark' | 'green'>('green')
 const avatarTheme1 = ref<'light' | 'dark' | 'green'>('light')
 const avatarTheme2 = ref<'light' | 'dark' | 'green'>('dark')
 const avatarTheme3 = ref<'light' | 'dark' | 'green'>('green')
+const avatarTheme4 = ref<'light' | 'dark' | 'green'>('light')
+const avatarTheme5 = ref<'light' | 'dark' | 'green'>('dark')
 
 // Функция для обновления темы карточки профиля
 const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green') => {

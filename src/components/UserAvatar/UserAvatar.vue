@@ -5,22 +5,34 @@
     :style="customSizeStyle"
   >
     <img 
+      v-if="!shouldShowDefaultIcon"
       :src="src" 
-      :alt="alt"
+      :alt="alt || 'User avatar'"
+      class="avatar-image"
+      @error="handleImageError"
+    />
+    <DefaultAvatarIcon 
+      v-else
+      :theme="theme"
       class="avatar-image"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { UserAvatarProps } from './types'
+import DefaultAvatarIcon from './DefaultAvatarIcon.vue'
 
 interface Props extends UserAvatarProps {}
 
 const props = withDefaults(defineProps<Props>(), {
-  theme: 'light'
+  theme: 'light',
+  src: undefined,
+  alt: undefined
 })
+
+const imageError = ref(false)
 
 const customSizeStyle = computed(() => {
   if (props.size) {
@@ -33,6 +45,14 @@ const customSizeStyle = computed(() => {
     }
   }
   return {}
+})
+
+const handleImageError = () => {
+  imageError.value = true
+}
+
+const shouldShowDefaultIcon = computed(() => {
+  return !props.src || imageError.value
 })
 </script>
 
