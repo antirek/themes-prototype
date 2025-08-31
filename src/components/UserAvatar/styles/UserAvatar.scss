@@ -1,0 +1,39 @@
+.user-avatar {
+  width: var(--thepro-useravatar-size, 140px);
+  height: var(--thepro-useravatar-size, 140px);
+  border-radius: var(--thepro-useravatar-border-radius, 50%);
+  overflow: hidden;
+  border: 3px solid var(--thepro-useravatar-border, var(--thepro-theme-color-primary));
+  box-shadow: var(--thepro-useravatar-shadow, var(--thepro-theme-shadow-sm));
+  
+  @media (max-width: 1400px) {
+    width: var(--thepro-useravatar-size-large, 130px);
+    height: var(--thepro-useravatar-size-large, 130px);
+  }
+  
+  @media (max-width: 1200px) {
+    width: var(--thepro-useravatar-size-medium, 120px);
+    height: var(--thepro-useravatar-size-medium, 120px);
+  }
+  
+  @media (max-width: 768px) {
+    width: var(--thepro-useravatar-size-mobile, 110px);
+    height: var(--thepro-useravatar-size-mobile, 110px);
+  }
+  
+  @media (max-width: 576px) {
+    width: var(--thepro-useravatar-size-small, 100px);
+    height: var(--thepro-useravatar-size-small, 100px);
+  }
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--thepro-theme-transition);
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}

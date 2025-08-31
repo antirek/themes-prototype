@@ -69,6 +69,70 @@
           </div>
         </div>
         
+        <div class="avatar-section">
+          <h2>👤 Демонстрация компонента аватара</h2>
+          <div class="avatar-grid">
+            <div class="avatar-wrapper">
+              <div class="theme-selector">
+                <label class="theme-label">Тема аватара 1:</label>
+                <select 
+                  v-model="avatarTheme1" 
+                  class="theme-select"
+                >
+                  <option value="light">Светлая</option>
+                  <option value="dark">Темная</option>
+                  <option value="green">Зеленая</option>
+                </select>
+              </div>
+              <UserAvatar 
+                :src="userData1.avatar" 
+                :alt="userData1.name"
+                :theme="avatarTheme1"
+              />
+            </div>
+            
+            <div class="avatar-wrapper">
+              <div class="theme-selector">
+                <label class="theme-label">Тема аватара 2:</label>
+                <select 
+                  v-model="avatarTheme2" 
+                  class="theme-select"
+                >
+                  <option value="light">Светлая</option>
+                  <option value="dark">Темная</option>
+                  <option value="green">Зеленая</option>
+                </select>
+              </div>
+              <UserAvatar 
+                :src="userData2.avatar" 
+                :alt="userData2.name"
+                :theme="avatarTheme2"
+                size="120px"
+              />
+            </div>
+            
+            <div class="avatar-wrapper">
+              <div class="theme-selector">
+                <label class="theme-label">Тема аватара 3:</label>
+                <select 
+                  v-model="avatarTheme3" 
+                  class="theme-select"
+                >
+                  <option value="light">Светлая</option>
+                  <option value="dark">Темная</option>
+                  <option value="green">Зеленая</option>
+                </select>
+              </div>
+              <UserAvatar 
+                :src="userData3.avatar" 
+                :alt="userData3.name"
+                :theme="avatarTheme3"
+                size="100px"
+              />
+            </div>
+          </div>
+        </div>
+        
         <div class="cards-section">
           <h2>📋 Обычные карточки</h2>
           <div class="cards-grid">
@@ -91,6 +155,7 @@
 import { ref } from 'vue'
 import CardWithTheme from './components/CardWithTheme/CardWithTheme.vue'
 import UserProfileCard from './components/UserProfileCard/UserProfileCard.vue'
+import UserAvatar from './components/UserAvatar/UserAvatar.vue'
 import type { CardData } from '@/types/card'
 
 const cardData1 = ref<CardData>({
@@ -146,6 +211,11 @@ const profileTheme1 = ref<'light' | 'dark' | 'green'>('light')
 const profileTheme2 = ref<'light' | 'dark' | 'green'>('dark')
 const profileTheme3 = ref<'light' | 'dark' | 'green'>('green')
 
+// Переменные для тем аватаров
+const avatarTheme1 = ref<'light' | 'dark' | 'green'>('light')
+const avatarTheme2 = ref<'light' | 'dark' | 'green'>('dark')
+const avatarTheme3 = ref<'light' | 'dark' | 'green'>('green')
+
 // Функция для обновления темы карточки профиля
 const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green') => {
   console.log(`Карточка ${cardNumber} переключена на тему: ${theme}`)
@@ -199,7 +269,8 @@ const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green
 }
 
 .cards-section,
-.profile-section {
+.profile-section,
+.avatar-section {
   h2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -263,7 +334,37 @@ const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green
   }
 }
 
-.profile-card-wrapper {
+.avatar-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  @media (max-width: 1400px) {
+    gap: 2.5rem;
+    max-width: 1200px;
+  }
+  
+  @media (max-width: 1200px) {
+    gap: 2rem;
+    max-width: 1000px;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    max-width: 100%;
+  }
+}
+
+.profile-card-wrapper,
+.avatar-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;

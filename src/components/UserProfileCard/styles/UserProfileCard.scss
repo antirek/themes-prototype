@@ -82,45 +82,7 @@
 
 
 
-.user-avatar {
-  width: var(--thepro-userprofilecard-avatar-size, 140px);
-  height: var(--thepro-userprofilecard-avatar-size, 140px);
-  border-radius: var(--thepro-userprofilecard-avatar-border-radius, 50%);
-  overflow: hidden;
-  border: 3px solid var(--thepro-userprofilecard-avatar-border, var(--thepro-theme-color-primary));
-  box-shadow: var(--thepro-userprofilecard-avatar-shadow, var(--thepro-theme-shadow-sm));
-  
-  @media (max-width: 1400px) {
-    width: 130px;
-    height: 130px;
-  }
-  
-  @media (max-width: 1200px) {
-    width: 120px;
-    height: 120px;
-  }
-  
-  @media (max-width: 768px) {
-    width: 110px;
-    height: 110px;
-  }
-  
-  @media (max-width: 576px) {
-    width: 100px;
-    height: 100px;
-  }
-}
 
-.avatar-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--thepro-theme-transition);
-  
-  &:hover {
-    transform: scale(1.05);
-  }
-}
 
 .user-info {
   display: flex;

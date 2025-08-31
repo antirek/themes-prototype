@@ -4,13 +4,11 @@
     
     <div class="user-profile-body">
       <div class="user-profile-content">
-        <div class="user-avatar">
-          <img 
-            :src="userData.avatar" 
-            :alt="userData.name"
-            class="avatar-image"
-          />
-        </div>
+        <UserAvatar 
+          :src="userData.avatar" 
+          :alt="userData.name"
+          :theme="theme"
+        />
         
         <div class="user-info">
           <div class="user-name">{{ userData.name }}</div>
@@ -28,6 +26,7 @@
 import { computed } from 'vue'
 import CardHeader from '../CardHeader/CardHeader.vue'
 import CardFooter from '../CardFooter/CardFooter.vue'
+import UserAvatar from '../UserAvatar/UserAvatar.vue'
 
 interface UserData {
   name: string

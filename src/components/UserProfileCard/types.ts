@@ -29,14 +29,7 @@ export interface UserProfileCardThemeCSSVariables {
   '--thepro-userprofilecard-content-align-mobile': string;
   /** Выравнивание текста контента на мобильных */
   '--thepro-userprofilecard-content-text-align-mobile': string;
-  /** Размер аватара пользователя */
-  '--thepro-userprofilecard-avatar-size': string;
-  /** Граница аватара пользователя */
-  '--thepro-userprofilecard-avatar-border': string;
-  /** Радиус скругления аватара пользователя */
-  '--thepro-userprofilecard-avatar-border-radius': string;
-  /** Тень аватара пользователя */
-  '--thepro-userprofilecard-avatar-shadow': string;
+
   /** Отступы между элементами информации */
   '--thepro-userprofilecard-info-gap': string;
   /** Выравнивание информации */
