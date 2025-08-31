@@ -3,10 +3,10 @@
   --thepro-cardfooter-bg: var(--thepro-theme-color-bg-secondary);
   --thepro-cardfooter-text: var(--thepro-theme-color-text-muted);
   --thepro-cardfooter-border: var(--thepro-theme-color-border);
-  --thepro-cardfooter-padding: 1.5rem 2rem;
-  --thepro-cardfooter-padding-mobile: 1.25rem;
-  --thepro-cardfooter-padding-small: 1rem;
-  --thepro-cardfooter-font-size: 0.75rem;
+  --thepro-cardfooter-padding: var(--thepro-theme-spacing-6) var(--thepro-theme-spacing-8);
+  --thepro-cardfooter-padding-mobile: var(--thepro-theme-spacing-5);
+  --thepro-cardfooter-padding-small: var(--thepro-theme-spacing-4);
+  --thepro-cardfooter-font-size: var(--thepro-theme-font-size-sm);
   --thepro-cardfooter-font-size-small: 0.625rem;
   --thepro-cardfooter-text-align: left;
   --thepro-cardfooter-stripe-height: 2px;

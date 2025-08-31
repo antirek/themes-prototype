@@ -1,7 +1,7 @@
 [data-theme="green"] {
   --thepro-userprofilecard-bg: var(--thepro-theme-color-white);
   --thepro-userprofilecard-border: var(--thepro-theme-color-success);
-  --thepro-userprofilecard-border-radius: 20px;
+  --thepro-userprofilecard-border-radius: var(--thepro-theme-radius-lg);
   --thepro-userprofilecard-shadow: var(--thepro-theme-shadow-md);
   --thepro-userprofilecard-body-padding: var(--thepro-theme-spacing-6);
   --thepro-userprofilecard-body-bg: var(--thepro-theme-color-white);

@@ -24,6 +24,11 @@
   --thepro-theme-color-bg-secondary: #2d2d2d; /* Чуть светлее для карточек */
   --thepro-theme-color-border: #404040; /* Границы */
   
+  /* Прозрачность */
+  --thepro-theme-opacity-light: 0.05;
+  --thepro-theme-opacity-medium: 0.1;
+  --thepro-theme-opacity-heavy: 0.2;
+  
   /* Шрифты Star Wars */
   --thepro-theme-font-family-primary: 'Orbitron', 'Arial Black', sans-serif; /* Футуристический шрифт */
   --thepro-theme-font-family-secondary: 'Rajdhani', 'Arial', sans-serif; /* Технический шрифт */
@@ -48,6 +53,7 @@
   --thepro-theme-spacing-2: 1rem;
   --thepro-theme-spacing-3: 1.5rem;
   --thepro-theme-spacing-4: 2rem; /* Увеличенные отступы */
+  --thepro-theme-spacing-5: 2.5rem;
   --thepro-theme-spacing-6: 3rem;
   --thepro-theme-spacing-8: 4rem;
   
@@ -55,6 +61,7 @@
   --thepro-theme-radius-sm: 2px;
   --thepro-theme-radius-md: 4px;
   --thepro-theme-radius-lg: 8px;
+  --thepro-theme-radius-circle: 50%;
   
   /* Толщина границ */
   --thepro-theme-border-width: 2px; /* Толще для драматичности */

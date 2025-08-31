@@ -1,13 +1,13 @@
 [data-theme="dark"] .user-avatar {
   --thepro-useravatar-size: 140px;
   --thepro-useravatar-border: var(--thepro-theme-color-primary);
-  --thepro-useravatar-border-radius: 50%;
+  --thepro-useravatar-border-radius: var(--thepro-theme-radius-circle, 50%);
   --thepro-useravatar-shadow: var(--thepro-theme-shadow-md);
   --thepro-useravatar-size-large: 130px;
   --thepro-useravatar-size-medium: 120px;
   --thepro-useravatar-size-mobile: 110px;
   --thepro-useravatar-size-small: 100px;
-  --thepro-useravatar-icon-color: #495057;
-  --thepro-useravatar-icon-color-hover: #6c757d;
-  --thepro-useravatar-icon-padding: 15%;
+  --thepro-useravatar-icon-color: var(--thepro-theme-color-gray-600);
+  --thepro-useravatar-icon-color-hover: var(--thepro-theme-color-gray-600);
+  --thepro-useravatar-icon-padding: var(--thepro-theme-spacing-3);
 }

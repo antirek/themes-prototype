@@ -603,12 +603,16 @@ async function validateAllThemes(): Promise<void> {
       const cssClassesResult = validateNoCSSClassesInThemeFiles(componentName, themePath);
       cssClassesResults.push(cssClassesResult);
       
+      // Валидация 5: Отсутствие хардкода в файлах тем
+      const themeHardcodedResult = validateThemeUsageInComponents(componentName, themePath);
+      themeUsageResults.push(themeHardcodedResult);
+      
       const themeName = path.basename(themePath, '.scss');
       
-      if (interfaceResult.isValid && prefixResult.isValid && forbiddenResult.isValid && cssClassesResult.isValid) {
-        console.log(`   ✅ ${themeName}: интерфейс OK, префиксы OK, глобальные переменные OK, CSS классы OK`);
+      if (interfaceResult.isValid && prefixResult.isValid && forbiddenResult.isValid && cssClassesResult.isValid && themeHardcodedResult.isValid) {
+        console.log(`   ✅ ${themeName}: интерфейс OK, префиксы OK, глобальные переменные OK, CSS классы OK, хардкод OK`);
       } else {
-        const allErrors = [...interfaceResult.errors, ...prefixResult.errors, ...forbiddenResult.errors, ...cssClassesResult.errors];
+        const allErrors = [...interfaceResult.errors, ...prefixResult.errors, ...forbiddenResult.errors, ...cssClassesResult.errors, ...themeHardcodedResult.errors];
         console.log(`   ❌ ${themeName}: ${allErrors.join('; ')}`);
       }
     }
@@ -669,7 +673,7 @@ async function validateAllThemes(): Promise<void> {
   const invalidResults = allResults.filter(r => !r.isValid);
   
   console.log('📊 Итоговая статистика:');
-  console.log(`   Всего проверено: ${interfaceResults.length} тем (7 проверок на тему)`);
+  console.log(`   Всего проверено: ${interfaceResults.length} тем (8 проверок на тему)`);
   console.log(`   ✅ Валидных проверок: ${validResults.length}`);
   console.log(`   ❌ Невалидных проверок: ${invalidResults.length}`);
   

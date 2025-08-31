@@ -22,6 +22,11 @@ export interface ThemeCSSVariables {
   '--thepro-theme-color-bg': string;
   '--thepro-theme-color-bg-secondary': string;
   '--thepro-theme-color-border': string;
+  
+  // Прозрачность
+  '--thepro-theme-opacity-light': string;
+  '--thepro-theme-opacity-medium': string;
+  '--thepro-theme-opacity-heavy': string;
 
   // Типографика
   '--thepro-theme-font-family-primary': string;
@@ -44,6 +49,7 @@ export interface ThemeCSSVariables {
   '--thepro-theme-spacing-2': string;
   '--thepro-theme-spacing-3': string;
   '--thepro-theme-spacing-4': string;
+  '--thepro-theme-spacing-5': string;
   '--thepro-theme-spacing-6': string;
   '--thepro-theme-spacing-8': string;
 
@@ -51,6 +57,7 @@ export interface ThemeCSSVariables {
   '--thepro-theme-radius-sm': string;
   '--thepro-theme-radius-md': string;
   '--thepro-theme-radius-lg': string;
+  '--thepro-theme-radius-circle': string;
 
   '--thepro-theme-border-width': string;
 

@@ -2,7 +2,7 @@
 [data-theme="green"] {
   --thepro-cardbody-bg: var(--thepro-theme-color-bg);
   --thepro-cardbody-text: var(--thepro-theme-color-text);
-  --thepro-cardbody-overlay: rgba(39, 174, 96, 0.1);
+  --thepro-cardbody-overlay: rgba(39, 174, 96, var(--thepro-theme-opacity-medium));
   --thepro-cardbody-font-family: var(--thepro-theme-font-family-primary);
   --thepro-cardbody-text-align: center;
 }

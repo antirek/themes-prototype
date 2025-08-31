@@ -1,7 +1,7 @@
 [data-theme="starwars"] {
   --thepro-userprofilecard-bg: var(--thepro-theme-color-bg-secondary);
   --thepro-userprofilecard-border: var(--thepro-theme-color-primary);
-  --thepro-userprofilecard-border-radius: 12px;
+  --thepro-userprofilecard-border-radius: var(--thepro-theme-radius-lg);
   --thepro-userprofilecard-shadow: var(--thepro-theme-shadow-lg);
   
   --thepro-userprofilecard-body-padding: var(--thepro-theme-spacing-6);
