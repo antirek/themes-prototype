@@ -4,6 +4,7 @@
 @use '../../components/CardFooter/styles/themes/green.scss' as cardfooter-green;
 @use '../../components/CardPreview/styles/themes/green.scss' as cardpreview-green;
 @use '../../components/UserProfileCard/styles/themes/green.scss' as userprofilecard-green;
+@use '../../components/UserAvatar/styles/themes/green.scss' as useravatar-green;
 
 // Зеленая тема
 [data-theme="green"] {
