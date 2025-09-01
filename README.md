@@ -144,10 +144,24 @@ npm run dev
 npm run build:lib
 ```
 
+### Сборка Storybook
+```bash
+npm run build-storybook
+```
+
 ### Валидация тем
 ```bash
 npm run validate-themes
 ```
+
+### Storybook
+```bash
+npm run storybook
+```
+
+Storybook доступен по адресу: http://localhost:6006
+
+Подробное руководство по Storybook: [docs/STORYBOOK_GUIDE.md](docs/STORYBOOK_GUIDE.md)
 
 ## 📋 Валидация
 

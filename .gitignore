@@ -132,3 +132,5 @@ dist
 .vscode
 
 *.mp4
+*storybook.log
+storybook-static
