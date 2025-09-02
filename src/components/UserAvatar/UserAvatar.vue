@@ -1,5 +1,5 @@
 <template>
-  <div class="user-avatar">
+  <div class="user-avatar" ref="avatarRef">
     <img 
       v-if="!shouldShowDefaultIcon"
       :src="src" 
@@ -7,28 +7,28 @@
       class="avatar-image"
       @error="handleImageError"
     />
-    <DefaultAvatarIcon 
-      v-else
-      class="avatar-image"
-    />
+    <DynamicAvatarIcon v-else :avatar-element="avatarRef" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { UserAvatarProps } from './types'
-import DefaultAvatarIcon from './DefaultAvatarIcon.vue'
+import DynamicAvatarIcon from './DynamicAvatarIcon.vue'
 
-interface Props extends UserAvatarProps {}
+interface Props extends UserAvatarProps {
+  /** Дополнительные CSS классы */
+  class?: string
+}
 
 const props = withDefaults(defineProps<Props>(), {
   src: undefined,
-  alt: undefined
+  alt: undefined,
+  class: undefined
 })
 
 const imageError = ref(false)
-
-
+const avatarRef = ref<HTMLElement>()
 
 const handleImageError = () => {
   imageError.value = true

@@ -21,6 +21,8 @@ export interface UserAvatarThemeCSSVariables {
   '--thepro-useravatar-icon-color-hover': string;
   /** Отступы иконки аватара */
   '--thepro-useravatar-icon-padding': string;
+  /** Тип иконки аватара (default, starwars) */
+  '--thepro-useravatar-icon-type': string;
 }
 
 export interface UserAvatarProps {
