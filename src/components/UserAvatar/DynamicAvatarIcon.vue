@@ -8,8 +8,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import DefaultAvatarIcon from './DefaultAvatarIcon.vue'
-import StarWarsAvatarIcon from './StarWarsAvatarIcon.vue'
+import { DefaultAvatarIcon, StarWarsAvatarIcon, type AvatarIconType } from './icons'
 import { useCssVariable } from './useCssVariable'
 
 interface Props {
@@ -27,8 +26,6 @@ const ICON_REGISTRY = {
   starwars: StarWarsAvatarIcon,
 } as const
 
-type IconType = keyof typeof ICON_REGISTRY
-
 // Получаем текущий тип иконки из CSS переменной на элементе аватара
 const { value: iconType } = useCssVariable(
   '--thepro-useravatar-icon-type', 
@@ -38,7 +35,7 @@ const { value: iconType } = useCssVariable(
 
 // Выбираем иконку на основе текущего типа
 const currentIcon = computed(() => {
-  const type = iconType.value as IconType
+  const type = iconType.value as AvatarIconType
   console.log('=== DEBUG INFO ===')
   console.log('Current icon type:', type)
   console.log('Avatar element:', props.avatarElement)
