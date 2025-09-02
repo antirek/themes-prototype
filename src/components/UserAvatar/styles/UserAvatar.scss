@@ -1,3 +1,9 @@
+// Импорт тем компонента
+@use './themes/light.scss';
+@use './themes/dark.scss';
+@use './themes/green.scss';
+@use './themes/starwars.scss';
+
 .user-avatar {
   width: var(--thepro-useravatar-size, 140px);
   height: var(--thepro-useravatar-size, 140px);
@@ -51,5 +57,5 @@
 
 .user-avatar:hover .default-avatar-icon {
   transform: scale(1.05);
-  color: var(--thepro-useravatar-icon-color-hover, var(--thepro-theme-color-text-muted));
+  color: var(--thepro-useravatar-icon-color-hover, var(--thepro-useravatar-icon-color-hover, var(--thepro-theme-color-text-muted)));
 }

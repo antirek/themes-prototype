@@ -30,8 +30,28 @@ export function useCssVariable(
     console.log('Target element data-theme:', targetElement?.getAttribute('data-theme'))
     console.log('Looking for variable:', variableName)
     
+    // Проверяем все CSS переменные на элементе
     const computedStyle = getComputedStyle(targetElement)
-    const newValue = computedStyle.getPropertyValue(variableName).trim()
+    const allVariables = []
+    for (let i = 0; i < computedStyle.length; i++) {
+      const property = computedStyle[i]
+      if (property && property.indexOf('--') === 0) {
+        const value = computedStyle.getPropertyValue(property)
+        if (value && value.trim()) {
+          allVariables.push(`${property}: ${value.trim()}`)
+        }
+      }
+    }
+    console.log('All CSS variables on target element:', allVariables)
+    
+    // Если CSS переменные не найдены на targetElement, ищем на documentElement
+    let newValue = computedStyle.getPropertyValue(variableName).trim()
+    if (!newValue) {
+      console.log('Variable not found on target element, checking documentElement...')
+      const docStyle = getComputedStyle(document.documentElement)
+      newValue = docStyle.getPropertyValue(variableName).trim()
+    }
+    
     console.log('Found value:', newValue || 'NOT FOUND')
     console.log('============================')
     

@@ -1,5 +1,5 @@
 <template>
-  <div class="user-avatar" ref="avatarRef">
+  <div class="user-avatar" ref="avatarRef" :style="avatarStyle">
     <img 
       v-if="!shouldShowDefaultIcon"
       :src="src" 
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, watch } from 'vue'
 import type { UserAvatarProps } from './types'
 import DynamicAvatarIcon from './DynamicAvatarIcon.vue'
 
@@ -36,6 +36,50 @@ const handleImageError = () => {
 
 const shouldShowDefaultIcon = computed(() => {
   return !props.src || imageError.value
+})
+
+// Определяем текущую тему из родительского элемента
+const currentTheme = ref<string>('light')
+
+const detectTheme = () => {
+  if (avatarRef.value) {
+    const parentTheme = avatarRef.value.closest('[data-theme]')
+    if (parentTheme) {
+      currentTheme.value = parentTheme.getAttribute('data-theme') || 'light'
+    }
+  }
+}
+
+// CSS стили для аватара с типом иконки
+const avatarStyle = computed(() => {
+  const iconType = currentTheme.value === 'starwars' ? 'starwars' : 'default'
+  return {
+    '--thepro-useravatar-icon-type': iconType
+  }
+})
+
+onMounted(() => {
+  detectTheme()
+  
+  // Наблюдаем за изменениями темы
+  const observer = new MutationObserver(() => {
+    detectTheme()
+  })
+  
+  // Наблюдаем за documentElement для глобальных изменений
+  observer.observe(document.documentElement, { 
+    attributes: true, 
+    attributeFilter: ['data-theme'] 
+  })
+  
+  // Наблюдаем за всеми элементами с data-theme
+  const themeElements = document.querySelectorAll('[data-theme]')
+  themeElements.forEach(themeElement => {
+    observer.observe(themeElement, { 
+      attributes: true, 
+      attributeFilter: ['data-theme'] 
+    })
+  })
 })
 </script>
 
