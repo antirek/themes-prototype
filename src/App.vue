@@ -74,27 +74,6 @@
         
         <div class="avatar-section">
           <h2>👤 Демонстрация компонента аватара</h2>
-          
-          <!-- Временный тест CSS переменной -->
-          <div style="padding: 1rem; background: #f0f0f0; margin-bottom: 1rem; border-radius: 8px;">
-            <h3>Тест CSS переменной:</h3>
-            <p>Тема аватара 4: {{ avatarTheme4 }}</p>
-            <p>CSS переменная --thepro-useravatar-icon-type: 
-              <span id="test-css-var">Проверяем...</span>
-            </p>
-            
-            <!-- Простой тест CSS переменной -->
-            <div style="--test-var: red; color: var(--test-var);">
-              <p>Тест CSS переменной: этот текст должен быть красным</p>
-            </div>
-            
-            <!-- Тест CSS переменной из темы -->
-            <div :data-theme="avatarTheme4" style="padding: 0.5rem; border: 1px solid #ccc;">
-              <p>Элемент с темой: {{ avatarTheme4 }}</p>
-              <p>Цвет из темы: <span style="color: var(--thepro-theme-color-primary);">Этот текст должен быть цветом темы</span></p>
-            </div>
-          </div>
-          
           <div class="avatar-grid">
             <div class="avatar-wrapper" :data-theme="avatarTheme1">
               <div class="theme-selector">
@@ -159,7 +138,6 @@
                 <select 
                   v-model="avatarTheme4" 
                   class="theme-select"
-                  @change="testAvatarTheme(avatarTheme4)"
                 >
                   <option value="light">Светлая</option>
                   <option value="dark">Темная</option>
@@ -279,41 +257,6 @@ const avatarTheme5 = ref<'light' | 'dark' | 'green' | 'starwars'>('dark')
 // Функция для обновления темы карточки профиля
 const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green' | 'starwars') => {
   console.log(`Карточка ${cardNumber} переключена на тему: ${theme}`)
-}
-
-// Функция для тестирования CSS переменной
-const testCssVariable = () => {
-  const testElement = document.getElementById('test-css-var')
-  if (testElement) {
-    // Ищем элемент с data-theme="starwars"
-    const starwarsElement = document.querySelector('[data-theme="starwars"]')
-    if (starwarsElement) {
-      const computedStyle = getComputedStyle(starwarsElement)
-      const iconType = computedStyle.getPropertyValue('--thepro-useravatar-icon-type').trim()
-      testElement.textContent = `${iconType || 'не найдена'} (на элементе ${starwarsElement.className})`
-      
-      // Выводим все CSS переменные для отладки
-      console.log('=== CSS VARIABLES DEBUG ===')
-      console.log('Star Wars element:', starwarsElement)
-      const cssProps: string[] = []
-      for (let i = 0; i < computedStyle.length; i++) {
-        const prop = computedStyle[i]
-        if (prop && prop.indexOf('--') === 0) {
-          cssProps.push(prop)
-        }
-      }
-      console.log('All CSS properties:', cssProps)
-      console.log('==========================')
-    } else {
-      testElement.textContent = 'Элемент с темой starwars не найден'
-    }
-  }
-}
-
-// Тестируем при изменении темы
-const testAvatarTheme = (theme: 'light' | 'dark' | 'green' | 'starwars') => {
-  console.log(`Тестируем тему: ${theme}`)
-  setTimeout(testCssVariable, 100)
 }
 </script>
 

@@ -36,12 +36,6 @@ const { value: iconType } = useCssVariable(
 // Выбираем иконку на основе текущего типа
 const currentIcon = computed(() => {
   const type = iconType.value as AvatarIconType
-  console.log('=== DEBUG INFO ===')
-  console.log('Current icon type:', type)
-  console.log('Avatar element:', props.avatarElement)
-  console.log('Avatar element data-theme:', props.avatarElement?.getAttribute('data-theme'))
-  console.log('CSS variable value:', iconType.value)
-  console.log('==================')
   return ICON_REGISTRY[type] || ICON_REGISTRY.default
 })
 

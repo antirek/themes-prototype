@@ -14,6 +14,7 @@ export function useCssVariable(
     // Если элемент передан, используем его, иначе ищем ближайший родительский элемент с data-theme
     let targetElement = element
     if (!targetElement) {
+      // Fallback: ищем глобально (не рекомендуется)
       const avatarElement = document.querySelector('.user-avatar')
       if (avatarElement) {
         targetElement = avatarElement.closest('[data-theme]') as HTMLElement || document.documentElement
@@ -25,35 +26,15 @@ export function useCssVariable(
       targetElement = targetElement.closest('[data-theme]') as HTMLElement || targetElement
     }
     
-    console.log('=== useCssVariable DEBUG ===')
-    console.log('Target element:', targetElement)
-    console.log('Target element data-theme:', targetElement?.getAttribute('data-theme'))
-    console.log('Looking for variable:', variableName)
-    
-    // Проверяем все CSS переменные на элементе
+    // Проверяем CSS переменную на targetElement
     const computedStyle = getComputedStyle(targetElement)
-    const allVariables = []
-    for (let i = 0; i < computedStyle.length; i++) {
-      const property = computedStyle[i]
-      if (property && property.indexOf('--') === 0) {
-        const value = computedStyle.getPropertyValue(property)
-        if (value && value.trim()) {
-          allVariables.push(`${property}: ${value.trim()}`)
-        }
-      }
-    }
-    console.log('All CSS variables on target element:', allVariables)
-    
-    // Если CSS переменные не найдены на targetElement, ищем на documentElement
     let newValue = computedStyle.getPropertyValue(variableName).trim()
+    
+    // Если CSS переменная не найдена на targetElement, ищем на documentElement
     if (!newValue) {
-      console.log('Variable not found on target element, checking documentElement...')
       const docStyle = getComputedStyle(document.documentElement)
       newValue = docStyle.getPropertyValue(variableName).trim()
     }
-    
-    console.log('Found value:', newValue || 'NOT FOUND')
-    console.log('============================')
     
     value.value = newValue || defaultValue
   }

@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, watch } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import type { UserAvatarProps } from './types'
 import DynamicAvatarIcon from './DynamicAvatarIcon.vue'
 
