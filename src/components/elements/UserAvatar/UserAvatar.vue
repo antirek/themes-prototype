@@ -40,17 +40,24 @@ const shouldShowDefaultIcon = computed(() => {
   return !props.src || imageError.value
 })
 
-// Используем хук для определения темы
-const { currentTheme, updateTargetElement } = useTheme()
+// Используем хук для определения темы и CSS-переменных
+const { currentTheme, updateTargetElement, getCssVariable } = useTheme()
 
 // Следим за изменениями avatarRef и обновляем целевой элемент
 watch(avatarRef, (newElement) => {
   updateTargetElement(newElement || null)
 }, { immediate: true })
 
-// Определяем тип иконки на основе темы
+// Определяем тип иконки на основе CSS-переменной
 const currentIconType = computed<AvatarIconType>(() => {
-  return currentTheme.value === 'starwars' ? 'starwars' : 'default'
+  const iconType = getCssVariable('--thepro-useravatar-icon-type', 'default')
+  console.log('🔍 UserAvatar Debug:', {
+    targetElement: avatarRef.value,
+    currentTheme: currentTheme.value,
+    cssVariable: iconType,
+    rawValue: getCssVariable('--thepro-useravatar-icon-type', 'default')
+  })
+  return iconType as AvatarIconType || 'default'
 })
 </script>
 

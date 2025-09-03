@@ -1,86 +1,117 @@
 # Hooks (Vue Composables)
 
-Коллекция переиспользуемых Vue composables для общих задач.
+**Hooks** - это Vue composables, которые предоставляют общую логику для компонентов.
 
-## Назначение
+## useTheme
 
-Hooks - это Vue composables, которые:
-- Инкапсулируют общую логику
-- Могут использоваться в любом компоненте
-- Предоставляют реактивные значения и методы
-- Упрощают код компонентов
+Хук для определения текущей темы и чтения CSS-переменных.
 
-## Доступные хуки
+### Функциональность
 
-### useTheme
+- **Определение темы**: Автоматически определяет текущую тему через `data-theme` атрибут
+- **Наблюдение за изменениями**: Использует `MutationObserver` для отслеживания изменений темы
+- **Чтение CSS-переменных**: Может читать CSS-переменные из целевого элемента и его родителей
+- **Fallback логика**: Автоматически ищет ближайший элемент с темой, если целевой элемент не передан
 
-Хук для определения текущей темы в любом компоненте.
-
-#### Использование
+### API
 
 ```typescript
-import { useTheme } from '@/hooks'
-
-// В компоненте
-const { currentTheme, detectTheme } = useTheme()
+const { 
+  currentTheme,           // Реактивная ссылка на текущую тему
+  detectTheme,            // Функция для принудительного определения темы
+  startObserving,         // Начать наблюдение за изменениями
+  stopObserving,          // Остановить наблюдение
+  updateTargetElement,    // Обновить целевой элемент
+  getCssVariable          // Читать CSS-переменную
+} = useTheme(element?)
 ```
 
-#### Параметры
+### Параметры
 
-- `element?: HTMLElement | null` - элемент для определения контекста темы
+- `element?: HTMLElement | null` - целевой элемент для определения темы (опционально)
 
-#### Возвращаемые значения
+### Возвращаемые значения
 
-- `currentTheme: Ref<ThemeName>` - текущая тема
+- `currentTheme: Ref<ThemeName>` - текущая тема ('light', 'dark', 'green', 'starwars')
 - `detectTheme: () => void` - функция для принудительного определения темы
-- `startObserving: () => void` - начать наблюдение за изменениями
-- `stopObserving: () => void` - остановить наблюдение
+- `startObserving: () => void` - начать наблюдение за изменениями темы
+- `stopObserving: () => void` - остановить наблюдение за изменениями темы
 - `updateTargetElement: (element: HTMLElement | null) => void` - обновить целевой элемент
+- `getCssVariable: (variableName: string, defaultValue?: string) => string` - читать CSS-переменную
 
-#### Примеры использования
+### Использование
+
+#### Базовое использование
 
 ```vue
 <template>
-  <div ref="containerRef">
+  <div ref="elementRef" data-theme="light">
     <p>Текущая тема: {{ currentTheme }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useTheme } from '@/hooks'
 
-const containerRef = ref<HTMLElement>()
+const elementRef = ref<HTMLElement>()
 const { currentTheme, updateTargetElement } = useTheme()
 
-// Следим за изменениями ref и обновляем целевой элемент
-watch(containerRef, (newElement) => {
+// Обновляем целевой элемент при изменении ref
+watch(elementRef, (newElement) => {
   updateTargetElement(newElement || null)
 }, { immediate: true })
 </script>
 ```
 
-#### Принципы работы
+#### Чтение CSS-переменных
 
-1. **Автоматическое определение** - хук автоматически определяет тему при монтировании
-2. **Реактивность** - тема обновляется при изменении `data-theme` атрибутов
-3. **Контекст** - может работать с конкретным элементом или глобально
-4. **Производительность** - использует `MutationObserver` для эффективного отслеживания
+```vue
+<template>
+  <div ref="avatarRef" class="user-avatar">
+    <AvatarIcon :icon-type="iconType" />
+  </div>
+</template>
 
-## Архитектурные особенности
+<script setup lang="ts">
+import { computed, ref, watch } from 'vue'
+import { useTheme } from '@/hooks'
+import { AvatarIcon } from '@/components/atoms/AvatarIcon'
 
-- **Переиспользование** - хуки можно использовать в любом компоненте
-- **Инкапсуляция** - сложная логика скрыта внутри хука
-- **Типизация** - полная поддержка TypeScript
-- **Жизненный цикл** - автоматическое управление ресурсами (observers, timers)
-- **Тестируемость** - логика вынесена в отдельные функции
+const avatarRef = ref<HTMLElement>()
+const { getCssVariable, updateTargetElement } = useTheme()
 
-## Создание новых хуков
+// Следим за изменениями ref и обновляем целевой элемент
+watch(avatarRef, (newElement) => {
+  updateTargetElement(newElement || null)
+}, { immediate: true })
 
-При создании нового хука следуйте принципам:
+// Читаем CSS-переменную для определения типа иконки
+const iconType = computed(() => {
+  return getCssVariable('--thepro-useravatar-icon-type', 'default')
+})
+</script>
+```
 
-1. **Единая ответственность** - хук должен решать одну задачу
-2. **Переиспользование** - хук должен быть универсальным
-3. **Типизация** - используйте TypeScript для всех параметров и возвращаемых значений
-4. **Жизненный цикл** - правильно управляйте ресурсами
-5. **Документация** - создавайте подробные примеры использования
+### Логика работы
+
+1. **Определение темы**: Хук ищет ближайший родительский элемент с атрибутом `data-theme`
+2. **Наблюдение**: Использует `MutationObserver` для отслеживания изменений атрибутов
+3. **CSS-переменные**: Читает переменные из элемента с темой или из `documentElement` как fallback
+4. **Реактивность**: Автоматически обновляет `currentTheme` при изменении темы
+
+### Fallback логика
+
+Если целевой элемент не передан или не найден:
+
+1. Ищет элемент с классом `.user-avatar` (специальный случай для аватаров)
+2. Ищет ближайший родительский элемент с `data-theme`
+3. Использует `documentElement` как последний fallback
+
+### Преимущества
+
+- **Автоматическое определение**: Не нужно вручную передавать тему
+- **Реактивность**: Автоматически обновляется при изменении темы
+- **Гибкость**: Может работать с любым элементом или глобально
+- **CSS-переменные**: Может читать любые CSS-переменные из тем
+- **Производительность**: Использует эффективное наблюдение за DOM изменениями
