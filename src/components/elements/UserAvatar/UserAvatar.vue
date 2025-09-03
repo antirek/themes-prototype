@@ -43,14 +43,6 @@ const { getCssVariable } = useTheme()
 // Определяем тип иконки на основе CSS-переменной
 const currentIconType = computed<AvatarIconType>(() => {
   const iconType = getCssVariable('--thepro-useravatar-icon-type', 'default')
-  
-  // Отладочная информация
-  console.log('🔍 UserAvatar Debug:', {
-    iconType,
-    cssVariable: '--thepro-useravatar-icon-type',
-    computedValue: iconType
-  })
-  
   return iconType as AvatarIconType || 'default'
 })
 </script>
