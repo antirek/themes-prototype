@@ -8,23 +8,31 @@ export function useTheme(element?: HTMLElement | null) {
 
   // Читаем CSS-переменную из целевого элемента или его родителей
   const getCssVariable = (variableName: string, defaultValue?: string): string => {
-    console.log('🔍 getCssVariable called:', { variableName, defaultValue })
+    console.log('🔍 getCssVariable called:', { variableName, defaultValue, targetElement: targetElement.value })
     
-    // Сначала ищем в цепочке родителей targetElement
+    // Ищем CSS-переменную в конкретном контейнере с темой
+    // CSS-переменные компонентов находятся в контейнерах с data-theme, а не глобально
+    
     if (targetElement.value) {
+      // Ищем ближайший родительский элемент с data-theme
+      const themeContainer = targetElement.value.closest('[data-theme]')
+      console.log('🔍 Theme container found:', themeContainer)
+      
+      if (themeContainer) {
+        const value = getComputedStyle(themeContainer).getPropertyValue(variableName)
+        console.log('🔍 Value from theme container:', { value: value.trim(), theme: themeContainer.getAttribute('data-theme') })
+        if (value && value.trim()) {
+          return value.trim()
+        }
+      }
+      
+      // Если не нашли в ближайшем контейнере с темой, ищем в цепочке родителей
       let currentElement: HTMLElement | null = targetElement.value
       while (currentElement) {
         const value = getComputedStyle(currentElement).getPropertyValue(variableName)
-        console.log('🔍 Checking element:', {
-          element: currentElement,
-          hasDataTheme: currentElement.hasAttribute('data-theme'),
-          dataTheme: currentElement.getAttribute('data-theme'),
-          variableName,
-          value: value.trim()
-        })
+        console.log('🔍 Checking parent element:', { element: currentElement, value: value.trim() })
         
         if (value && value.trim()) {
-          console.log('🔍 Found value in element:', value.trim())
           return value.trim()
         }
         
@@ -33,24 +41,14 @@ export function useTheme(element?: HTMLElement | null) {
       }
     }
     
-    // Если не нашли, ищем в любом элементе с data-theme
-    const allThemeElements = document.querySelectorAll('[data-theme]')
-    console.log('🔍 Searching all theme elements:', allThemeElements.length)
-    
-    allThemeElements.forEach((themeElement) => {
-      const value = getComputedStyle(themeElement as HTMLElement).getPropertyValue(variableName)
-      console.log('🔍 Checking theme element:', {
-        element: themeElement,
-        theme: themeElement.getAttribute('data-theme'),
-        variableName,
-        value: value.trim()
-      })
-      
+    // Fallback к documentElement (для глобальных переменных)
+    if (document.documentElement) {
+      const value = getComputedStyle(document.documentElement).getPropertyValue(variableName)
+      console.log('🔍 Value from documentElement:', value.trim())
       if (value && value.trim()) {
-        console.log('🔍 Found value in theme element:', value.trim())
         return value.trim()
       }
-    })
+    }
     
     console.log('🔍 No value found, returning default:', defaultValue)
     return defaultValue || ''
@@ -60,23 +58,18 @@ export function useTheme(element?: HTMLElement | null) {
   const detectTheme = () => {
     let elementToCheck = targetElement.value
     
-    // Если элемент не передан, ищем ближайший родительский элемент с data-theme
+    // Если элемент не передан, не можем определить тему
+    // Хук должен получать targetElement для корректной работы
     if (!elementToCheck) {
-      // Fallback: ищем глобально
-      const avatarElement = document.querySelector('.user-avatar')
-      if (avatarElement) {
-        elementToCheck = avatarElement.closest('[data-theme]') as HTMLElement
-      }
+      return
     }
     
-    if (elementToCheck) {
-      // Ищем ближайший родительский элемент с data-theme
-      const themeElement = elementToCheck.closest('[data-theme]')
-      if (themeElement) {
-        const theme = themeElement.getAttribute('data-theme') as ThemeName
-        if (theme && ['light', 'dark', 'green', 'starwars'].indexOf(theme) !== -1) {
-          currentTheme.value = theme
-        }
+    // Ищем ближайший родительский элемент с data-theme
+    const themeElement = elementToCheck.closest('[data-theme]')
+    if (themeElement) {
+      const theme = themeElement.getAttribute('data-theme') as ThemeName
+      if (theme && ['light', 'dark', 'green', 'starwars'].indexOf(theme) !== -1) {
+        currentTheme.value = theme
       }
     }
   }

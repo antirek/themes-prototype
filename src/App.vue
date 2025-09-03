@@ -75,19 +75,6 @@
         <div class="avatar-section">
           <h2>👤 Демонстрация компонента аватара</h2>
           
-          <!-- Временный тест CSS-переменных -->
-          <div class="css-variables-test" style="margin: 20px 0; padding: 20px; border: 1px solid #ccc;">
-            <h3>🔍 Тест CSS-переменных</h3>
-            <div data-theme="light" style="padding: 10px; margin: 10px; border: 1px solid #ddd;">
-              <strong>Light тема:</strong> 
-              <span id="light-test">--thepro-useravatar-icon-type: <span style="color: red;">{{ getCssVariableTest('light') }}</span></span>
-            </div>
-            <div data-theme="starwars" style="padding: 10px; margin: 10px; border: 1px solid #ddd;">
-              <strong>Star Wars тема:</strong> 
-              <span id="starwars-test">--thepro-useravatar-icon-type: <span style="color: red;">{{ getCssVariableTest('starwars') }}</span></span>
-            </div>
-          </div>
-          
           <div class="avatar-grid">
             <div class="avatar-wrapper" :data-theme="avatarTheme1">
               <div class="theme-selector">
@@ -298,24 +285,6 @@ const avatarTheme5 = ref<ThemeName>('dark')
 // Функция для обновления темы карточки профиля
 const updateProfileTheme = (cardNumber: number, theme: ThemeName) => {
   // Логика обновления темы (пока не реализована)
-}
-
-// Функция для тестирования CSS-переменных
-const getCssVariableTest = (theme: ThemeName) => {
-  // Создаем временный элемент с темой для тестирования
-  const testElement = document.createElement('div')
-  testElement.setAttribute('data-theme', theme)
-  testElement.style.position = 'absolute'
-  testElement.style.left = '-9999px'
-  document.body.appendChild(testElement)
-  
-  // Получаем значение CSS-переменной
-  const value = getComputedStyle(testElement).getPropertyValue('--thepro-useravatar-icon-type')
-  
-  // Удаляем тестовый элемент
-  document.body.removeChild(testElement)
-  
-  return value || 'не найдено'
 }
 </script>
 
