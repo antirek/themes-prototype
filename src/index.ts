@@ -38,19 +38,19 @@ export const themes = {
 } as const;
 
 // Функция для применения темы
-export function applyTheme(themeName: ThemeName): void {
+export function applyTheme(themeName: 'light' | 'dark' | 'green' | 'starwars'): void {
   document.documentElement.setAttribute('data-theme', themeName);
 }
 
 // Функция для получения текущей темы
-export function getCurrentTheme(): ThemeName | null {
-  return document.documentElement.getAttribute('data-theme') as ThemeName | null;
+export function getCurrentTheme(): 'light' | 'dark' | 'green' | 'starwars' | null {
+  return document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | 'green' | 'starwars' | null;
 }
 
 // Функция для переключения темы
-export function toggleTheme(): ThemeName {
+export function toggleTheme(): 'light' | 'dark' | 'green' | 'starwars' {
   const currentTheme = getCurrentTheme();
-  const themeNames = Object.keys(themes) as ThemeName[];
+  const themeNames = Object.keys(themes) as ('light' | 'dark' | 'green' | 'starwars')[];
   const currentIndex = themeNames.indexOf(currentTheme || 'light');
   const nextIndex = (currentIndex + 1) % themeNames.length;
   const nextTheme = themeNames[nextIndex];

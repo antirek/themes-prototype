@@ -31,7 +31,7 @@ const iconStyles = computed(() => {
 const DefaultIcon = () => h('svg', {
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 24 24',
-  fill: 'currentColor',
+  fill: props.color,
   width: '100%',
   height: '100%'
 }, [
@@ -43,7 +43,7 @@ const DefaultIcon = () => h('svg', {
 const StarWarsIcon = () => h('svg', {
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 24 24',
-  fill: 'currentColor',
+  fill: props.color,
   width: '100%',
   height: '100%'
 }, [
@@ -61,7 +61,7 @@ const StarWarsIcon = () => h('svg', {
 const UserIcon = () => h('svg', {
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 24 24',
-  fill: 'currentColor',
+  fill: props.color,
   width: '100%',
   height: '100%'
 }, [
@@ -73,7 +73,7 @@ const UserIcon = () => h('svg', {
 const AdminIcon = () => h('svg', {
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 24 24',
-  fill: 'currentColor',
+  fill: props.color,
   width: '100%',
   height: '100%'
 }, [
@@ -88,7 +88,7 @@ const AdminIcon = () => h('svg', {
 const GuestIcon = () => h('svg', {
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 24 24',
-  fill: 'currentColor',
+  fill: props.color,
   width: '100%',
   height: '100%'
 }, [
