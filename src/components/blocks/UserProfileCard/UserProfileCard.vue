@@ -23,9 +23,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import CardHeader from '../CardHeader/CardHeader.vue'
-import CardFooter from '../CardFooter/CardFooter.vue'
+import CardHeader from '../../elements/CardHeader/CardHeader.vue'
+import CardFooter from '../../elements/CardFooter/CardFooter.vue'
 import UserAvatar from '../UserAvatar/UserAvatar.vue'
+import type { ThemeName } from '../../types/theme'
 
 interface UserData {
   name: string
@@ -37,7 +38,7 @@ interface UserData {
 
 interface Props {
   userData: UserData
-  theme?: 'light' | 'dark' | 'green'
+  theme?: ThemeName
 }
 
 const props = withDefaults(defineProps<Props>(), {

@@ -1,10 +1,10 @@
 // Импорт стилей компонентов для темной темы
-@use '../../components/CardHeader/styles/themes/dark.scss' as cardheader-dark;
-@use '../../components/CardBody/styles/themes/dark.scss' as cardbody-dark;
-@use '../../components/CardFooter/styles/themes/dark.scss' as cardfooter-dark;
-@use '../../components/CardPreview/styles/themes/dark.scss' as cardpreview-dark;
-@use '../../components/UserProfileCard/styles/themes/dark.scss' as userprofilecard-dark;
-@use '../../components/UserAvatar/styles/themes/dark.scss' as useravatar-dark;
+@use '../../components/elements/CardHeader/styles/themes/dark.scss' as cardheader-dark;
+@use '../../components/elements/CardBody/styles/themes/dark.scss' as cardbody-dark;
+@use '../../components/elements/CardFooter/styles/themes/dark.scss' as cardfooter-dark;
+@use '../../components/elements/CardPreview/styles/themes/dark.scss' as cardpreview-dark;
+@use '../../components/blocks/UserProfileCard/styles/themes/dark.scss' as userprofilecard-dark;
+@use '../../components/blocks/UserAvatar/styles/themes/dark.scss' as useravatar-dark;
 
 
 

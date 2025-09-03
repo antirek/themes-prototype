@@ -532,9 +532,14 @@ function validateNoThemeImportsInStyleFiles(
 async function validateAllThemes(): Promise<void> {
   console.log('🔍 Начинаю валидацию тем компонентов и глобальных тем...\n');
   
-  // Находим все компоненты
-  const allPaths = await glob('src/components/*');
-  const componentPaths = allPaths.filter(path => fs.statSync(path).isDirectory());
+  // Находим все компоненты (исключаем atoms, так как они не содержат тем)
+  const allPaths = await glob('src/components/*/*');
+  const componentPaths = allPaths.filter(path => {
+    const isDirectory = fs.statSync(path).isDirectory();
+    const parentDir = path.split('/').slice(-2, -1)[0]; // Получаем родительскую директорию
+    const isNotAtoms = parentDir !== 'atoms'; // Исключаем atoms
+    return isDirectory && isNotAtoms;
+  });
   const interfaceResults: InterfaceValidationResult[] = [];
   const prefixResults: PrefixValidationResult[] = [];
   const forbiddenResults: ForbiddenVariablesValidationResult[] = [];

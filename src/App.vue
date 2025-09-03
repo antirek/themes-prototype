@@ -169,6 +169,31 @@
           </div>
         </div>
         
+        <div class="avatar-icon-section">
+          <h2>🎭 Демонстрация AvatarIcon компонента</h2>
+          <div class="avatar-icon-grid">
+            <div class="avatar-icon-wrapper">
+              <h3>Автоматическое определение через CSS переменные:</h3>
+              <div class="avatar-icon-demo" data-theme="light">
+                <AvatarIcon />
+              </div>
+              <div class="avatar-icon-demo" data-theme="starwars">
+                <AvatarIcon />
+              </div>
+            </div>
+            
+            <div class="avatar-icon-wrapper">
+              <h3>Принудительное указание иконки через props:</h3>
+              <div class="avatar-icon-demo">
+                <AvatarIcon icon-type="default" />
+              </div>
+              <div class="avatar-icon-demo">
+                <AvatarIcon icon-type="starwars" />
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div class="cards-section">
           <h2>📋 Обычные карточки</h2>
           <div class="cards-grid">
@@ -189,10 +214,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import CardWithTheme from './components/CardWithTheme/CardWithTheme.vue'
-import UserProfileCard from './components/UserProfileCard/UserProfileCard.vue'
-import UserAvatar from './components/UserAvatar/UserAvatar.vue'
-import type { CardData } from '@/types/card'
+import CardWithTheme from './components/compounds/CardWithTheme/CardWithTheme.vue'
+import UserProfileCard from './components/blocks/UserProfileCard/UserProfileCard.vue'
+import UserAvatar from './components/blocks/UserAvatar/UserAvatar.vue'
+import { AvatarIcon } from './components/atoms/AvatarIcon'
+import type { CardData } from './types/card'
+import type { ThemeName } from './types/theme'
 
 const cardData1 = ref<CardData>({
   header: {
@@ -243,20 +270,20 @@ const userData3 = ref({
 })
 
 // Переменные для тем карточек профиля
-const profileTheme1 = ref<'light' | 'dark' | 'green' | 'starwars'>('light')
-const profileTheme2 = ref<'light' | 'dark' | 'green' | 'starwars'>('dark')
-const profileTheme3 = ref<'light' | 'dark' | 'green' | 'starwars'>('green')
+const profileTheme1 = ref<ThemeName>('light')
+const profileTheme2 = ref<ThemeName>('dark')
+const profileTheme3 = ref<ThemeName>('green')
 
 // Переменные для тем аватаров
-const avatarTheme1 = ref<'light' | 'dark' | 'green' | 'starwars'>('light')
-const avatarTheme2 = ref<'light' | 'dark' | 'green' | 'starwars'>('dark')
-const avatarTheme3 = ref<'light' | 'dark' | 'green' | 'starwars'>('green')
-const avatarTheme4 = ref<'light' | 'dark' | 'green' | 'starwars'>('light')
-const avatarTheme5 = ref<'light' | 'dark' | 'green' | 'starwars'>('dark')
+const avatarTheme1 = ref<ThemeName>('light')
+const avatarTheme2 = ref<ThemeName>('dark')
+const avatarTheme3 = ref<ThemeName>('green')
+const avatarTheme4 = ref<ThemeName>('light')
+const avatarTheme5 = ref<ThemeName>('dark')
 
 // Функция для обновления темы карточки профиля
-const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green' | 'starwars') => {
-  console.log(`Карточка ${cardNumber} переключена на тему: ${theme}`)
+const updateProfileTheme = (cardNumber: number, theme: ThemeName) => {
+  // Логика обновления темы (пока не реализована)
 }
 </script>
 
@@ -378,7 +405,7 @@ const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green
   gap: 3rem;
   align-items: flex-start;
   justify-content: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -398,6 +425,79 @@ const updateProfileTheme = (cardNumber: number, theme: 'light' | 'dark' | 'green
     gap: 1.5rem;
     align-items: center;
     max-width: 100%;
+  }
+}
+
+.avatar-icon-section {
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    
+    @media (max-width: 576px) {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.avatar-icon-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: 1200px) {
+    gap: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+}
+
+.avatar-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  
+  h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.avatar-icon-demo {
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--thepro-theme-color-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--thepro-theme-color-bg-secondary);
+  box-shadow: var(--thepro-theme-shadow-sm);
+  transition: all var(--thepro-theme-transition);
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: var(--thepro-theme-shadow-md);
+  }
+  
+  .avatar-icon {
+    width: 60%;
+    height: 60%;
   }
 }
 

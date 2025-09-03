@@ -23,10 +23,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import CardPreview from '../CardPreview/CardPreview.vue'
-import type { ThemeName } from '@/types/theme'
-import type { CardData } from '@/types/card'
+import { computed, ref, watch, onMounted } from 'vue'
+import type { CardData } from '../../types/card'
+import type { ThemeName } from '../../types/theme'
+import CardHeader from '../../elements/CardHeader/CardHeader.vue'
+import CardBody from '../../elements/CardBody/CardBody.vue'
+import CardFooter from '../../elements/CardFooter/CardFooter.vue'
+import CardPreview from '../../elements/CardPreview/CardPreview.vue'
 import { themeMetadata, defaultTheme } from '@/types/theme'
 
 interface Props {
