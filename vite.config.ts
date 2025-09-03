@@ -15,5 +15,6 @@ export default defineConfig({
         // Vite автоматически использует sass-embedded если он установлен
       }
     }
-  }
+  },
+  assetsInclude: ['**/*.svg']
 })

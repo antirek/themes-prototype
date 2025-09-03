@@ -1,51 +1,45 @@
 [data-theme="starwars"] {
-  --thepro-userprofilecard-bg: var(--thepro-theme-color-bg-secondary);
-  --thepro-userprofilecard-border: var(--thepro-theme-color-primary);
+  --thepro-userprofilecard-bg: var(--thepro-theme-color-gray-800);
+  --thepro-userprofilecard-border: var(--thepro-theme-color-yellow-500);
   --thepro-userprofilecard-border-radius: var(--thepro-theme-radius-lg);
   --thepro-userprofilecard-shadow: var(--thepro-theme-shadow-lg);
-  
   --thepro-userprofilecard-body-padding: var(--thepro-theme-spacing-6);
-  --thepro-userprofilecard-body-bg: var(--thepro-theme-color-bg);
-  --thepro-userprofilecard-body-text: var(--thepro-theme-color-text);
-  
+  --thepro-userprofilecard-body-bg: var(--thepro-theme-color-gray-800);
+  --thepro-userprofilecard-body-text: var(--thepro-theme-color-yellow-100);
   --thepro-userprofilecard-content-gap: var(--thepro-theme-spacing-4);
-  --thepro-userprofilecard-content-direction: row;
+  --thepro-userprofilecard-content-direction: column;
   --thepro-userprofilecard-content-align: center;
-  --thepro-userprofilecard-content-justify: flex-start;
-  --thepro-userprofilecard-content-text-align: left;
+  --thepro-userprofilecard-content-justify: center;
+  --thepro-userprofilecard-content-text-align: center;
   --thepro-userprofilecard-content-direction-mobile: column;
   --thepro-userprofilecard-content-align-mobile: center;
   --thepro-userprofilecard-content-text-align-mobile: center;
-  
   --thepro-userprofilecard-info-gap: var(--thepro-theme-spacing-3);
-  --thepro-userprofilecard-info-align: flex-start;
-  --thepro-userprofilecard-info-text-align: left;
-  --thepro-userprofilecard-info-flex: 1;
-  
+  --thepro-userprofilecard-info-align: center;
+  --thepro-userprofilecard-info-text-align: center;
+  --thepro-userprofilecard-info-flex: none;
   --thepro-userprofilecard-name-font-family: var(--thepro-theme-font-family-primary);
   --thepro-userprofilecard-name-font-size: var(--thepro-theme-font-size-xl);
   --thepro-userprofilecard-name-font-weight: var(--thepro-theme-font-weight-bold);
-  --thepro-userprofilecard-name-color: var(--thepro-theme-color-primary);
+  --thepro-userprofilecard-name-color: var(--thepro-theme-color-yellow-400);
   --thepro-userprofilecard-name-line-height: 1.2;
-  --thepro-userprofilecard-name-word-wrap: break-word;
-  --thepro-userprofilecard-name-overflow-wrap: break-word;
-  --thepro-userprofilecard-name-max-width: 200px;
+  --thepro-userprofilecard-name-word-wrap: normal;
+  --thepro-userprofilecard-name-overflow-wrap: normal;
+  --thepro-userprofilecard-name-max-width: none;
   --thepro-userprofilecard-name-font-size-mobile: var(--thepro-theme-font-size-lg);
-  --thepro-userprofilecard-name-max-width-mobile: 100%;
+  --thepro-userprofilecard-name-max-width-mobile: none;
   --thepro-userprofilecard-name-text-align-mobile: center;
-  
   --thepro-userprofilecard-phone-font-family: var(--thepro-theme-font-family-secondary);
   --thepro-userprofilecard-phone-font-size: var(--thepro-theme-font-size-base);
-  --thepro-userprofilecard-phone-color: var(--thepro-theme-color-text);
-  
+  --thepro-userprofilecard-phone-color: var(--thepro-theme-color-yellow-200);
   --thepro-userprofilecard-description-font-family: var(--thepro-theme-font-family-secondary);
   --thepro-userprofilecard-description-font-size: var(--thepro-theme-font-size-sm);
-  --thepro-userprofilecard-description-color: var(--thepro-theme-color-text-muted);
+  --thepro-userprofilecard-description-color: var(--thepro-theme-color-yellow-200);
   
-  /* Размер аватара в Star Wars теме - больше для эпичности */
-  --thepro-userprofilecard-avatar-size: 160px;
-  --thepro-userprofilecard-avatar-size-large: 150px;
-  --thepro-userprofilecard-avatar-size-medium: 140px;
-  --thepro-userprofilecard-avatar-size-mobile: 130px;
-  --thepro-userprofilecard-avatar-size-small: 120px;
+  /* Размер аватара в StarWars теме - стандартный */
+  --thepro-userprofilecard-avatar-size: 140px;
+  --thepro-userprofilecard-avatar-size-large: 130px;
+  --thepro-userprofilecard-avatar-size-medium: 120px;
+  --thepro-userprofilecard-avatar-size-mobile: 110px;
+  --thepro-userprofilecard-avatar-size-small: 100px;
 }

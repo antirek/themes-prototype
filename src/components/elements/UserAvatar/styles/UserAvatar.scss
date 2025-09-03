@@ -5,6 +5,9 @@
   overflow: hidden;
   border: 3px solid var(--thepro-useravatar-border, var(--thepro-theme-color-primary));
   box-shadow: var(--thepro-useravatar-shadow, var(--thepro-theme-shadow-sm));
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   @media (max-width: 1400px) {
     width: var(--thepro-useravatar-size-large, 130px);

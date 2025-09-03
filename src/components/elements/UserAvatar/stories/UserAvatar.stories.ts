@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import UserAvatar from '../UserAvatar.vue';
-import { AVATAR_ICON_TYPES } from '../../../atoms/AvatarIcon/utils/svgLoader';
 
 const meta: Meta<typeof UserAvatar> = {
   title: 'Components/UserAvatar',
@@ -64,9 +63,8 @@ export const StarWarsIcon: Story = {
       components: { story },
       template: `
         <div style="
-          --thepro-useravatar-icon-type: ${AVATAR_ICON_TYPES.STAR_WARS};
-          --thepro-useravatar-icon-effects: drop-shadow(0 0 4px rgba(255, 215, 0, 0.3));
-          --thepro-useravatar-icon-effects-hover: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+          --thepro-useravatar-icon-type: starwars;
+          --thepro-useravatar-icon-color: #ffd700;
         ">
           <story />
         </div>
@@ -90,9 +88,10 @@ export const CustomEffects: Story = {
       components: { story },
       template: `
         <div style="
-          --thepro-useravatar-icon-type: ${AVATAR_ICON_TYPES.STAR_WARS};
-          --thepro-useravatar-icon-effects: drop-shadow(0 0 8px rgba(255, 0, 255, 0.6));
-          --thepro-useravatar-icon-effects-hover: drop-shadow(0 0 12px rgba(255, 0, 255, 0.8));
+          --thepro-useravatar-icon-type: starwars;
+          --thepro-useravatar-icon-color: #ff6b35;
+          --thepro-useravatar-border: #ff6b35;
+          --thepro-useravatar-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
         ">
           <story />
         </div>
@@ -132,6 +131,66 @@ export const LongAltText: Story = {
     docs: {
       description: {
         story: 'UserAvatar с длинным alt текстом для демонстрации доступности.'
+      }
+    }
+  }
+};
+
+// История с разными размерами
+export const DifferentSizes: Story = {
+  render: () => ({
+    components: { UserAvatar },
+    template: `
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <div style="--thepro-useravatar-size: 80px;">
+          <UserAvatar />
+        </div>
+        <div style="--thepro-useravatar-size: 120px;">
+          <UserAvatar />
+        </div>
+        <div style="--thepro-useravatar-size: 160px;">
+          <UserAvatar />
+        </div>
+      </div>
+    `
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'UserAvatar с разными размерами через CSS переменные.'
+      }
+    }
+  }
+};
+
+// История с разными типами иконок
+export const DifferentIconTypes: Story = {
+  render: () => ({
+    components: { UserAvatar },
+    template: `
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <div style="--thepro-useravatar-icon-type: default; --thepro-useravatar-size: 100px;">
+          <UserAvatar />
+        </div>
+        <div style="--thepro-useravatar-icon-type: starwars; --thepro-useravatar-size: 100px; --thepro-useravatar-icon-color: #ffd700;">
+          <UserAvatar />
+        </div>
+        <div style="--thepro-useravatar-icon-type: user; --thepro-useravatar-size: 100px; --thepro-useravatar-icon-color: #3498db;">
+          <UserAvatar />
+        </div>
+        <div style="--thepro-useravatar-icon-type: admin; --thepro-useravatar-size: 100px; --thepro-useravatar-icon-color: #e74c3c;">
+          <UserAvatar />
+        </div>
+        <div style="--thepro-useravatar-icon-type: guest; --thepro-useravatar-size: 100px; --thepro-useravatar-icon-color: #27ae60;">
+          <UserAvatar />
+        </div>
+      </div>
+    `
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'UserAvatar с разными типами иконок: default, starwars, user, admin, guest.'
       }
     }
   }

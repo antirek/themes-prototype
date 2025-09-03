@@ -7,7 +7,12 @@
       class="avatar-image"
       @error="handleImageError"
     />
-    <AvatarIcon v-else :icon-type="currentIconType" />
+    <AvatarIcon 
+      v-else 
+      :icon-type="currentIconType" 
+      :size="avatarSize"
+      :color="avatarIconColor"
+    />
   </div>
 </template>
 
@@ -44,6 +49,18 @@ const { getCssVariable } = useTheme()
 const currentIconType = computed<AvatarIconType>(() => {
   const iconType = getCssVariable('--thepro-useravatar-icon-type', 'default')
   return iconType as AvatarIconType || 'default'
+})
+
+// Вычисляем размер аватара для передачи в AvatarIcon
+const avatarSize = computed(() => {
+  // Получаем размер из CSS переменной или используем дефолтный
+  const size = getCssVariable('--thepro-useravatar-size', '140px')
+  return size
+})
+
+// Вычисляем цвет иконки
+const avatarIconColor = computed(() => {
+  return getCssVariable('--thepro-useravatar-icon-color', 'currentColor')
 })
 </script>
 

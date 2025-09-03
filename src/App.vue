@@ -30,16 +30,32 @@
       <section class="demo-section">
         <h2>🎭 AvatarIcon с явным указанием типа</h2>
         <p class="demo-description">
-          Демонстрация базового компонента иконки аватара с принудительным указанием типа иконки через props.
+          Демонстрация базового компонента иконки аватара с принудительным указанием типа иконки через props, а также возможностью настройки цвета и размера.
         </p>
         <div class="icon-demo">
           <div class="icon-item">
-            <h3>Default Icon:</h3>
-            <AvatarIcon icon-type="default" />
+            <h3>Default Icon (72px):</h3>
+            <AvatarIcon icon-type="default" size="72px" />
           </div>
           <div class="icon-item">
-            <h3>Star Wars Icon:</h3>
-            <AvatarIcon icon-type="starwars" />
+            <h3>Star Wars Icon (72px):</h3>
+            <AvatarIcon icon-type="starwars" size="72px" />
+          </div>
+          <div class="icon-item">
+            <h3>User Icon (96px, Blue):</h3>
+            <AvatarIcon icon-type="user" color="#3498db" size="96px" />
+          </div>
+          <div class="icon-item">
+            <h3>Admin Icon (120px, Red):</h3>
+            <AvatarIcon icon-type="admin" color="#e74c3c" size="120px" />
+          </div>
+          <div class="icon-item">
+            <h3>Guest Icon (144px, Green):</h3>
+            <AvatarIcon icon-type="guest" color="#27ae60" size="144px" />
+          </div>
+          <div class="icon-item">
+            <h3>Large Star Wars (192px, Purple):</h3>
+            <AvatarIcon icon-type="starwars" size="192px" color="#9b59b6" />
           </div>
         </div>
       </section>
@@ -147,9 +163,9 @@ const users = [
 }
 
 .icon-demo {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
   justify-content: center;
 }
 
@@ -162,14 +178,19 @@ const users = [
 
 .icon-item {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem;
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 0.5rem;
-  min-width: 200px;
+  min-width: 250px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   h3 {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
     color: #2c3e50;
     font-size: 1rem;
     font-weight: 700;
