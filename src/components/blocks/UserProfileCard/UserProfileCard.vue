@@ -7,7 +7,6 @@
         <UserAvatar 
           :src="userData.avatar" 
           :alt="userData.name"
-          :container-id="containerId"
         />
         
         <div class="user-info">
@@ -23,7 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import { provide } from 'vue'
 import CardHeader from '../../elements/CardHeader/CardHeader.vue'
 import CardFooter from '../../elements/CardFooter/CardFooter.vue'
 import UserAvatar from '../../elements/UserAvatar/UserAvatar.vue'
@@ -38,15 +36,9 @@ interface UserData {
 
 interface Props {
   userData: UserData
-  containerId?: string
 }
 
 const props = defineProps<Props>()
-
-// Передаем containerId дальше дочерним компонентам
-if (props.containerId) {
-  provide('containerId', props.containerId)
-}
 </script>
 
 <style lang="scss">

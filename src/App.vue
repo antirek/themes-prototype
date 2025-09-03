@@ -21,10 +21,7 @@
           >
             <div class="theme-demo">
               <ThemeSelector />
-              <UserProfileCard 
-                :user-data="user" 
-                :container-id="`profile-${index + 1}`"
-              />
+              <UserProfileCard :user-data="user" />
             </div>
           </BaseContainer>
         </div>
