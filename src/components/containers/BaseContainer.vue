@@ -1,5 +1,5 @@
 <template>
-  <div :data-theme="currentTheme" class="base-container">
+  <div :data-theme="currentTheme" :data-container-id="id" class="base-container">
     <slot />
   </div>
 </template>
@@ -9,6 +9,7 @@ import { ref, provide } from 'vue'
 import type { ThemeName } from '../../types/theme'
 
 interface Props {
+  id: string
   initialTheme?: ThemeName
 }
 
@@ -19,7 +20,8 @@ const props = withDefaults(defineProps<Props>(), {
 // Состояние текущей темы
 const currentTheme = ref<ThemeName>(props.initialTheme)
 
-// Предоставляем тему и функцию её изменения дочерним компонентам
+// Предоставляем ID контейнера и тему дочерним компонентам
+provide('containerId', props.id)
 provide('theme', {
   currentTheme,
   setTheme: (theme: ThemeName) => {

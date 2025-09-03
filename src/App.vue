@@ -16,11 +16,15 @@
           <BaseContainer 
             v-for="(user, index) in users.slice(0, 3)" 
             :key="user.name"
+            :id="`profile-${index + 1}`"
             :initial-theme="themes[index]"
           >
             <div class="theme-demo">
               <ThemeSelector />
-              <UserProfileCard :user-data="user" />
+              <UserProfileCard 
+                :user-data="user" 
+                :container-id="`profile-${index + 1}`"
+              />
             </div>
           </BaseContainer>
         </div>
