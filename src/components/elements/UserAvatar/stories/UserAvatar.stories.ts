@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import UserAvatar from '../UserAvatar.vue';
-import { AVATAR_ICON_TYPES } from '../constants';
+import { AVATAR_ICON_TYPES } from '../../../atoms/AvatarIcon/icons';
 
 const meta: Meta<typeof UserAvatar> = {
   title: 'Components/UserAvatar',
