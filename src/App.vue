@@ -88,28 +88,29 @@ const users = [
 ]
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+// Стили компонента App
 .app {
   min-height: 100vh;
-  background: var(--thepro-theme-color-bg);
-  color: var(--thepro-theme-color-text);
+  background: #ffffff;
+  color: #2c3e50;
 }
 
 .app-header {
   text-align: center;
   padding: 2rem 1rem;
-  background: var(--thepro-theme-color-bg-secondary);
-  border-bottom: 1px solid var(--thepro-theme-color-border);
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
 
   h1 {
     margin: 0 0 0.5rem 0;
-    color: var(--thepro-theme-color-primary);
+    color: #3498db;
     font-size: 2.5rem;
   }
 
   p {
     margin: 0;
-    color: var(--thepro-theme-color-text-muted);
+    color: #6c757d;
     font-size: 1.1rem;
   }
 }
@@ -124,15 +125,15 @@ const users = [
   margin-bottom: 3rem;
 
   h2 {
-    color: var(--thepro-theme-color-primary);
-    border-bottom: 2px solid var(--thepro-theme-color-primary);
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
   }
 
   .demo-description {
-    color: var(--thepro-theme-color-text-muted);
-    font-size: var(--thepro-theme-font-size-base);
+    color: #6c757d;
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     max-width: 800px;
@@ -145,19 +146,6 @@ const users = [
   gap: 1.5rem;
 }
 
-.avatar-demo, .icon-demo {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.theme-demo {
-  padding: 1rem;
-  border: 1px solid var(--thepro-theme-color-border);
-  border-radius: var(--thepro-theme-radius-md);
-  background: var(--thepro-theme-color-bg-secondary);
-}
-
 .icon-demo {
   display: flex;
   gap: 2rem;
@@ -165,19 +153,26 @@ const users = [
   justify-content: center;
 }
 
+.theme-demo {
+  padding: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  background: #f8f9fa;
+}
+
 .icon-item {
   text-align: center;
   padding: 1.5rem;
-  background: var(--thepro-theme-color-bg-secondary);
-  border: 1px solid var(--thepro-theme-color-border);
-  border-radius: var(--thepro-theme-radius-md);
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
   min-width: 200px;
 
   h3 {
     margin: 0 0 1rem 0;
-    color: var(--thepro-theme-color-text);
-    font-size: var(--thepro-theme-font-size-base);
-    font-weight: var(--thepro-theme-font-weight-bold);
+    color: #2c3e50;
+    font-size: 1rem;
+    font-weight: 700;
   }
 }
 </style>
