@@ -1,134 +1,89 @@
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed } from 'vue'
 import type { ThemeName } from '../types/theme'
 
-export function useTheme(element?: HTMLElement | null) {
-  const currentTheme = ref<ThemeName>('light')
-  const observer = ref<MutationObserver | null>(null)
-  const targetElement = ref<HTMLElement | null>(element || null)
-
-  // Читаем CSS-переменную из целевого элемента или его родителей
+export function useTheme() {
+  // Читаем CSS-переменную из любого элемента с темой
   const getCssVariable = (variableName: string, defaultValue?: string): string => {
-    console.log('🔍 getCssVariable called:', { variableName, defaultValue, targetElement: targetElement.value })
+    console.log('🔍 useTheme: Ищем переменную:', variableName)
     
-    // Ищем CSS-переменную в конкретном контейнере с темой
-    // CSS-переменные компонентов находятся в контейнерах с data-theme, а не глобально
+    // Сначала определяем текущую активную тему
+    const currentTheme = getCurrentTheme()
+    console.log('🔍 useTheme: Текущая активная тема:', currentTheme)
     
-    if (targetElement.value) {
-      // Ищем ближайший родительский элемент с data-theme
-      const themeContainer = targetElement.value.closest('[data-theme]')
-      console.log('🔍 Theme container found:', themeContainer)
+    // Ищем все элементы с data-theme
+    const themeElements = document.querySelectorAll('[data-theme]')
+    console.log('🔍 useTheme: Найдено элементов с темами:', themeElements.length)
+    
+    // Сначала ищем в элементе с активной темой
+    for (let i = 0; i < themeElements.length; i++) {
+      const themeElement = themeElements[i]
+      const theme = themeElement.getAttribute('data-theme')
       
-      if (themeContainer) {
-        const value = getComputedStyle(themeContainer).getPropertyValue(variableName)
-        console.log('🔍 Value from theme container:', { value: value.trim(), theme: themeContainer.getAttribute('data-theme') })
-        if (value && value.trim()) {
-          return value.trim()
-        }
-      }
-      
-      // Если не нашли в ближайшем контейнере с темой, ищем в цепочке родителей
-      let currentElement: HTMLElement | null = targetElement.value
-      while (currentElement) {
-        const value = getComputedStyle(currentElement).getPropertyValue(variableName)
-        console.log('🔍 Checking parent element:', { element: currentElement, value: value.trim() })
+      // Если это элемент с активной темой, проверяем его первым
+      if (theme === currentTheme) {
+        const value = getComputedStyle(themeElement).getPropertyValue(variableName)
+        
+        console.log('🔍 useTheme: Проверяем элемент с активной темой:', {
+          element: themeElement,
+          theme,
+          variableName,
+          value: value.trim()
+        })
         
         if (value && value.trim()) {
+          console.log('🔍 useTheme: Найдено значение в активной теме:', value.trim())
           return value.trim()
         }
-        
-        // Переходим к родительскому элементу
-        currentElement = currentElement.parentElement
       }
     }
     
-    // Fallback к documentElement (для глобальных переменных)
+    // Если не нашли в активной теме, ищем в любом элементе
+    for (let i = 0; i < themeElements.length; i++) {
+      const themeElement = themeElements[i]
+      const theme = themeElement.getAttribute('data-theme')
+      const value = getComputedStyle(themeElement).getPropertyValue(variableName)
+      
+      console.log('🔍 useTheme: Проверяем элемент:', {
+        element: themeElement,
+        theme,
+        variableName,
+        value: value.trim()
+      })
+      
+      if (value && value.trim()) {
+        console.log('🔍 useTheme: Найдено значение:', value.trim())
+        return value.trim()
+      }
+    }
+    
+    // Fallback к documentElement
     if (document.documentElement) {
       const value = getComputedStyle(document.documentElement).getPropertyValue(variableName)
-      console.log('🔍 Value from documentElement:', value.trim())
+      console.log('🔍 useTheme: Fallback к documentElement:', value.trim())
       if (value && value.trim()) {
         return value.trim()
       }
     }
     
-    console.log('🔍 No value found, returning default:', defaultValue)
+    console.log('🔍 useTheme: Значение не найдено, возвращаем default:', defaultValue)
     return defaultValue || ''
   }
 
-  // Определяем текущую тему
-  const detectTheme = () => {
-    let elementToCheck = targetElement.value
-    
-    // Если элемент не передан, не можем определить тему
-    // Хук должен получать targetElement для корректной работы
-    if (!elementToCheck) {
-      return
-    }
-    
-    // Ищем ближайший родительский элемент с data-theme
-    const themeElement = elementToCheck.closest('[data-theme]')
+  // Получаем текущую активную тему
+  const getCurrentTheme = (): ThemeName => {
+    // Ищем элемент с data-theme (обычно это корневой элемент страницы)
+    const themeElement = document.querySelector('[data-theme]')
     if (themeElement) {
       const theme = themeElement.getAttribute('data-theme') as ThemeName
       if (theme && ['light', 'dark', 'green', 'starwars'].indexOf(theme) !== -1) {
-        currentTheme.value = theme
+        return theme
       }
     }
+    return 'light' // fallback
   }
-
-  // Начинаем наблюдение за изменениями темы
-  const startObserving = () => {
-    if (observer.value) {
-      observer.value.disconnect()
-    }
-
-    observer.value = new MutationObserver(() => {
-      detectTheme()
-    })
-
-    // Наблюдаем за documentElement для глобальных изменений
-    observer.value.observe(document.documentElement, { 
-      attributes: true, 
-      attributeFilter: ['data-theme'] 
-    })
-
-    // Наблюдаем за всеми элементами с data-theme
-    const themeElements = document.querySelectorAll('[data-theme]')
-    themeElements.forEach(themeElement => {
-      observer.value?.observe(themeElement, { 
-        attributes: true, 
-        attributeFilter: ['data-theme'] 
-      })
-    })
-  }
-
-  // Останавливаем наблюдение
-  const stopObserving = () => {
-    if (observer.value) {
-      observer.value.disconnect()
-      observer.value = null
-    }
-  }
-
-  // Обновляем целевой элемент
-  const updateTargetElement = (newElement: HTMLElement | null) => {
-    targetElement.value = newElement
-    detectTheme()
-  }
-
-  onMounted(() => {
-    detectTheme()
-    startObserving()
-  })
-
-  onUnmounted(() => {
-    stopObserving()
-  })
 
   return {
-    currentTheme,
-    detectTheme,
-    startObserving,
-    stopObserving,
-    updateTargetElement,
-    getCssVariable
+    getCssVariable,
+    getCurrentTheme
   }
 }

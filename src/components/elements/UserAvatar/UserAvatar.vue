@@ -40,22 +40,21 @@ const shouldShowDefaultIcon = computed(() => {
   return !props.src || imageError.value
 })
 
-// Используем хук для определения темы и CSS-переменных
-const { currentTheme, updateTargetElement, getCssVariable } = useTheme()
-
-// Следим за изменениями avatarRef и обновляем целевой элемент
-watch(avatarRef, (newElement) => {
-  updateTargetElement(newElement || null)
-}, { immediate: true })
+// Используем хук для чтения CSS-переменных
+const { getCssVariable, getCurrentTheme } = useTheme()
 
 // Определяем тип иконки на основе CSS-переменной
 const currentIconType = computed<AvatarIconType>(() => {
   const iconType = getCssVariable('--thepro-useravatar-icon-type', 'default')
-  console.log('🔍 UserAvatar currentIconType:', {
+  const currentTheme = getCurrentTheme()
+  
+  // Отладочная информация
+  console.log('🔍 UserAvatar Debug:', {
     iconType,
-    targetElement: avatarRef.value,
-    currentTheme: currentTheme.value
+    currentTheme,
+    cssVariable: '--thepro-useravatar-icon-type'
   })
+  
   return iconType as AvatarIconType || 'default'
 })
 </script>

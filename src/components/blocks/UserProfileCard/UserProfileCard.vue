@@ -1,5 +1,5 @@
 <template>
-  <div class="user-profile-card" :data-theme="theme">
+  <div class="user-profile-card">
     <CardHeader :text="userData.name" />
     
     <div class="user-profile-body">
@@ -22,11 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import CardHeader from '../../elements/CardHeader/CardHeader.vue'
 import CardFooter from '../../elements/CardFooter/CardFooter.vue'
 import UserAvatar from '../../elements/UserAvatar/UserAvatar.vue'
-import type { ThemeName } from '../../types/theme'
 
 interface UserData {
   name: string
@@ -38,14 +36,9 @@ interface UserData {
 
 interface Props {
   userData: UserData
-  theme?: ThemeName
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  theme: 'light'
-})
-
-const theme = computed(() => props.theme)
+const props = defineProps<Props>()
 </script>
 
 <style lang="scss">

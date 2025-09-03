@@ -4,40 +4,27 @@
 
 ## useTheme
 
-Хук для определения текущей темы и чтения CSS-переменных.
+Простой и независимый хук для чтения CSS-переменных из тем.
 
 ### Функциональность
 
-- **Определение темы**: Автоматически определяет текущую тему через `data-theme` атрибут
-- **Наблюдение за изменениями**: Использует `MutationObserver` для отслеживания изменений темы
-- **Чтение CSS-переменных**: Может читать CSS-переменные из целевого элемента и его родителей
-- **Fallback логика**: Автоматически ищет ближайший элемент с темой, если целевой элемент не передан
+- **Чтение CSS-переменных**: Автоматически ищет CSS-переменные во всех элементах с темами
+- **Определение текущей темы**: Может определить активную тему страницы
+- **Полная независимость**: Не требует передачи элементов или настройки
 
 ### API
 
 ```typescript
 const { 
-  currentTheme,           // Реактивная ссылка на текущую тему
-  detectTheme,            // Функция для принудительного определения темы
-  startObserving,         // Начать наблюдение за изменениями
-  stopObserving,          // Остановить наблюдение
-  updateTargetElement,    // Обновить целевой элемент
-  getCssVariable          // Читать CSS-переменную
-} = useTheme(element?)
+  getCssVariable,    // Читать CSS-переменную
+  getCurrentTheme     // Получить текущую тему
+} = useTheme()
 ```
-
-### Параметры
-
-- `element?: HTMLElement | null` - целевой элемент для определения темы (опционально)
 
 ### Возвращаемые значения
 
-- `currentTheme: Ref<ThemeName>` - текущая тема ('light', 'dark', 'green', 'starwars')
-- `detectTheme: () => void` - функция для принудительного определения темы
-- `startObserving: () => void` - начать наблюдение за изменениями темы
-- `stopObserving: () => void` - остановить наблюдение за изменениями темы
-- `updateTargetElement: (element: HTMLElement | null) => void` - обновить целевой элемент
 - `getCssVariable: (variableName: string, defaultValue?: string) => string` - читать CSS-переменную
+- `getCurrentTheme: () => ThemeName` - получить текущую активную тему
 
 ### Использование
 
@@ -45,46 +32,45 @@ const {
 
 ```vue
 <template>
-  <div ref="elementRef" data-theme="light">
+  <div data-theme="light">
+    <p>CSS переменная: {{ cssValue }}</p>
     <p>Текущая тема: {{ currentTheme }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
 import { useTheme } from '@/hooks'
 
-const elementRef = ref<HTMLElement>()
-const { currentTheme, updateTargetElement } = useTheme()
+const { getCssVariable, getCurrentTheme } = useTheme()
 
-// Обновляем целевой элемент при изменении ref
-watch(elementRef, (newElement) => {
-  updateTargetElement(newElement || null)
-}, { immediate: true })
+// Читаем CSS-переменную
+const cssValue = computed(() => {
+  return getCssVariable('--my-css-variable', 'default')
+})
+
+// Получаем текущую тему
+const currentTheme = computed(() => {
+  return getCurrentTheme()
+})
 </script>
 ```
 
-#### Чтение CSS-переменных
+#### Чтение CSS-переменных для компонентов
 
 ```vue
 <template>
-  <div ref="avatarRef" class="user-avatar">
+  <div class="user-avatar">
     <AvatarIcon :icon-type="iconType" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed } from 'vue'
 import { useTheme } from '@/hooks'
 import { AvatarIcon } from '@/components/atoms/AvatarIcon'
 
-const avatarRef = ref<HTMLElement>()
-const { getCssVariable, updateTargetElement } = useTheme()
-
-// Следим за изменениями ref и обновляем целевой элемент
-watch(avatarRef, (newElement) => {
-  updateTargetElement(newElement || null)
-}, { immediate: true })
+const { getCssVariable } = useTheme()
 
 // Читаем CSS-переменную для определения типа иконки
 const iconType = computed(() => {
@@ -95,23 +81,21 @@ const iconType = computed(() => {
 
 ### Логика работы
 
-1. **Определение темы**: Хук ищет ближайший родительский элемент с атрибутом `data-theme`
-2. **Наблюдение**: Использует `MutationObserver` для отслеживания изменений атрибутов
-3. **CSS-переменные**: Читает переменные из элемента с темой или из `documentElement` как fallback
-4. **Реактивность**: Автоматически обновляет `currentTheme` при изменении темы
-
-### Fallback логика
-
-Если целевой элемент не передан или не найден:
-
-1. Ищет элемент с классом `.user-avatar` (специальный случай для аватаров)
-2. Ищет ближайший родительский элемент с `data-theme`
-3. Использует `documentElement` как последний fallback
+1. **Поиск элементов с темами**: Ищет все элементы с атрибутом `data-theme`
+2. **Чтение CSS-переменной**: Проходит по всем найденным элементам и ищет нужную переменную
+3. **Fallback**: Если не нашел, проверяет `documentElement`
+4. **Определение темы**: Ищет первый элемент с `data-theme` для определения активной темы
 
 ### Преимущества
 
-- **Автоматическое определение**: Не нужно вручную передавать тему
-- **Реактивность**: Автоматически обновляется при изменении темы
-- **Гибкость**: Может работать с любым элементом или глобально
-- **CSS-переменные**: Может читать любые CSS-переменные из тем
-- **Производительность**: Использует эффективное наблюдение за DOM изменениями
+- **Полная независимость**: Не нужно передавать элементы или настраивать
+- **Простота**: Минимальный API, понятная логика
+- **Производительность**: Читает переменные только при необходимости
+- **Универсальность**: Работает с любыми компонентами без изменений
+
+### Когда использовать
+
+- **Чтение CSS-переменных** из любых тем
+- **Определение конфигурации** на основе темы
+- **Динамическое переключение** стилей и поведения
+- **Любые случаи**, когда нужно читать CSS-переменные без привязки к конкретным элементам

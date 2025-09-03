@@ -1,18 +1,13 @@
-// Atoms (самые базовые атомарные компоненты)
-export { AvatarIcon } from './atoms/AvatarIcon'
+// Atoms - самые базовые компоненты
+export { default as AvatarIcon } from './atoms/AvatarIcon/AvatarIcon.vue'
+export * from './atoms/AvatarIcon'
 
-// Elements (базовые элементы)
-export { default as CardHeader } from './elements/CardHeader/CardHeader.vue'
-export { default as CardBody } from './elements/CardBody/CardBody.vue'
-export { default as CardFooter } from './elements/CardFooter/CardFooter.vue'
-export { default as CardPreview } from './elements/CardPreview/CardPreview.vue'
+// Elements - простые компоненты
 export { default as UserAvatar } from './elements/UserAvatar/UserAvatar.vue'
 
-// Blocks (составные блоки)
+// Blocks - составные компоненты
 export { default as UserProfileCard } from './blocks/UserProfileCard/UserProfileCard.vue'
 
-// Compounds (сложные составные)
-export { default as CardWithTheme } from './compounds/CardWithTheme/CardWithTheme.vue'
-
-// Avatar icons
-export { DefaultAvatarIcon, StarWarsAvatarIcon, type AvatarIconType } from './atoms/AvatarIcon'
+// Containers - контейнеры для управления состоянием
+export { default as BaseContainer } from './containers/BaseContainer.vue'
+export { default as ThemeSelector } from './containers/ThemeSelector.vue'
