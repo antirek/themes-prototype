@@ -1,27 +1,33 @@
 <template>
-  <component 
-    :is="currentIcon" 
-    class="avatar-icon"
-  />
+  <div class="avatar-icon" :class="`avatar-icon--${iconType}`">
+    <img 
+      :src="svgPath" 
+      :alt="`${iconType} icon`"
+      class="avatar-icon-svg"
+      @error="handleSvgError"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { DefaultAvatarIcon, StarWarsAvatarIcon, type AvatarIconType } from './icons'
-import type { AvatarIconProps } from './types'
+import type { AvatarIconType } from './types'
+import { getSvgIconPath } from './utils/svgLoader'
 
-const props = defineProps<AvatarIconProps>()
+interface Props {
+  /** Тип иконки для отображения */
+  iconType: AvatarIconType
+}
 
-// Реестр доступных иконок
-const ICON_REGISTRY = {
-  default: DefaultAvatarIcon,
-  starwars: StarWarsAvatarIcon,
-} as const
+const props = defineProps<Props>()
 
-// Выбираем иконку на основе переданного типа
-const currentIcon = computed(() => {
-  return ICON_REGISTRY[props.iconType] || ICON_REGISTRY.default
-})
+// Получаем путь к SVG файлу
+const svgPath = computed(() => getSvgIconPath(props.iconType))
+
+// Обработка ошибки загрузки SVG
+const handleSvgError = () => {
+  console.warn(`Failed to load SVG icon: ${props.iconType}`)
+}
 </script>
 
 <style lang="scss">

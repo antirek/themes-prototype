@@ -1,6 +1,8 @@
-import type { AvatarIconType } from './icons'
+// Доступные типы иконок (соответствуют именам SVG файлов)
+export type AvatarIconType = 'default' | 'starwars' | 'user' | 'admin' | 'guest'
 
-export interface AvatarIconProps {
-  /** Тип иконки для отображения */
-  iconType: AvatarIconType
+// Интерфейс для SVG иконки
+export interface SvgIcon {
+  name: string
+  path: string
 }
