@@ -5,7 +5,7 @@
 export * from '../components/CardHeader/stories';
 
 // Истории компонента UserAvatar
-export * from '../components/UserAvatar/stories';
+export * from '../components/elements/UserAvatar/stories';
 
 // В будущем здесь будут экспортироваться истории других компонентов
 // export * from '../components/CardBody/stories';

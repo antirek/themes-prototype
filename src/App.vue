@@ -175,10 +175,10 @@
             <div class="avatar-icon-wrapper">
               <h3>Автоматическое определение через CSS переменные:</h3>
               <div class="avatar-icon-demo" data-theme="light">
-                <AvatarIcon />
+                <AvatarIcon icon-type="default" />
               </div>
               <div class="avatar-icon-demo" data-theme="starwars">
-                <AvatarIcon />
+                <AvatarIcon icon-type="starwars" />
               </div>
             </div>
             
@@ -216,7 +216,7 @@
 import { ref } from 'vue'
 import CardWithTheme from './components/compounds/CardWithTheme/CardWithTheme.vue'
 import UserProfileCard from './components/blocks/UserProfileCard/UserProfileCard.vue'
-import UserAvatar from './components/blocks/UserAvatar/UserAvatar.vue'
+import UserAvatar from './components/elements/UserAvatar/UserAvatar.vue'
 import { AvatarIcon } from './components/atoms/AvatarIcon'
 import type { CardData } from './types/card'
 import type { ThemeName } from './types/theme'

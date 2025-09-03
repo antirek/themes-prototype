@@ -25,7 +25,7 @@
 import { computed } from 'vue'
 import CardHeader from '../../elements/CardHeader/CardHeader.vue'
 import CardFooter from '../../elements/CardFooter/CardFooter.vue'
-import UserAvatar from '../UserAvatar/UserAvatar.vue'
+import UserAvatar from '../../elements/UserAvatar/UserAvatar.vue'
 import type { ThemeName } from '../../types/theme'
 
 interface UserData {

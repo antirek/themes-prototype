@@ -1,7 +1,7 @@
 // Импорт стилей компонентов для Star Wars темы
 // Базовые элементы не имеют Star Wars темы, используем стандартные
 @use '../../components/blocks/UserProfileCard/styles/themes/starwars.scss' as userprofilecard-starwars;
-@use '../../components/blocks/UserAvatar/styles/themes/starwars.scss' as useravatar-starwars;
+@use '../../components/elements/UserAvatar/styles/themes/starwars.scss' as useravatar-starwars;
 
 [data-theme="starwars"] {
   /* Цветовая палитра Star Wars */
