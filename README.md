@@ -47,11 +47,21 @@ npm install @thepro/cards
 <CardPreview :card-data="cardData" />
 ```
 
-### CardWithTheme
-Карточка с собственным селектором темы.
+### UserProfileCard
+
+Компонент карточки профиля пользователя с автоматическим определением темы.
 
 ```vue
-<CardWithTheme id="unique-id" :card-data="cardData" />
+<UserProfileCard :user-data="userData" />
+```
+
+### AvatarIcon
+
+Базовый компонент иконки аватара с поддержкой различных типов.
+
+```vue
+<AvatarIcon icon-type="default" />
+<AvatarIcon icon-type="starwars" />
 ```
 
 ## 🎯 Система тем

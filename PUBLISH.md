@@ -59,7 +59,7 @@ npm install @thepro/cards
 
 ### Импорт компонентов
 ```typescript
-import { CardHeader, CardBody, CardFooter, CardWithTheme } from '@thepro/cards';
+import { CardHeader, CardBody, CardFooter } from '@thepro/cards';
 ```
 
 ### Импорт тем

@@ -1,18 +1,14 @@
-// Основные экспорты
+// Экспортируем основные компоненты
 export { default as CardHeader } from './components/CardHeader/CardHeader.vue';
 export { default as CardBody } from './components/CardBody/CardBody.vue';
 export { default as CardFooter } from './components/CardFooter/CardFooter.vue';
 export { default as CardPreview } from './components/CardPreview/CardPreview.vue';
-export { default as CardWithTheme } from './components/CardWithTheme/CardWithTheme.vue';
-export { default as UserProfileCard } from './components/UserProfileCard/UserProfileCard.vue';
 
-// Импорты для Vue плагина
+// Импортируем компоненты для регистрации
 import CardHeader from './components/CardHeader/CardHeader.vue';
 import CardBody from './components/CardBody/CardBody.vue';
 import CardFooter from './components/CardFooter/CardFooter.vue';
 import CardPreview from './components/CardPreview/CardPreview.vue';
-import CardWithTheme from './components/CardWithTheme/CardWithTheme.vue';
-import UserProfileCard from './components/UserProfileCard/UserProfileCard.vue';
 
 // Типы
 export type { CardHeaderThemeCSSVariables } from './components/CardHeader/types';
@@ -64,7 +60,5 @@ export default {
     app.component('CardBody', CardBody);
     app.component('CardFooter', CardFooter);
     app.component('CardPreview', CardPreview);
-    app.component('CardWithTheme', CardWithTheme);
-    app.component('UserProfileCard', UserProfileCard);
   }
 };
