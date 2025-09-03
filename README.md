@@ -148,18 +148,99 @@
 npm install @thepro/cards
 ```
 
-### **Использование**
+### **Базовое использование**
 ```typescript
 import { CardHeader, CardBody, CardFooter, applyTheme } from '@thepro/cards'
 import '@thepro/cards/style.css'
 
-// Применить тему
+// Применить тему глобально
 applyTheme('dark')
 
-// Использовать компоненты
+// Простые компоненты
 <CardHeader text="Заголовок" />
 <CardBody text="Содержимое" />
 <CardFooter text="Подвал" />
+```
+
+### **Использование с BaseContainer (рекомендуется)**
+`BaseContainer` - это контейнер для изоляции тем. Он создает контекст темы для всех вложенных компонентов:
+
+```vue
+<template>
+  <!-- Контейнер с темой "starwars" -->
+  <BaseContainer id="profile-section" initial-theme="starwars">
+    <!-- Все компоненты внутри наследуют тему starwars -->
+    <UserProfileCard :user-data="userData" />
+    <CardPreview :card-data="cardData" />
+  </BaseContainer>
+
+  <!-- Другой контейнер с темой "light" -->
+  <BaseContainer id="settings-section" initial-theme="light">
+    <!-- Компоненты здесь наследуют тему light -->
+    <CardHeader text="Настройки" />
+    <CardBody text="Конфигурация профиля" />
+  </BaseContainer>
+</template>
+
+<script setup lang="ts">
+import { BaseContainer, UserProfileCard, CardPreview, CardHeader, CardBody } from '@thepro/cards'
+</script>
+```
+
+### **Динамическое переключение тем**
+```vue
+<template>
+  <div>
+    <!-- Переключатель тем -->
+    <ThemeSelector 
+      :available-themes="['light', 'dark', 'green', 'starwars']"
+      @theme-change="handleThemeChange"
+    />
+    
+    <!-- Контейнер с динамической темой -->
+    <BaseContainer 
+      ref="containerRef"
+      id="dynamic-container" 
+      :initial-theme="currentTheme"
+    >
+      <UserAvatar />
+      <CardHeader text="Динамический заголовок" />
+    </BaseContainer>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import { BaseContainer, ThemeSelector, UserAvatar, CardHeader } from '@thepro/cards'
+
+const currentTheme = ref('light')
+const containerRef = ref()
+
+const handleThemeChange = (newTheme: string) => {
+  currentTheme.value = newTheme
+  // Или переключить тему в конкретном контейнере
+  containerRef.value?.setTheme(newTheme)
+}
+</script>
+```
+
+### **CSS переменные и кастомизация**
+```vue
+<template>
+  <BaseContainer 
+    id="custom-container" 
+    initial-theme="light"
+    :css-variables="{
+      '--thepro-useravatar-size': '200px',
+      '--thepro-useravatar-icon-color': '#ff6b35',
+      '--thepro-cardheader-bg': 'linear-gradient(45deg, #ff6b35, #f7931e)'
+    }"
+  >
+    <!-- Компоненты используют кастомные CSS переменные -->
+    <UserAvatar />
+    <CardHeader text="Кастомный заголовок" />
+  </BaseContainer>
+</template>
 ```
 
 ### **Storybook**
@@ -167,6 +248,12 @@ applyTheme('dark')
 npm run storybook
 ```
 Доступен по адресу: http://localhost:6006
+
+**В Storybook вы увидите:**
+- Примеры всех компонентов
+- Демонстрацию вложенности `BaseContainer`
+- Различные темы и их применение
+- Интерактивные примеры использования
 
 ---
 
