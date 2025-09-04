@@ -19,8 +19,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useTheme } from '../../../hooks'
-import { AvatarIcon } from '../../atoms/AvatarIcon'
-import type { AvatarIconType } from '../../atoms/AvatarIcon'
+import { default as AvatarIcon } from '../../atoms/AvatarIcon/AvatarIcon.vue'
+import type { AvatarIconType } from '../../atoms/AvatarIcon/types'
 
 interface Props {
   src?: string

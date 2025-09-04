@@ -1,13 +1,12 @@
 // Atoms - самые базовые компоненты
 export { default as AvatarIcon } from './atoms/AvatarIcon/AvatarIcon.vue'
-export * from './atoms/AvatarIcon'
 
 // Elements - простые компоненты
 export { default as CardHeader } from './elements/CardHeader/CardHeader.vue'
 export { default as CardBody } from './elements/CardBody/CardBody.vue'
 export { default as CardFooter } from './elements/CardFooter/CardFooter.vue'
 export { default as UserAvatar } from './elements/UserAvatar/UserAvatar.vue'
-export { ThemeSelector } from './elements/ThemeSelector'
+export { default as ThemeSelector } from './elements/ThemeSelector/ThemeSelector.vue'
 
 // Blocks - составные компоненты
 export { default as UserProfileCard } from './blocks/UserProfileCard/UserProfileCard.vue'
