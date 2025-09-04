@@ -23,6 +23,8 @@ export interface UserAvatarThemeCSSVariables {
   '--thepro-useravatar-icon-padding': string;
   /** Тип иконки аватара (default, starwars) */
   '--thepro-useravatar-icon-type': string;
+  /** Время перехода для анимаций аватара */
+  '--thepro-useravatar-transition': string;
 }
 
 export interface UserAvatarProps {

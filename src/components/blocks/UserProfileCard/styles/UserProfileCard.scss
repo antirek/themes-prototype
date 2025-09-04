@@ -9,7 +9,7 @@
   border-radius: var(--thepro-userprofilecard-border-radius, var(--thepro-theme-radius-lg));
   box-shadow: var(--thepro-userprofilecard-shadow, var(--thepro-theme-shadow-md));
   overflow: hidden;
-  transition: all var(--thepro-theme-transition);
+  transition: all var(--thepro-userprofilecard-transition);
   
   &:hover {
     transform: translateY(-2px);
@@ -52,7 +52,7 @@
   background: var(--thepro-userprofilecard-body-bg, var(--thepro-theme-color-bg));
   color: var(--thepro-userprofilecard-body-text, var(--thepro-theme-color-text));
   position: relative;
-  transition: all var(--thepro-theme-transition);
+  transition: all var(--thepro-userprofilecard-transition);
   
   @media (max-width: 768px) {
     padding: var(--thepro-theme-spacing-4);

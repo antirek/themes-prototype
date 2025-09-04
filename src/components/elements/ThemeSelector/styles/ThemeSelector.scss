@@ -1,0 +1,48 @@
+.theme-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: var(--thepro-themeselector-padding);
+  margin-bottom: 1rem;
+  background: var(--thepro-themeselector-color-bg-secondary);
+  border: 1px solid var(--thepro-themeselector-color-border);
+  border-radius: var(--thepro-themeselector-radius-md);
+  transition: var(--thepro-themeselector-transition);
+
+  .theme-label {
+    margin: 0;
+    font-size: var(--thepro-themeselector-font-size-base);
+    font-weight: var(--thepro-themeselector-font-weight-bold);
+    color: var(--thepro-themeselector-color-text);
+    white-space: nowrap;
+    transition: var(--thepro-themeselector-transition);
+  }
+
+  .theme-select {
+    padding: var(--thepro-themeselector-select-padding);
+    background: var(--thepro-themeselector-color-bg);
+    color: var(--thepro-themeselector-color-text);
+    border: 1px solid var(--thepro-themeselector-color-border);
+    border-radius: var(--thepro-themeselector-radius-sm);
+    cursor: pointer;
+    transition: var(--thepro-themeselector-transition);
+    font-size: var(--thepro-themeselector-font-size-sm);
+    min-width: 150px;
+
+    &:hover {
+      border-color: var(--thepro-themeselector-color-primary);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--thepro-themeselector-color-primary);
+      box-shadow: var(--thepro-themeselector-focus-shadow);
+    }
+
+    option {
+      background: var(--thepro-themeselector-color-bg);
+      color: var(--thepro-themeselector-color-text);
+      padding: var(--thepro-themeselector-option-padding);
+    }
+  }
+}

@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { inject, computed } from 'vue'
-import type { ThemeName } from '../../types/theme'
+import type { ThemeName } from '../../../types/theme'
 import { Ref } from 'vue'
 
 // Получаем тему из BaseContainer через inject
@@ -49,51 +49,6 @@ const getThemeDisplayName = (theme: ThemeName): string => {
 }
 </script>
 
-<style lang="scss" scoped>
-.theme-selector {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: var(--thepro-theme-color-bg-secondary);
-  border: 1px solid var(--thepro-theme-color-border);
-  border-radius: var(--thepro-theme-radius-md);
-  margin-bottom: 1rem;
-
-  .theme-label {
-    margin: 0;
-    color: var(--thepro-theme-color-text);
-    font-size: var(--thepro-theme-font-size-base);
-    font-weight: var(--thepro-theme-font-weight-bold);
-    white-space: nowrap;
-  }
-
-  .theme-select {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--thepro-theme-color-border);
-    border-radius: var(--thepro-theme-radius-sm);
-    background: var(--thepro-theme-color-bg);
-    color: var(--thepro-theme-color-text);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: var(--thepro-theme-font-size-sm);
-    min-width: 150px;
-
-    &:hover {
-      border-color: var(--thepro-theme-color-primary);
-    }
-
-    &:focus {
-      outline: none;
-      border-color: var(--thepro-theme-color-primary);
-      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-    }
-
-    option {
-      background: var(--thepro-theme-color-bg);
-      color: var(--thepro-theme-color-text);
-      padding: 0.5rem;
-    }
-  }
-}
+<style lang="scss">
+@import './styles/ThemeSelector.scss';
 </style>

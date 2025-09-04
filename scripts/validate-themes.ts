@@ -90,6 +90,17 @@ interface ThemeImportsValidationResult {
 }
 
 /**
+ * Интерфейс для результатов валидации использования глобальных переменных тем в файлах стилей
+ */
+interface GlobalThemeVariablesValidationResult {
+  component: string;
+  theme: string;
+  isValid: boolean;
+  errors: string[];
+  globalVariables: string[];
+}
+
+/**
  * Извлекает CSS переменные из SCSS файла
  */
 function extractCSSVariablesFromSCSS(filePath: string): ThemeCSSVariables {
@@ -527,6 +538,41 @@ function validateNoThemeImportsInStyleFiles(
 }
 
 /**
+ * Проверяет, что в файле стилей компонента не используются глобальные переменные тем
+ */
+function validateNoGlobalThemeVariablesInStyleFiles(
+  componentName: string,
+  stylePath: string
+): GlobalThemeVariablesValidationResult {
+  const content = fs.readFileSync(stylePath, 'utf-8');
+  const globalVariables: string[] = [];
+  
+  // Регулярное выражение для поиска глобальных переменных тем (исключаем переменные компонента)
+  // Ищем --thepro-theme-*, но исключаем --thepro-theme-<компонент>-*
+  const globalThemeVarRegex = /var\(--thepro-theme-(?!\w+-)[^)]+\)/g;
+  let match;
+  
+  while ((match = globalThemeVarRegex.exec(content)) !== null) {
+    globalVariables.push(match[0]);
+  }
+  
+  const isValid = globalVariables.length === 0;
+  const errors: string[] = [];
+  
+  if (globalVariables.length > 0) {
+    errors.push(`Использование глобальных переменных тем: ${globalVariables.join(', ')}`);
+  }
+  
+  return {
+    component: componentName,
+    theme: 'style.scss',
+    isValid,
+    errors,
+    globalVariables
+  };
+}
+
+/**
  * Основная функция валидации
  */
 async function validateAllThemes(): Promise<void> {
@@ -536,9 +582,13 @@ async function validateAllThemes(): Promise<void> {
   const allPaths = await glob('src/components/*/*');
   const componentPaths = allPaths.filter(path => {
     const isDirectory = fs.statSync(path).isDirectory();
-    const parentDir = path.split('/').slice(-2, -1)[0]; // Получаем родительскую директорию
+    const pathParts = path.split('/');
+    const parentDir = pathParts[pathParts.length - 2]; // Получаем родительскую директорию
     const isNotAtoms = parentDir !== 'atoms'; // Исключаем atoms
-    return isDirectory && isNotAtoms;
+    // Исключаем подпапки (styles, stories, themes)
+    const componentName = pathParts[pathParts.length - 1];
+    const isNotSubfolder = !['styles', 'stories', 'themes'].includes(componentName);
+    return isDirectory && isNotAtoms && isNotSubfolder;
   });
   const interfaceResults: InterfaceValidationResult[] = [];
   const prefixResults: PrefixValidationResult[] = [];
@@ -547,10 +597,29 @@ async function validateAllThemes(): Promise<void> {
   const dataThemeResults: DataThemeValidationResult[] = [];
   const cssClassesResults: CSSClassesValidationResult[] = [];
   const themeImportsResults: ThemeImportsValidationResult[] = [];
+  const globalThemeVariablesResults: GlobalThemeVariablesValidationResult[] = [];
   
   for (const componentPath of componentPaths) {
     const componentName = path.basename(componentPath);
     const typesPath = path.join(componentPath, 'types.ts');
+    
+    // Проверяем основной файл стилей компонента (для всех компонентов)
+    const stylePath = path.join(componentPath, 'styles', `${componentName}.scss`);
+    if (fs.existsSync(stylePath)) {
+      const themeImportsResult = validateNoThemeImportsInStyleFiles(componentName, stylePath);
+      themeImportsResults.push(themeImportsResult);
+      
+      const globalThemeVariablesResult = validateNoGlobalThemeVariablesInStyleFiles(componentName, stylePath);
+      globalThemeVariablesResults.push(globalThemeVariablesResult);
+      
+      if (!themeImportsResult.isValid) {
+        console.log(`   ❌  style.scss: ${themeImportsResult.errors.join('; ')}`);
+      }
+      
+      if (!globalThemeVariablesResult.isValid) {
+        console.log(`   ❌  style.scss: ${globalThemeVariablesResult.errors.join('; ')}`);
+      }
+    }
     
     // Проверяем, есть ли файл types.ts
     if (!fs.existsSync(typesPath)) {
@@ -572,8 +641,7 @@ async function validateAllThemes(): Promise<void> {
       console.log(`     • ${variable}`);
     });
     
-    // Проверяем основной файл стилей компонента
-    const stylePath = path.join(componentPath, 'styles', `${componentName}.scss`);
+    // Проверяем основной файл стилей компонента (дополнительные проверки)
     if (fs.existsSync(stylePath)) {
       const themeUsageResult = validateThemeUsageInComponents(componentName, stylePath);
       themeUsageResults.push(themeUsageResult);
@@ -581,19 +649,12 @@ async function validateAllThemes(): Promise<void> {
       const dataThemeResult = validateNoDataThemeInStyleFiles(componentName, stylePath);
       dataThemeResults.push(dataThemeResult);
       
-      const themeImportsResult = validateNoThemeImportsInStyleFiles(componentName, stylePath);
-      themeImportsResults.push(themeImportsResult);
-      
       if (!themeUsageResult.isValid) {
         console.log(`   ⚠️  style.scss: ${themeUsageResult.errors.join('; ')}`);
       }
       
       if (!dataThemeResult.isValid) {
         console.log(`   ❌  style.scss: ${dataThemeResult.errors.join('; ')}`);
-      }
-      
-      if (!themeImportsResult.isValid) {
-        console.log(`   ❌  style.scss: ${themeImportsResult.errors.join('; ')}`);
       }
     }
     
@@ -682,7 +743,7 @@ async function validateAllThemes(): Promise<void> {
   }
   
   // Выводим итоговую статистику
-  const allResults = [...interfaceResults, ...prefixResults, ...forbiddenResults, ...themeUsageResults, ...dataThemeResults, ...cssClassesResults, ...themeImportsResults];
+  const allResults = [...interfaceResults, ...prefixResults, ...forbiddenResults, ...themeUsageResults, ...dataThemeResults, ...cssClassesResults, ...themeImportsResults, ...globalThemeVariablesResults];
   const validResults = allResults.filter(r => r.isValid);
   const invalidResults = allResults.filter(r => !r.isValid);
   

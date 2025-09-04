@@ -34,7 +34,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--thepro-theme-transition);
+  transition: transform var(--thepro-useravatar-transition);
   
   &:hover {
     transform: scale(1.05);
@@ -48,7 +48,7 @@
   display: block;
   padding: var(--thepro-useravatar-icon-padding, 15%);
   box-sizing: border-box;
-  transition: transform var(--thepro-theme-transition);
+  transition: transform var(--thepro-useravatar-transition);
   color: var(--thepro-useravatar-icon-color, var(--thepro-theme-color-text-muted));
 }
 

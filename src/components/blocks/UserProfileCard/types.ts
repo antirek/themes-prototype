@@ -83,4 +83,6 @@ export interface UserProfileCardThemeCSSVariables {
   '--thepro-userprofilecard-avatar-size-mobile': string;
   /** Размер аватара на маленьких мобильных */
   '--thepro-userprofilecard-avatar-size-small': string;
+  /** Время перехода для анимаций карточки профиля */
+  '--thepro-userprofilecard-transition': string;
 }
