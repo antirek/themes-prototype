@@ -64,7 +64,8 @@
 </template>
 
 <script setup lang="ts">
-import { BaseContainer, ThemeSelector } from './components/containers'
+import { BaseContainer } from './components/containers'
+import { ThemeSelector } from './components/elements'
 import { UserProfileCard, AvatarIcon } from './components'
 import type { ThemeName } from './types/theme'
 
