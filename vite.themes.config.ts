@@ -15,10 +15,10 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        'light': resolve(__dirname, 'src/themes/light/light.scss'),
-        'dark': resolve(__dirname, 'src/themes/dark/dark.scss'),
-        'green': resolve(__dirname, 'src/themes/green/green.scss'),
-        'starwars': resolve(__dirname, 'src/themes/starwars/starwars.scss'),
+        'light': resolve(__dirname, 'src/themes/light/index.scss'),
+        'dark': resolve(__dirname, 'src/themes/dark/index.scss'),
+        'green': resolve(__dirname, 'src/themes/green/index.scss'),
+        'starwars': resolve(__dirname, 'src/themes/starwars/index.scss'),
       },
       output: {
         assetFileNames: (assetInfo) => {

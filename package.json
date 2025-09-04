@@ -39,10 +39,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build:dev": "vite build",
     "build:lib": "vite build --config vite.lib.config.ts",
     "build:themes": "vite build --config vite.themes.config.ts",
-    "build:all": "npm run build:lib && npm run build:themes",
+    "build": "npm run build:lib && npm run build:themes",
     "preview": "vite preview",
     "validate-themes": "tsx scripts/validate-themes.ts",
     "prepublishOnly": "npm run validate-themes && npm run build:all",
