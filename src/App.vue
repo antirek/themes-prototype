@@ -69,9 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { BaseContainer } from './components/containers'
-import { ThemeSelector } from './components/elements'
-import { UserProfileCard, AvatarIcon } from './components'
+import { BaseContainer, ThemeSelector, UserProfileCard, AvatarIcon } from './components'
 // Списки тем для демонстрации
 const themes = ['light', 'dark', 'green', 'starwars']
 
