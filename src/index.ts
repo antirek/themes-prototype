@@ -2,7 +2,6 @@
 export { default as CardHeader } from './components/elements/CardHeader/CardHeader.vue';
 export { default as CardBody } from './components/elements/CardBody/CardBody.vue';
 export { default as CardFooter } from './components/elements/CardFooter/CardFooter.vue';
-export { default as CardPreview } from './components/elements/CardPreview/CardPreview.vue';
 export { default as UserProfileCard } from './components/blocks/UserProfileCard/UserProfileCard.vue';
 export { default as UserAvatar } from './components/elements/UserAvatar/UserAvatar.vue';
 export { default as AvatarIcon } from './components/atoms/AvatarIcon/AvatarIcon.vue';
@@ -11,7 +10,6 @@ export { default as AvatarIcon } from './components/atoms/AvatarIcon/AvatarIcon.
 import CardHeader from './components/elements/CardHeader/CardHeader.vue';
 import CardBody from './components/elements/CardBody/CardBody.vue';
 import CardFooter from './components/elements/CardFooter/CardFooter.vue';
-import CardPreview from './components/elements/CardPreview/CardPreview.vue';
 import UserProfileCard from './components/blocks/UserProfileCard/UserProfileCard.vue';
 import UserAvatar from './components/elements/UserAvatar/UserAvatar.vue';
 import AvatarIcon from './components/atoms/AvatarIcon/AvatarIcon.vue';
@@ -20,7 +18,6 @@ import AvatarIcon from './components/atoms/AvatarIcon/AvatarIcon.vue';
 export type { CardHeaderThemeCSSVariables } from './components/elements/CardHeader/types';
 export type { CardBodyThemeCSSVariables } from './components/elements/CardBody/types';
 export type { CardFooterThemeCSSVariables } from './components/elements/CardFooter/types';
-export type { CardPreviewThemeCSSVariables } from './components/elements/CardPreview/types';
 export type { UserProfileCardThemeCSSVariables } from './components/blocks/UserProfileCard/types';
 export type { AvatarIconType, AvatarIconProps } from './components/atoms/AvatarIcon/types';
 export type { ThemeCSSVariables } from './themes/types';
@@ -65,7 +62,6 @@ export default {
     app.component('CardHeader', CardHeader);
     app.component('CardBody', CardBody);
     app.component('CardFooter', CardFooter);
-    app.component('CardPreview', CardPreview);
     app.component('UserProfileCard', UserProfileCard);
     app.component('UserAvatar', UserAvatar);
     app.component('AvatarIcon', AvatarIcon);
