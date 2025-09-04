@@ -8,8 +8,8 @@
 
 
 
-// Светлая тема
-[data-theme="light"] {
+// Светлая тема (по умолчанию)
+:root, [data-theme="light"] {
   // Основные цвета
   --thepro-theme-color-primary: #3498db;
   --thepro-theme-color-secondary: #2c3e50;
