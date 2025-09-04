@@ -1,6 +1,6 @@
 
 // Импорт всех тем
-@use './dark/dark.scss';
-@use './light/light.scss';
-@use './green/green.scss';
-@use './starwars/starwars.scss';
+@use './dark/index.scss' as dark;
+@use './light/index.scss' as light;
+@use './green/index.scss' as green;
+@use './starwars/index.scss' as starwars;

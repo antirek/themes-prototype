@@ -1,0 +1,8 @@
+// Импорты компонентов для светлой темы
+@use '../../components/elements/CardHeader/styles/themes/light.scss' as cardheader-light;
+@use '../../components/elements/CardBody/styles/themes/light.scss' as cardbody-light;
+@use '../../components/elements/CardFooter/styles/themes/light.scss' as cardfooter-light;
+@use '../../components/elements/CardPreview/styles/themes/light.scss' as cardpreview-light;
+@use '../../components/blocks/UserProfileCard/styles/themes/light.scss' as userprofilecard-light;
+@use '../../components/elements/UserAvatar/styles/themes/light.scss' as useravatar-light;
+@use '../../components/elements/ThemeSelector/styles/themes/light.scss' as themeselector-light;

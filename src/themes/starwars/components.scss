@@ -1,0 +1,4 @@
+// Импорты компонентов для Star Wars темы
+@use '../../components/blocks/UserProfileCard/styles/themes/starwars.scss' as userprofilecard-starwars;
+@use '../../components/elements/UserAvatar/styles/themes/starwars.scss' as useravatar-starwars;
+@use '../../components/elements/ThemeSelector/styles/themes/starwars.scss' as themeselector-starwars;

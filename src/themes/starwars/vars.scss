@@ -1,16 +1,3 @@
-@use '../../components/blocks/UserProfileCard/styles/themes/starwars.scss' as userprofilecard-starwars;
-@use '../../components/elements/UserAvatar/styles/themes/starwars.scss' as useravatar-starwars;
-@use '../../components/elements/ThemeSelector/styles/themes/starwars.scss' as themeselector-starwars;
-
-// Импорт шрифтов для Star Wars темы
-@import '@fontsource/orbitron/400.css';
-@import '@fontsource/orbitron/700.css';
-@import '@fontsource/orbitron/900.css';
-@import '@fontsource/rajdhani/400.css';
-@import '@fontsource/rajdhani/500.css';
-@import '@fontsource/rajdhani/600.css';
-@import '@fontsource/rajdhani/700.css';
-
 [data-theme="starwars"] {
   /* Цветовая палитра Star Wars */
   --thepro-theme-color-primary: #ffd700; /* Золотой цвет джедаев */
@@ -89,5 +76,3 @@
   --thepro-theme-breakpoint-md: 768px;
   --thepro-theme-breakpoint-lg: 992px;
 }
-
-// Применяем стили компонентов

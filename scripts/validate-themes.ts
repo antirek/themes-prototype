@@ -703,10 +703,10 @@ async function validateAllThemes(): Promise<void> {
   
   for (const themePath of globalThemePaths) {
     const themeName = path.basename(themePath);
-    const themeFile = path.join(themePath, `${themeName}.scss`);
+    const varsFile = path.join(themePath, 'vars.scss');
     
-    if (!fs.existsSync(themeFile)) {
-      console.log(`⚠️  Глобальная тема ${themeName}: файл ${themeName}.scss не найден`);
+    if (!fs.existsSync(varsFile)) {
+      console.log(`⚠️  Глобальная тема ${themeName}: файл vars.scss не найден`);
       continue;
     }
     
@@ -725,11 +725,11 @@ async function validateAllThemes(): Promise<void> {
     });
     
     // Валидация 1: Соответствие интерфейсу
-    const interfaceResult = validateComponentThemeInterface(themeName, themeFile, expectedGlobalVariables);
+    const interfaceResult = validateComponentThemeInterface(themeName, varsFile, expectedGlobalVariables);
     interfaceResults.push(interfaceResult);
     
       // Валидация 2: Префиксы CSS переменных (для глобальных тем проверяем --thepro-theme-)
-  const prefixResult = validateCSSVariablePrefixesForGlobalTheme(themeName, themeFile);
+  const prefixResult = validateCSSVariablePrefixesForGlobalTheme(themeName, varsFile);
     prefixResults.push(prefixResult);
     
     if (interfaceResult.isValid && prefixResult.isValid) {
