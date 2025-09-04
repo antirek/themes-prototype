@@ -4,6 +4,7 @@
 @use '../../components/elements/CardPreview/styles/themes/green.scss' as cardpreview-green;
 @use '../../components/blocks/UserProfileCard/styles/themes/green.scss' as userprofilecard-green;
 @use '../../components/elements/UserAvatar/styles/themes/green.scss' as useravatar-green;
+@use '../../components/elements/ThemeSelector/styles/themes/green.scss' as themeselector-green;
 
 // Импорт шрифтов для зеленой темы
 @import '@fontsource/poppins/400.css';

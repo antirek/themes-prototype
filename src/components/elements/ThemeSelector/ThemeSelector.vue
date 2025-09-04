@@ -50,5 +50,5 @@ const getThemeDisplayName = (theme: ThemeName): string => {
 </script>
 
 <style lang="scss">
-@import './styles/ThemeSelector.scss';
+@use 'src/components/elements/ThemeSelector/styles/ThemeSelector.scss';
 </style>

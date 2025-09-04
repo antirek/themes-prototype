@@ -1,5 +1,6 @@
 @use '../../components/blocks/UserProfileCard/styles/themes/starwars.scss' as userprofilecard-starwars;
 @use '../../components/elements/UserAvatar/styles/themes/starwars.scss' as useravatar-starwars;
+@use '../../components/elements/ThemeSelector/styles/themes/starwars.scss' as themeselector-starwars;
 
 // Импорт шрифтов для Star Wars темы
 @import '@fontsource/orbitron/400.css';

@@ -4,6 +4,7 @@
 @use '../../components/elements/CardPreview/styles/themes/dark.scss' as cardpreview-dark;
 @use '../../components/blocks/UserProfileCard/styles/themes/dark.scss' as userprofilecard-dark;
 @use '../../components/elements/UserAvatar/styles/themes/dark.scss' as useravatar-dark;
+@use '../../components/elements/ThemeSelector/styles/themes/dark.scss' as themeselector-dark;
 
 // Импорт шрифтов для темной темы
 @import '@fontsource/inter/400.css';

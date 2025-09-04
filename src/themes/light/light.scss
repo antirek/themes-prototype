@@ -4,6 +4,7 @@
 @use '../../components/elements/CardPreview/styles/themes/light.scss' as cardpreview-light;
 @use '../../components/blocks/UserProfileCard/styles/themes/light.scss' as userprofilecard-light;
 @use '../../components/elements/UserAvatar/styles/themes/light.scss' as useravatar-light;
+@use '../../components/elements/ThemeSelector/styles/themes/light.scss' as themeselector-light;
 
 // Импорт шрифтов для светлой темы
 @import '@fontsource/roboto/400.css';
