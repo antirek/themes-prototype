@@ -197,18 +197,16 @@ import { BaseContainer, UserProfileCard, CardPreview, CardHeader, CardBody } fro
 ```vue
 <template>
   <div>
-    <!-- Переключатель тем -->
-    <ThemeSelector 
-      :available-themes="['light', 'dark', 'green', 'starwars']"
-      @theme-change="handleThemeChange"
-    />
-    
     <!-- Контейнер с динамической темой -->
     <BaseContainer 
       ref="containerRef"
       id="dynamic-container" 
       :initial-theme="currentTheme"
     >
+      <!-- Переключатель тем (должен быть внутри BaseContainer) -->
+      <ThemeSelector />
+      
+      <!-- Компоненты с динамической темой -->
       <UserAvatar />
       <CardHeader text="Динамический заголовок" />
     </BaseContainer>
@@ -221,12 +219,6 @@ import { BaseContainer, ThemeSelector, UserAvatar, CardHeader } from '@thepro/ca
 
 const currentTheme = ref('light')
 const containerRef = ref()
-
-const handleThemeChange = (newTheme: string) => {
-  currentTheme.value = newTheme
-  // Или переключить тему в конкретном контейнере
-  containerRef.value?.setTheme(newTheme)
-}
 </script>
 ```
 
