@@ -204,7 +204,12 @@ import { BaseContainer, UserProfileCard, CardPreview, CardHeader, CardBody } fro
       :initial-theme="currentTheme"
     >
       <!-- Переключатель тем (должен быть внутри BaseContainer) -->
-      <ThemeSelector />
+      <ThemeSelector :themes="{
+        light: 'Светлая',
+        dark: 'Темная',
+        green: 'Зеленая', 
+        starwars: 'Star Wars'
+      }" />
       
       <!-- Компоненты с динамической темой -->
       <UserAvatar />

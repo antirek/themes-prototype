@@ -7,11 +7,11 @@
       class="theme-select"
     >
       <option
-        v-for="theme in availableThemes"
+        v-for="(label, theme) in props.themes"
         :key="theme"
         :value="theme"
       >
-        {{ getThemeDisplayName(theme) }}
+        {{ label }}
       </option>
     </select>
   </div>
@@ -19,13 +19,25 @@
 
 <script setup lang="ts">
 import { inject, computed } from 'vue'
-import type { ThemeName } from '../../../types/theme'
 import { Ref } from 'vue'
+
+interface Props {
+  themes: Record<string, string>
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  themes: () => ({
+    light: 'Светлая',
+    dark: 'Темная',
+    green: 'Зеленая',
+    starwars: 'Star Wars'
+  })
+})
 
 // Получаем тему из BaseContainer через inject
 const themeContext = inject<{
-  currentTheme: Ref<ThemeName>
-  setTheme: (theme: ThemeName) => void
+  currentTheme: Ref<string>
+  setTheme: (theme: string) => void
 }>('theme')
 
 if (!themeContext) {
@@ -33,20 +45,6 @@ if (!themeContext) {
 }
 
 const { currentTheme, setTheme } = themeContext
-
-// Список доступных тем
-const availableThemes: ThemeName[] = ['light', 'dark', 'green', 'starwars']
-
-// Отображаемые названия тем
-const getThemeDisplayName = (theme: ThemeName): string => {
-  const names = {
-    light: 'Светлая',
-    dark: 'Темная',
-    green: 'Зеленая',
-    starwars: 'Star Wars'
-  }
-  return names[theme] || theme
-}
 </script>
 
 <style lang="scss">

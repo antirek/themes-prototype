@@ -20,7 +20,12 @@
             :initial-theme="themes[index]"
           >
             <div class="theme-demo">
-              <ThemeSelector />
+              <ThemeSelector :themes="{
+                light: 'Светлая',
+                dark: 'Темная', 
+                green: 'Зеленая',
+                starwars: 'Star Wars'
+              }" />
               <UserProfileCard :user-data="user" />
             </div>
           </BaseContainer>
