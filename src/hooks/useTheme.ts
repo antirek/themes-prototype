@@ -1,5 +1,4 @@
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
-import type { ThemeName } from '../types/theme'
 import { useContainerId } from './useContainerId'
 
 export function useTheme() {

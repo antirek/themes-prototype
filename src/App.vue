@@ -72,10 +72,8 @@
 import { BaseContainer } from './components/containers'
 import { ThemeSelector } from './components/elements'
 import { UserProfileCard, AvatarIcon } from './components'
-import type { ThemeName } from './types/theme'
-
 // Списки тем для демонстрации
-const themes: ThemeName[] = ['light', 'dark', 'green', 'starwars']
+const themes = ['light', 'dark', 'green', 'starwars']
 
 // Примеры пользователей для демонстрации
 const users = [

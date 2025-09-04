@@ -18,10 +18,12 @@ import { computed } from 'vue'
 import CardHeader from '../CardHeader/CardHeader.vue'
 import CardBody from '../CardBody/CardBody.vue'
 import CardFooter from '../CardFooter/CardFooter.vue'
-import type { CardData } from '@/types/card'
-
 interface Props {
-  cardData: CardData
+  cardData: {
+    header: { text: string }
+    body: { text: string }
+    footer: { text: string }
+  }
 }
 
 const props = defineProps<Props>()

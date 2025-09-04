@@ -6,11 +6,9 @@
 
 <script setup lang="ts">
 import { ref, provide } from 'vue'
-import type { ThemeName } from '../../types/theme'
-
 interface Props {
   id: string
-  initialTheme?: ThemeName
+  initialTheme?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -18,13 +16,13 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // Состояние текущей темы
-const currentTheme = ref<ThemeName>(props.initialTheme)
+const currentTheme = ref<string>(props.initialTheme)
 
 // Предоставляем ID контейнера и тему дочерним компонентам
 provide('containerId', props.id)
 provide('theme', {
   currentTheme,
-  setTheme: (theme: ThemeName) => {
+  setTheme: (theme: string) => {
     currentTheme.value = theme
   }
 })
@@ -32,7 +30,7 @@ provide('theme', {
 // Экспортируем для внешнего использования
 defineExpose({
   currentTheme,
-  setTheme: (theme: ThemeName) => {
+  setTheme: (theme: string) => {
     currentTheme.value = theme
   }
 })

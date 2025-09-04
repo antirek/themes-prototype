@@ -26,8 +26,6 @@ export type { AvatarIconType, AvatarIconProps } from './components/atoms/AvatarI
 export type { ThemeCSSVariables } from './themes/types';
 
 // Утилиты для работы с темами
-export { themeMetadata } from './types/theme';
-export type { ThemeName } from './types/theme';
 
 // Простой объект для переключения тем
 export const themes = {
