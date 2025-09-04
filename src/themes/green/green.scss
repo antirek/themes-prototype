@@ -1,10 +1,20 @@
-// Импорт стилей компонентов для зеленой темы
 @use '../../components/elements/CardHeader/styles/themes/green.scss' as cardheader-green;
 @use '../../components/elements/CardBody/styles/themes/green.scss' as cardbody-green;
 @use '../../components/elements/CardFooter/styles/themes/green.scss' as cardfooter-green;
 @use '../../components/elements/CardPreview/styles/themes/green.scss' as cardpreview-green;
 @use '../../components/blocks/UserProfileCard/styles/themes/green.scss' as userprofilecard-green;
 @use '../../components/elements/UserAvatar/styles/themes/green.scss' as useravatar-green;
+
+// Импорт шрифтов для зеленой темы
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@import '@fontsource/nunito/400.css';
+@import '@fontsource/nunito/600.css';
+@import '@fontsource/nunito/700.css';
+@import '@fontsource/cascadia-code/400.css';
+@import '@fontsource/cascadia-code/500.css';
 
 
 

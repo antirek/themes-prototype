@@ -1,7 +1,14 @@
-// Импорт стилей компонентов для Star Wars темы
-// Базовые элементы не имеют Star Wars темы, используем стандартные
 @use '../../components/blocks/UserProfileCard/styles/themes/starwars.scss' as userprofilecard-starwars;
 @use '../../components/elements/UserAvatar/styles/themes/starwars.scss' as useravatar-starwars;
+
+// Импорт шрифтов для Star Wars темы
+@import '@fontsource/orbitron/400.css';
+@import '@fontsource/orbitron/700.css';
+@import '@fontsource/orbitron/900.css';
+@import '@fontsource/rajdhani/400.css';
+@import '@fontsource/rajdhani/500.css';
+@import '@fontsource/rajdhani/600.css';
+@import '@fontsource/rajdhani/700.css';
 
 [data-theme="starwars"] {
   /* Цветовая палитра Star Wars */
@@ -33,7 +40,7 @@
   /* Шрифты Star Wars */
   --thepro-theme-font-family-primary: 'Orbitron', 'Arial Black', sans-serif; /* Футуристический шрифт */
   --thepro-theme-font-family-secondary: 'Rajdhani', 'Arial', sans-serif; /* Технический шрифт */
-  --thepro-theme-font-family-mono: 'Courier New', monospace;
+  --thepro-theme-font-family-mono: 'Fira Code', 'Courier New', monospace;
   
   /* Размеры шрифтов - увеличенные для драматичности */
   --thepro-theme-font-size-sm: 0.875rem;

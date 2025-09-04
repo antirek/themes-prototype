@@ -12,7 +12,11 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.js"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./themes/light.css": "./dist/themes/light.css",
+    "./themes/dark.css": "./dist/themes/dark.css",
+    "./themes/green.css": "./dist/themes/green.css",
+    "./themes/starwars.css": "./dist/themes/starwars.css"
   },
   "files": [
     "dist"
@@ -37,9 +41,11 @@
     "dev": "vite",
     "build": "vite build",
     "build:lib": "vite build --config vite.lib.config.ts",
+    "build:themes": "vite build --config vite.themes.config.ts",
+    "build:all": "npm run build:lib && npm run build:themes",
     "preview": "vite preview",
     "validate-themes": "tsx scripts/validate-themes.ts",
-    "prepublishOnly": "npm run validate-themes && npm run build:lib",
+    "prepublishOnly": "npm run validate-themes && npm run build:all",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -66,5 +72,18 @@
     "vitest": "^3.2.4",
     "vue": "^3.4.0",
     "vue-tsc": "^1.8.5"
+  },
+  "dependencies": {
+    "@fontsource/cascadia-code": "^5.2.2",
+    "@fontsource/fira-code": "^5.2.6",
+    "@fontsource/inter": "^5.2.6",
+    "@fontsource/jetbrains-mono": "^5.2.6",
+    "@fontsource/nunito": "^5.2.6",
+    "@fontsource/open-sans": "^5.2.6",
+    "@fontsource/orbitron": "^5.2.6",
+    "@fontsource/poppins": "^5.2.6",
+    "@fontsource/rajdhani": "^5.2.6",
+    "@fontsource/roboto": "^5.2.6",
+    "@fontsource/source-sans-pro": "^5.2.5"
   }
 }

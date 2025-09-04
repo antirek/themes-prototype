@@ -1,10 +1,19 @@
-// Импорт стилей компонентов для темной темы
 @use '../../components/elements/CardHeader/styles/themes/dark.scss' as cardheader-dark;
 @use '../../components/elements/CardBody/styles/themes/dark.scss' as cardbody-dark;
 @use '../../components/elements/CardFooter/styles/themes/dark.scss' as cardfooter-dark;
 @use '../../components/elements/CardPreview/styles/themes/dark.scss' as cardpreview-dark;
 @use '../../components/blocks/UserProfileCard/styles/themes/dark.scss' as userprofilecard-dark;
 @use '../../components/elements/UserAvatar/styles/themes/dark.scss' as useravatar-dark;
+
+// Импорт шрифтов для темной темы
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/source-sans-pro/400.css';
+@import '@fontsource/source-sans-pro/600.css';
+@import '@fontsource/source-sans-pro/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
 
 
 
