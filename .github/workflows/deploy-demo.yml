@@ -38,8 +38,8 @@ jobs:
       - name: Check Storybook build
         run: |
           echo "Checking Storybook build output:"
-          ls -la docs/
-          if [ ! -f "docs/index.html" ]; then
+          ls -la storybook-static/
+          if [ ! -f "storybook-static/index.html" ]; then
             echo "ERROR: Storybook index.html not found!"
             exit 1
           fi
@@ -55,11 +55,11 @@ jobs:
           
           # Проверяем что генерирует Storybook
           echo "Storybook files:"
-          ls -la docs/
+          ls -la storybook-static/
           
           # Создаем подпапку для Storybook
           mkdir -p public/storybook
-          cp -r docs/* public/storybook/
+          cp -r storybook-static/* public/storybook/
           
           # Проверяем что скопировалось
           echo "Copied Storybook files:"

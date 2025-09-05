@@ -27,6 +27,10 @@ const config: StorybookConfig = {
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
   },
+  viteFinal: async (config) => {
+    config.base = '/themes-prototype/storybook/';
+    return config;
+  },
 };
 
 export default config;
