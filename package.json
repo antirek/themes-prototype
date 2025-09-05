@@ -45,7 +45,6 @@
     "build": "npm run build:lib && npm run build:themes",
     "preview": "vite preview",
     "validate-themes": "tsx scripts/validate-themes.ts",
-    "prepublishOnly": "npm run validate-themes && npm run build:all",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

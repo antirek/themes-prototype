@@ -1,0 +1,88 @@
+name: Publish to NPM
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 1.0.0)'
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate themes
+        run: npm run validate-themes
+
+      - name: Build library
+        run: npm run build
+
+      - name: Update version (manual trigger)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          npm version ${{ github.event.inputs.version }} --no-git-tag-version
+          echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+
+      - name: Get version from tag
+        if: github.event_name == 'push'
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Update package.json version
+        if: github.event_name == 'push'
+        run: |
+          npm version $VERSION --no-git-tag-version
+
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.VERSION }}
+          release_name: Release v${{ env.VERSION }}
+          body: |
+            ## 🎉 Release v${{ env.VERSION }}
+            
+            ### What's New
+            - Component updates and improvements
+            - Theme system enhancements
+            - Bug fixes and optimizations
+            
+            ### Installation
+            ```bash
+            npm install @thepro/cards@${{ env.VERSION }}
+            ```
+            
+            ### Documentation
+            - [Live Demo](https://your-username.github.io/themes-prototype/)
+            - [Storybook](https://your-username.github.io/themes-prototype/storybook/)
+            
+            ### Files
+            - Library: `@thepro/cards`
+            - Styles: `@thepro/cards/style.css`
+            - Themes: `@thepro/cards/themes/*.css`
+          draft: false
+          prerelease: false
