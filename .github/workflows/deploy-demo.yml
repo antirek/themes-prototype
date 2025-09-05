@@ -68,6 +68,9 @@ jobs:
           # Копируем демо в корень (чтобы пути к ресурсам работали)
           cp -r dist/* public/
           
+          # Сохраняем оригинальный index.html демо
+          mv public/index.html public/demo.html
+          
           # Проверяем что получилось в итоге
           echo "Final public structure:"
           ls -la public/
@@ -81,7 +84,7 @@ jobs:
             ls -la public/storybook/
           fi
           
-          # Создаем главный index.html с навигацией (перезаписываем существующий)
+          # Создаем главный index.html с навигацией
           cat > public/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
@@ -155,13 +158,13 @@ jobs:
               <p class="subtitle">Vue 3 Component Library with Theme System</p>
               
               <div class="nav-grid">
-                <a href="./" class="nav-card">
+                <a href="./demo.html" class="nav-card">
                   <span class="icon">🚀</span>
                   <h2>Live Demo</h2>
                   <p>Interactive demonstration of all components with theme switching</p>
                 </a>
                 
-                <a href="./storybook/index.html" class="nav-card">
+                <a href="./storybook/" class="nav-card">
                   <span class="icon">📚</span>
                   <h2>Storybook</h2>
                   <p>Component documentation and examples</p>
