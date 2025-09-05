@@ -37,19 +37,22 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       - name: Create deployment structure
         run: |
           mkdir -p public
           
-          # Копируем демо в корень
-          cp -r dist/* public/
-          
           # Создаем подпапку для Storybook
           mkdir -p public/storybook
           cp -r docs/* public/storybook/
           
-          # Создаем index.html с навигацией
+          # Создаем подпапку для демо
+          mkdir -p public/demo
+          cp -r dist/* public/demo/
+          
+          # Создаем главный index.html с навигацией
           cat > public/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
@@ -123,13 +126,13 @@ jobs:
               <p class="subtitle">Vue 3 Component Library with Theme System</p>
               
               <div class="nav-grid">
-                <a href="./" class="nav-card">
+                <a href="./demo/index.html" class="nav-card">
                   <span class="icon">🚀</span>
                   <h2>Live Demo</h2>
                   <p>Interactive demonstration of all components with theme switching</p>
                 </a>
                 
-                <a href="./storybook/" class="nav-card">
+                <a href="./storybook/index.html" class="nav-card">
                   <span class="icon">📚</span>
                   <h2>Storybook</h2>
                   <p>Component documentation and examples</p>
