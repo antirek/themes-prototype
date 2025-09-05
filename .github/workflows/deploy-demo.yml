@@ -35,6 +35,15 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
+      - name: Check Storybook build
+        run: |
+          echo "Checking Storybook build output:"
+          ls -la docs/
+          if [ ! -f "docs/index.html" ]; then
+            echo "ERROR: Storybook index.html not found!"
+            exit 1
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
@@ -44,15 +53,35 @@ jobs:
         run: |
           mkdir -p public
           
+          # Проверяем что генерирует Storybook
+          echo "Storybook files:"
+          ls -la docs/
+          
           # Создаем подпапку для Storybook
           mkdir -p public/storybook
           cp -r docs/* public/storybook/
           
-          # Создаем подпапку для демо
-          mkdir -p public/demo
-          cp -r dist/* public/demo/
+          # Проверяем что скопировалось
+          echo "Copied Storybook files:"
+          ls -la public/storybook/
           
-          # Создаем главный index.html с навигацией
+          # Копируем демо в корень (чтобы пути к ресурсам работали)
+          cp -r dist/* public/
+          
+          # Проверяем что получилось в итоге
+          echo "Final public structure:"
+          ls -la public/
+          
+          # Проверяем что Storybook index.html существует
+          if [ -f "public/storybook/index.html" ]; then
+            echo "✅ Storybook index.html found"
+          else
+            echo "❌ Storybook index.html NOT found"
+            echo "Available files in storybook:"
+            ls -la public/storybook/
+          fi
+          
+          # Создаем главный index.html с навигацией (перезаписываем существующий)
           cat > public/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
@@ -126,7 +155,7 @@ jobs:
               <p class="subtitle">Vue 3 Component Library with Theme System</p>
               
               <div class="nav-grid">
-                <a href="./demo/index.html" class="nav-card">
+                <a href="./" class="nav-card">
                   <span class="icon">🚀</span>
                   <h2>Live Demo</h2>
                   <p>Interactive demonstration of all components with theme switching</p>
